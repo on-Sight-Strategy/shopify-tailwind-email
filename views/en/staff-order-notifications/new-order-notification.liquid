@@ -2,14 +2,14 @@
   Security check
 {% endcapture %}
 <!doctype html>
-<html lang='en'>
+<html lang="en">
   <head>
     <title>{{ email_title }}</title>
-    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-    <meta name='viewport' content='width=device-width'>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
 
-    <link rel='stylesheet' type='text/css' media='screen' href='/assets/admin/merchant_mailer/style.css'>
-    <style data-premailer='ignore'>
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/admin/merchant_mailer/style.css">
+    <style data-premailer="ignore">
       .button__cell { background: {{ shop.email_accent_color }}; }
       a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
       @media print{
@@ -32,27 +32,23 @@
   </head>
 
   <body>
-    <table class='row'>
-      <tr class='mail-priority-indicator mail-priority-indicator--{% if fulfillment_aborted or has_high_risks? %}high{% else %}low{% endif %}'>
+    <table class="row">
+      <tr class="mail-priority-indicator mail-priority-indicator--{% if fulfillment_aborted or has_high_risks? %}high{% else %}low{% endif %}">
         <td></td>
       </tr>
     </table>
-    <table class='body'>
+    <table class="body">
       <tr>
         <td>
           {% if fulfillment_aborted %}
             <center>
-              <table class='row banner-container banner-alert__table'>
+              <table class="row banner-container banner-alert__table">
                 <tr>
-                  <td class='banner-alert__cell'>
-                    <img
-                      src='{{ 'mailer/merchant/critical_alert.png' | cdn_asset_url }}'
-                      alt='Critical Alert'
-                      width='20px'
-                    >
+                  <td class="banner-alert__cell">
+                    <img src="{{ 'mailer/merchant/critical_alert.png' | cdn_asset_url }}" alt="Critical Alert" width="20px">
                   </td>
-                  <td class='banner-description__cell'>
-                    <strong class='banner-alert__title'>Order was not fulfilled automatically</strong>
+                  <td class="banner-description__cell">
+                    <strong class="banner-alert__title">Order was not fulfilled automatically</strong>
                     High risk of fraud detected. Before fulfilling this order or capturing payment, please review the
                     the Risk Analysis and determine if this order is fraudulent.
                   </td>
@@ -62,17 +58,13 @@
           {% endif %}
           {% if has_high_risks? %}
             <center>
-              <table class='row banner-container banner-alert__table'>
+              <table class="row banner-container banner-alert__table">
                 <tr>
-                  <td class='banner-alert__cell'>
-                    <img
-                      src='{{ 'mailer/merchant/critical_alert.png' | cdn_asset_url }}'
-                      alt='Critical Alert'
-                      width='20px'
-                    >
+                  <td class="banner-alert__cell">
+                    <img src="{{ 'mailer/merchant/critical_alert.png' | cdn_asset_url }}" alt="Critical Alert" width="20px">
                   </td>
-                  <td class='banner-description__cell'>
-                    <strong class='banner-alert__title'>High risk of fraud detected</strong>
+                  <td class="banner-description__cell">
+                    <strong class="banner-alert__title">High risk of fraud detected</strong>
                     Before fulfilling this order or capturing payment, please review the the Risk Analysis and determine
                     if this order is fraudulent.
                   </td>
@@ -80,21 +72,21 @@
               </table>
             </center>
           {% endif %}
-          <table class='row'>
+          <table class="row">
             <tr>
-              <td class='section__cell'>
+              <td class="section__cell">
                 <center>
-                  <table class='container section'>
+                  <table class="container section">
                     <tr>
                       <td>
-                        <table class='row content'>
+                        <table class="row content">
                           <tr>
-                            <td class='content__cell {% if no_top_border == 'hide_border' %}no_top__border{% endif %}'>
+                            <td class="content__cell {% if no_top_border == " hide_border' %}no_top__border{% endif %}'>
                               <center>
-                                <table class='container'>
+                                <table class="container">
                                   <tr>
                                     <td>
-                                      <table class='row'>
+                                      <table class="row">
                                         <tr>
                                           <td>
                                             {% assign current_date = date | date: '%b %d' %}
@@ -106,34 +98,25 @@
                                               Someone placed order {{ name }} on {{ current_date }} at
                                               {{ current_time | strip }}.
                                             {% endif %}
-                                            <table class='row actions' style='width: auto;'>
+                                            <table class="row actions" style="width: auto;">
                                               <tr>
-                                                <td class='empty-line'>&nbsp;</td>
+                                                <td class="empty-line">&nbsp;</td>
                                               </tr>
                                               <tr>
-                                                <td class='actions__cell'>
-                                                  <table class='button main-action-cell'>
+                                                <td class="actions__cell">
+                                                  <table class="button main-action-cell">
                                                     <tr>
                                                       <td>
-                                                        <a
-                                                          href='https://{{ shop.permanent_domain }}/admin/orders/{{ id }}'
-                                                          class='mail-button'
-                                                          style='margin-right:5px; color: black; background-color: #ffffff; border-radius: 4px; padding: 7px 15px; border-color: #8c9196; border-width: 1px 1px;'
-                                                          >View order</a
-                                                        >
+                                                        <a href="https://{{ shop.permanent_domain }}/admin/orders/{{ id }}" class="mail-button" style="margin-right:5px; color: black; background-color: #ffffff; border-radius: 4px; padding: 7px 15px; border-color: #8c9196; border-width: 1px 1px;">View order</a>
                                                       </td>
                                                     </tr>
                                                   </table>
                                                 </td>
-                                                <td class='actions__cell'>
-                                                  <table class='button main-action-cell'>
+                                                <td class="actions__cell">
+                                                  <table class="button main-action-cell">
                                                     <tr>
                                                       <td>
-                                                        <a
-                                                          href='https://{{ shop.permanent_domain }}/admin/orders/{{ id }}/ship_next?utm_source=new-order&utm_medium=email&utm_campaign=automated'
-                                                          class='mail-button'
-                                                          >Create shipping label</a
-                                                        >
+                                                        <a href="https://{{ shop.permanent_domain }}/admin/orders/{{ id }}/ship_next?utm_source=new-order&utm_medium=email&utm_campaign=automated" class="mail-button">Create shipping label</a>
                                                       </td>
                                                     </tr>
                                                   </table>
@@ -150,34 +133,28 @@
                             </td>
                           </tr>
                         </table>
-                        <table class='row content'>
+                        <table class="row content">
                           <tr>
-                            <td class='content__cell {% if no_top_border == 'hide_border' %}no_top__border{% endif %}'>
+                            <td class="content__cell {% if no_top_border == " hide_border' %}no_top__border{% endif %}'>
                               <center>
-                                <table class='container'>
+                                <table class="container">
                                   <tr>
                                     <td>
-                                      <strong class='order-list__summary-title'>Order summary</strong>
+                                      <strong class="order-list__summary-title">Order summary</strong>
                                       <br>
                                       <br>
 
-                                      <table class='row'>
+                                      <table class="row">
                                         {% for line in subtotal_line_items %}
-                                          <tr class='order-list__item'>
-                                            <td class='order-list__item__cell'>
+                                          <tr class="order-list__item">
+                                            <td class="order-list__item__cell">
                                               <table>
                                                 <td>
                                                   {% if line.image %}
-                                                    <img
-                                                      src='{{ line | img_url: 'compact_cropped' }}'
-                                                      align='left'
-                                                      width='60'
-                                                      height='60'
-                                                      class='order-list__product-image'
-                                                    >
+                                                    <img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="60" height="60" class="order-list__product-image">
                                                   {% endif %}
                                                 </td>
-                                                <td class='order-list__product-description-cell'>
+                                                <td class="order-list__product-description-cell">
                                                   {% if line.quantity < line.quantity %}
                                                     {% capture line_display %}
                                                       {{ line.quantity }} of {{ line.quantity }}
@@ -187,9 +164,9 @@
                                                   {% endif %}
 
                                                   {% if line.product.title == blank %}
-                                                    <span class='order-list__item-title'>{{ line.title }}</span><br>
+                                                    <span class="order-list__item-title">{{ line.title }}</span><br>
                                                   {% else %}
-                                                    <span class='order-list__item-title'>
+                                                    <span class="order-list__item-title">
                                                       {{- line.product.title }}
                                                     </span>
                                                   {% endif %}
@@ -197,38 +174,35 @@
 
                                                   {% if line.quantity %}
                                                     {% if line.original_line_price != line.final_line_price %}
-                                                      <span
-                                                        ><del class='order-list__item-original-price'>
+                                                      <span><del class="order-list__item-original-price">
                                                           {{- line.original_price | money -}}
-                                                        </del></span
-                                                      >
+                                                        </del></span>
                                                     {% endif %}
-                                                    <span>{{ line.final_price | money }} × {{ line.quantity }} </span
-                                                    ><br>
+                                                    <span>{{ line.final_price | money }} × {{ line.quantity }} </span><br>
                                                   {% endif %}
 
                                                   {% if line.variant.title != 'Default Title' %}
-                                                    <span class='order-list__item-variant'>
+                                                    <span class="order-list__item-variant">
                                                       {{- line.variant.title -}}
                                                     </span>
 
                                                     {% if line.sku != blank %}
-                                                      <span class='order-list__item-variant'>• </span>
+                                                      <span class="order-list__item-variant">• </span>
                                                     {% endif %}
                                                   {% endif %}
 
                                                   {% if line.sku != blank %}
-                                                    <span class='order-list__item-variant'>SKU: {{ line.sku }}</span>
+                                                    <span class="order-list__item-variant">SKU: {{ line.sku }}</span>
                                                   {% endif %}
 
                                                   {% if line.selling_plan_allocation != null %}
-                                                    <p class='order-list__item-variant'>
+                                                    <p class="order-list__item-variant">
                                                       {{ line.selling_plan_allocation.selling_plan.name }}
                                                     </p>
                                                   {% endif %}
                                                 </td>
-                                                <td class='order-list__price-cell'>
-                                                  <p class='order-list__item-price'>
+                                                <td class="order-list__price-cell">
+                                                  <p class="order-list__item-price">
                                                     {% if line.final_line_price > 0 %}
                                                       {{ line.final_line_price | money }}
                                                     {% else %}
@@ -242,10 +216,10 @@
                                         {%- endfor %}
                                       </table>
 
-                                      <table class='row subtotal-lines'>
+                                      <table class="row subtotal-lines">
                                         <tr>
                                           <td>
-                                            <table class='row subtotal-table'>
+                                            <table class="row subtotal-table">
                                               {% assign discount_value = 0 %}
                                               {% for discount_application in discount_applications %}
                                                 {% if discount_application.target_selection == 'all' %}
@@ -253,8 +227,8 @@
                                                 {% endif %}
                                               {% endfor %}
 
-                                              <tr class='subtotal-line'>
-                                                <td class='subtotal-line__title'>
+                                              <tr class="subtotal-line">
+                                                <td class="subtotal-line__title">
                                                   <p>
                                                     {% if titleBold %}
                                                       <span><strong>Subtotal</strong></span>
@@ -263,7 +237,7 @@
                                                     {% endif %}
                                                   </p>
                                                 </td>
-                                                <td class='subtotal-line__value'>
+                                                <td class="subtotal-line__value">
                                                   {% if valueBold %}
                                                     <strong>{{ subtotal_price | plus: discount_value | money }}</strong>
                                                   {% else %}
@@ -282,16 +256,16 @@
                                                     {% endif %}
                                                   {% endcapture %}
 
-                                                  <tr class='subtotal-line'>
-                                                    <td class='subtotal-line__title'>
+                                                  <tr class="subtotal-line">
+                                                    <td class="subtotal-line__title">
                                                       <p>
                                                         {% if titleBold %}
                                                           <span><strong>Discount</strong></span>
                                                         {% else %}
                                                           <span>Discount</span>
                                                         {% endif %}
-                                                        <span class='subtotal-line__discount'>
-                                                          <span class='subtotal-line__discount-title'>
+                                                        <span class="subtotal-line__discount">
+                                                          <span class="subtotal-line__discount-title">
                                                             {%- if discount_title.size > 0 -%}
                                                               ({{ discount_title | strip }})
                                                             {%- endif -%}
@@ -299,10 +273,9 @@
                                                         </span>
                                                       </p>
                                                     </td>
-                                                    <td class='subtotal-line__value'>
+                                                    <td class="subtotal-line__value">
                                                       {% if valueBold %}
-                                                        <strong
-                                                          >-{{ discount_application.total_allocated_amount | money -}}
+                                                        <strong>-{{ discount_application.total_allocated_amount | money -}}
                                                         </strong>
                                                       {% else %}
                                                         -{{ discount_application.total_allocated_amount | money }}
@@ -313,8 +286,8 @@
                                               {% endfor %}
 
                                               {% if delivery_method == 'pick-up' %}
-                                                <tr class='subtotal-line'>
-                                                  <td class='subtotal-line__title'>
+                                                <tr class="subtotal-line">
+                                                  <td class="subtotal-line__title">
                                                     <p>
                                                       {% if titleBold %}
                                                         <span><strong>Pickup</strong></span>
@@ -323,7 +296,7 @@
                                                       {% endif %}
                                                     </p>
                                                   </td>
-                                                  <td class='subtotal-line__value'>
+                                                  <td class="subtotal-line__value">
                                                     {% if valueBold %}
                                                       <strong>{{ shipping_price | money }}</strong>
                                                     {% else %}
@@ -332,16 +305,16 @@
                                                   </td>
                                                 </tr>
                                               {% else %}
-                                                <tr class='subtotal-line'>
-                                                  <td class='subtotal-line__title'>
+                                                <tr class="subtotal-line">
+                                                  <td class="subtotal-line__title">
                                                     <p>
                                                       {% if titleBold %}
                                                         <span><strong>Shipping</strong></span>
                                                       {% else %}
                                                         <span>Shipping</span>
                                                       {% endif %}
-                                                      <span class='subtotal-line__discount'>
-                                                        <span class='subtotal-line__discount-title'>
+                                                      <span class="subtotal-line__discount">
+                                                        <span class="subtotal-line__discount-title">
                                                           {%- if shipping_method.title.size > 0 -%}
                                                             ({{ shipping_method.title }})
                                                           {%- endif -%}
@@ -349,7 +322,7 @@
                                                       </span>
                                                     </p>
                                                   </td>
-                                                  <td class='subtotal-line__value'>
+                                                  <td class="subtotal-line__value">
                                                     {% if valueBold %}
                                                       <strong>{{ shipping_price | money }}</strong>
                                                     {% else %}
@@ -360,16 +333,16 @@
                                               {% endif %}
 
                                               {% for tax_line in tax_lines %}
-                                                <tr class='subtotal-line'>
-                                                  <td class='subtotal-line__title'>
+                                                <tr class="subtotal-line">
+                                                  <td class="subtotal-line__title">
                                                     <p>
                                                       {% if titleBold %}
                                                         <span><strong>Tax</strong></span>
                                                       {% else %}
                                                         <span>Tax</span>
                                                       {% endif %}
-                                                      <span class='subtotal-line__discount'>
-                                                        <span class='subtotal-line__discount-title'>
+                                                      <span class="subtotal-line__discount">
+                                                        <span class="subtotal-line__discount-title">
                                                           {%- if tax_line.title.size > 0 -%}
                                                             ({{ tax_line.title }}
                                                             {{ tax_line.rate | times: 100 }}%)
@@ -378,7 +351,7 @@
                                                       </span>
                                                     </p>
                                                   </td>
-                                                  <td class='subtotal-line__value'>
+                                                  <td class="subtotal-line__value">
                                                     {% if valueBold %}
                                                       <strong>{{ tax_line.price | money }}</strong>
                                                     {% else %}
@@ -388,9 +361,9 @@
                                                 </tr>
                                               {% endfor %}
                                             </table>
-                                            <table class='row subtotal-table subtotal-table--total'>
-                                              <tr class='subtotal-line'>
-                                                <td class='subtotal-line__title'>
+                                            <table class="row subtotal-table subtotal-table--total">
+                                              <tr class="subtotal-line">
+                                                <td class="subtotal-line__title">
                                                   <p>
                                                     {% if titleBold %}
                                                       <span><strong>Total</strong></span>
@@ -399,7 +372,7 @@
                                                     {% endif %}
                                                   </p>
                                                 </td>
-                                                <td class='subtotal-line__value'>
+                                                <td class="subtotal-line__value">
                                                   {% if valueBold %}
                                                     <strong>{{ total_price | money_with_currency }}</strong>
                                                   {% else %}
@@ -418,17 +391,17 @@
                             </td>
                           </tr>
                         </table>
-                        <table class='row content'>
+                        <table class="row content">
                           <tr>
-                            <td class='content__cell {% if no_top_border == 'hide_border' %}no_top__border{% endif %}'>
+                            <td class="content__cell {% if no_top_border == " hide_border' %}no_top__border{% endif %}'>
                               <center>
-                                <table class='container'>
+                                <table class="container">
                                   <tr>
                                     <td>
                                       {% if gateway %}
-                                        <table class='row'>
+                                        <table class="row">
                                           <tr>
-                                            <td class='customer-info__item customer-info__item--last'>
+                                            <td class="customer-info__item customer-info__item--last">
                                               <strong>Payment processing method</strong>
                                               <br>
                                               <p>{{ gateway }}</p>
@@ -439,9 +412,9 @@
                                       {% if requires_shipping and shipping_address %}
                                         {% if shipping_methods.first %}
                                           <br>
-                                          <table class='row'>
+                                          <table class="row">
                                             <tr>
-                                              <td class='customer-info__item customer-info__item--last'>
+                                              <td class="customer-info__item customer-info__item--last">
                                                 <strong>Delivery method</strong>
                                                 <br>
                                                 {% for shipping_method in shipping_methods %}
@@ -452,9 +425,9 @@
                                           </table>
                                         {% endif %}
                                         <br>
-                                        <table class='row'>
+                                        <table class="row">
                                           <tr>
-                                            <td class='customer-info__item customer-info__item--last'>
+                                            <td class="customer-info__item customer-info__item--last">
                                               <strong>Shipping address</strong>
                                               <br>
                                               <p>
@@ -489,25 +462,25 @@
               </td>
             </tr>
           </table>
-          <footer class='no-print'>
+          <footer class="no-print">
             <br>
-            <table border='0' cellpadding='0' cellspacing='0' class='mail-footer'>
+            <table border="0" cellpadding="0" cellspacing="0" class="mail-footer">
               <tbody>
                 <tr>
-                  <td align='center' valign='bottom'>
-                    <img src='{{ 'mailer/merchant/shopify_logo.png' | cdn_asset_url }}' alt='Shopify' width='89'>
+                  <td align="center" valign="bottom">
+                    <img src="{{ 'mailer/merchant/shopify_logo.png' | cdn_asset_url }}" alt="Shopify" width="89">
                   </td>
                 </tr>
                 <tr>
-                  <td align='center'>
-                    <p><span class='apple-link'>151 O'Connor Street, Ground floor, Ottawa, ON, K2P 2L8</span></p>
+                  <td align="center">
+                    <p><span class="apple-link">151 O'Connor Street, Ground floor, Ottawa, ON, K2P 2L8</span></p>
                   </td>
                 </tr>
               </tbody>
             </table>
           </footer>
 
-          <img class='no-print' src='{{ 'notifications/spacer.png' | shopify_asset_url }}' class='spacer' height='1'>
+          <img class="no-print" src="{{ 'notifications/spacer.png' | shopify_asset_url }}" height="1">
         </td>
       </tr>
     </table>

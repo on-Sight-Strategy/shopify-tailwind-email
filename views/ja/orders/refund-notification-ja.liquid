@@ -10,12 +10,12 @@
 {%- endcapture %}
 
 <!doctype html>
-<html lang='ja'>
+<html lang="ja">
   <head>
     <title>{{ email_title }}</title>
-    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-    <meta name='viewport' content='width=device-width'>
-    <link rel='stylesheet' type='text/css' href='/assets/notifications/styles.css'>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/assets/notifications/styles.css">
     <style>
       .button__cell { background: {{ shop.email_accent_color }}; }
       a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
@@ -23,34 +23,30 @@
   </head>
 
   <body>
-    <table class='body'>
+    <table class="body">
       <tr>
         <td>
-          <table class='header row'>
+          <table class="header row">
             <tr>
-              <td class='header__cell'>
+              <td class="header__cell">
                 <center>
-                  <table class='container'>
+                  <table class="container">
                     <tr>
                       <td>
-                        <table class='row'>
+                        <table class="row">
                           <tr>
-                            <td class='shop-name__cell'>
+                            <td class="shop-name__cell">
                               {%- if shop.email_logo_url %}
-                                <img
-                                  src='{{shop.email_logo_url}}'
-                                  alt='{{ shop.name }}'
-                                  width='{{ shop.email_logo_width }}'
-                                >
+                                <img src="{{shop.email_logo_url}}" alt="{{ shop.name }}" width="{{ shop.email_logo_width }}">
                               {%- else %}
-                                <h1 class='shop-name__text'>
-                                  <a href='{{shop.url}}'>{{ shop.name }}</a>
+                                <h1 class="shop-name__text">
+                                  <a href="{{shop.url}}">{{ shop.name }}</a>
                                 </h1>
                               {%- endif %}
                             </td>
 
-                            <td class='order-number__cell'>
-                              <span class='order-number__text'> ご注文番号 {{ order_name }} </span>
+                            <td class="order-number__cell">
+                              <span class="order-number__text"> ご注文番号 {{ order_name }} </span>
                             </td>
                           </tr>
                         </table>
@@ -62,11 +58,11 @@
             </tr>
           </table>
 
-          <table class='row content'>
+          <table class="row content">
             <tr>
-              <td class='content__cell'>
+              <td class="content__cell">
                 <center>
-                  <table class='container'>
+                  <table class="container">
                     <tr>
                       <td>
                         <h2>{{ email_title }}</h2>
@@ -79,37 +75,31 @@
             </tr>
           </table>
 
-          <table class='row section'>
+          <table class="row section">
             <tr>
-              <td class='section__cell'>
+              <td class="section__cell">
                 <center>
-                  <table class='container'>
+                  <table class="container">
                     <tr>
                       <td>
                         <h3>注文状況</h3>
                       </td>
                     </tr>
                   </table>
-                  <table class='container'>
+                  <table class="container">
                     <tr>
                       <td>
-                        <table class='row'>
+                        <table class="row">
                           {% for line in subtotal_line_items %}
-                            <tr class='order-list__item'>
-                              <td class='order-list__item__cell'>
+                            <tr class="order-list__item">
+                              <td class="order-list__item__cell">
                                 <table>
                                   <td>
                                     {% if line.image %}
-                                      <img
-                                        src='{{ line | img_url: 'compact_cropped' }}'
-                                        align='left'
-                                        width='60'
-                                        height='60'
-                                        class='order-list__product-image'
-                                      >
+                                      <img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="60" height="60" class="order-list__product-image">
                                     {% endif %}
                                   </td>
-                                  <td class='order-list__product-description-cell'>
+                                  <td class="order-list__product-description-cell">
                                     {% if line.product.title %}
                                       {% assign line_title = line.product.title %}
                                     {% else %}
@@ -124,21 +114,20 @@
                                       {% assign line_display = line.quantity %}
                                     {% endif %}
 
-                                    <span class='order-list__item-title'>
-                                      {{- line_title }}&nbsp;&times;&nbsp;{{ line_display -}}</span
-                                    ><br>
+                                    <span class="order-list__item-title">
+                                      {{- line_title }}&nbsp;&times;&nbsp;{{ line_display -}}</span><br>
 
                                     {% if line.variant.title != 'Default Title' %}
-                                      <span class='order-list__item-variant'>{{ line.variant.title }}</span>
+                                      <span class="order-list__item-variant">{{ line.variant.title }}</span>
                                     {% endif %}
                                   </td>
-                                  <td class='order-list__price-cell'>
+                                  <td class="order-list__price-cell">
                                     {% if line.original_line_price != line.line_price %}
-                                      <del class='order-list__item-original-price'>
+                                      <del class="order-list__item-original-price">
                                         {{- line.original_line_price | money -}}
                                       </del>
                                     {% endif %}
-                                    <p class='order-list__item-price'>{{ line.line_price | money }}</p>
+                                    <p class="order-list__item-price">{{ line.line_price | money }}</p>
                                   </td>
                                 </table>
                               </td>
@@ -146,84 +135,84 @@
                           {%- endfor %}
                         </table>
 
-                        <table class='row subtotal-lines'>
+                        <table class="row subtotal-lines">
                           <tr>
-                            <td class='subtotal-spacer'></td>
+                            <td class="subtotal-spacer"></td>
                             <td>
-                              <table class='row subtotal-table'>
+                              <table class="row subtotal-table">
                                 {% if discounts %}
                                   {% capture discount_title -%}
                                     割引{% if discounts.first.code %}({{ discounts.first.code }}){% endif -%}
                                   {%- endcapture %}
 
-                                  <tr class='subtotal-line'>
-                                    <td class='subtotal-line__title'>
+                                  <tr class="subtotal-line">
+                                    <td class="subtotal-line__title">
                                       <p>
                                         <span>{{ discount_title }}</span>
                                       </p>
                                     </td>
-                                    <td class='subtotal-line__value'>
+                                    <td class="subtotal-line__value">
                                       <strong>{{ discounts_savings | money }}</strong>
                                     </td>
                                   </tr>
                                 {% endif %}
 
-                                <tr class='subtotal-line'>
-                                  <td class='subtotal-line__title'>
+                                <tr class="subtotal-line">
+                                  <td class="subtotal-line__title">
                                     <p>
                                       <span>小計</span>
                                     </p>
                                   </td>
-                                  <td class='subtotal-line__value'>
+                                  <td class="subtotal-line__value">
                                     <strong>{{ subtotal_price | money }}</strong>
                                   </td>
                                 </tr>
 
-                                <tr class='subtotal-line'>
-                                  <td class='subtotal-line__title'>
+                                <tr class="subtotal-line">
+                                  <td class="subtotal-line__title">
                                     <p>
                                       <span>送料</span>
                                     </p>
                                   </td>
-                                  <td class='subtotal-line__value'>
+                                  <td class="subtotal-line__value">
                                     <strong>{{ shipping_price | money }}</strong>
                                   </td>
                                 </tr>
 
                                 {% for line in tax_lines %}
-                                  <tr class='subtotal-line'>
-                                    <td class='subtotal-line__title'>
+                                  <tr class="subtotal-line">
+                                    <td class="subtotal-line__title">
                                       <p>
                                         <span>{{ line.title }}</span>
                                       </p>
                                     </td>
-                                    <td class='subtotal-line__value'>
+                                    <td class="subtotal-line__value">
                                       <strong>{{ line.price | money }}</strong>
                                     </td>
                                   </tr>
                                 {% endfor %}
 
                                 {% if total_tip and total_tip > 0 %}
-                                  <tr class='subtotal-line'>
-                                    <td class='subtotal-line__title'>
+                                  <tr class="subtotal-line">
+                                    <td class="subtotal-line__title">
                                       <p>
                                         <span>サポート金額</span>
                                       </p>
                                     </td>
-                                    <td class='subtotal-line__value'>
+                                    <td class="subtotal-line__value">
                                       <strong>{{ total_tip | money }}</strong>
                                     </td>
                                   </tr>
                                 {% endif %}
                               </table>
-                              <table class='row subtotal-table subtotal-table--total'>
-                                <tr class='subtotal-line'>
-                                  <td class='subtotal-line__title'>
+                              <table class="row subtotal-table subtotal-table--total">
+                                <tr class="subtotal-line">
+                                  <td class="subtotal-line__title">
                                     <p>
                                       <span>合計</span>
                                     </p>
                                   </td>
-                                  <td class='subtotal-line__value'>
+                                  <td class="subtotal-line__value">
                                     <strong>{{ total_price | money_with_currency }}</strong>
                                   </td>
                                 </tr>
@@ -239,12 +228,12 @@
                               {% endfor %}
 
                               {% if transaction_size > 1 or transaction_amount < total_price %}
-                                <table class='row subtotal-table'>
+                                <table class="row subtotal-table">
                                   <tr>
-                                    <td colspan='2' class='subtotal-table__line'></td>
+                                    <td colspan="2" class="subtotal-table__line"></td>
                                   </tr>
                                   <tr>
-                                    <td colspan='2' class='subtotal-table__small-space'></td>
+                                    <td colspan="2" class="subtotal-table__small-space"></td>
                                   </tr>
 
                                   {% for transaction in transactions %}
@@ -263,13 +252,13 @@
                                         {%- endcapture %}
                                       {% endif %}
 
-                                      <tr class='subtotal-line'>
-                                        <td class='subtotal-line__title'>
+                                      <tr class="subtotal-line">
+                                        <td class="subtotal-line__title">
                                           <p>
                                             <span>{{ transaction_name }}</span>
                                           </p>
                                         </td>
-                                        <td class='subtotal-line__value'>
+                                        <td class="subtotal-line__value">
                                           <strong>{{ transaction.amount | money }}</strong>
                                         </td>
                                       </tr>
@@ -281,15 +270,15 @@
                                         {% assign refund_method_title = transaction.gateway %}
                                       {% endif %}
 
-                                      <tr class='subtotal-line'>
-                                        <td class='subtotal-line__title'>
+                                      <tr class="subtotal-line">
+                                        <td class="subtotal-line__title">
                                           <p>
                                             <span>返金</span>
                                             <br>
                                             <small>{{ refund_method_title | capitalize }}</small>
                                           </p>
                                         </td>
-                                        <td class='subtotal-line__value'>
+                                        <td class="subtotal-line__value">
                                           <strong>- {{ transaction.amount | money }}</strong>
                                         </td>
                                       </tr>
@@ -308,17 +297,16 @@
             </tr>
           </table>
 
-          <table class='row footer'>
+          <table class="row footer">
             <tr>
-              <td class='footer__cell'>
+              <td class="footer__cell">
                 <center>
-                  <table class='container'>
+                  <table class="container">
                     <tr>
                       <td>
-                        <p class='disclaimer__subtext'>
-                          ご不明な点がございましたら、このメールにご返信いただくか、<a href='mailto:{{ shop.email }}'>
-                            {{- shop.email -}}</a
-                          >までご連絡ください。
+                        <p class="disclaimer__subtext">
+                          ご不明な点がございましたら、このメールにご返信いただくか、<a href="mailto:{{ shop.email }}">
+                            {{- shop.email -}}</a>までご連絡ください。
                         </p>
                       </td>
                     </tr>
@@ -328,7 +316,7 @@
             </tr>
           </table>
 
-          <img src='{{ 'notifications/spacer.png' | shopify_asset_url }}' class='spacer' height='1'>
+          <img src="{{ 'notifications/spacer.png' | shopify_asset_url }}" class="spacer" height="1">
         </td>
       </tr>
     </table>
