@@ -6,7 +6,7 @@
   {% capture email_title %}Some items in your order have been refunded{% endcapture %}
 {% endif %}
 {% capture email_body -%}
-  Total amount refunded: <strong>{{ amount | money_with_currency }}</strong>
+  Total amount refunded: <strong>{{ amount | money_with_currency }}</strong>. It may take up to 10 days for this refund to appear in your account.
 {%- endcapture %}
 
 <!doctype html>
@@ -17,8 +17,10 @@
     <meta name='viewport' content='width=device-width'>
     <link rel='stylesheet' type='text/css' href='/assets/notifications/styles.css'>
     <style>
+      body { font-family: tahoma; color: #121212; }
       .button__cell { background: {{ shop.email_accent_color }}; }
       a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
+      strong { color: #121212; font-weight: 700; }
     </style>
   </head>
 
@@ -48,10 +50,6 @@
                                 </h1>
                               {%- endif %}
                             </td>
-
-                            <td class='order-number__cell'>
-                              <span class='order-number__text'> Order {{ order_name }} </span>
-                            </td>
                           </tr>
                         </table>
                       </td>
@@ -64,13 +62,18 @@
 
           <table class='row content'>
             <tr>
-              <td class='content__cell'>
+              <td class='content__cell pb-0'>
                 <center>
                   <table class='container'>
+                    <tr class="block mb-4" style="margin-bottom: 1rem; display: block;">
+                      <td class="order-number__cell text-left" style="text-align: left;">
+                        <span class="order-number__text text-[#121212] text-base" style="font-size: 1rem; line-height: 1.5rem; --tw-text-opacity: 1;"> Order {{ order_name }} </span>
+                      </td>
+                    </tr>
                     <tr>
                       <td>
-                        <h2>{{ email_title }}</h2>
-                        <p>{{ email_body }}</p>
+                        <h2 class='text-[#121212]'>{{ email_title }}</h2>
+                        <p class='text-[#121212]'>{{ email_body }}</p>
                       </td>
                     </tr>
                   </table>
@@ -79,7 +82,7 @@
             </tr>
           </table>
 
-          <table class='row section'>
+          <table class='row'>
             <tr>
               <td class='section__cell'>
                 <center>
@@ -97,18 +100,7 @@
                           {% for line in subtotal_line_items %}
                             <tr class='order-list__item'>
                               <td class='order-list__item__cell'>
-                                <table>
-                                  <td>
-                                    {% if line.image %}
-                                      <img
-                                        src='{{ line | img_url: 'compact_cropped' }}'
-                                        align='left'
-                                        width='60'
-                                        height='60'
-                                        class='order-list__product-image'
-                                      >
-                                    {% endif %}
-                                  </td>
+                                <table>                                
                                   <td class='order-list__product-description-cell'>
                                     {% if line.product.title %}
                                       {% assign line_title = line.product.title %}
@@ -169,7 +161,9 @@
                                     {% endif %}
                                     <p class='order-list__item-price'>
                                       {% if line.final_line_price > 0 %}
-                                        {{ line.final_line_price | money }}
+                                        <strong>
+                                          {{ line.final_line_price | money }}
+                                        </strong>
                                       {% else %}
                                         Free
                                       {% endif %}

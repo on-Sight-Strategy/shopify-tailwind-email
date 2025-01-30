@@ -96,6 +96,7 @@
   },
   "dependencies": {
     "express": "^4.19.1",
-    "liquidjs": "^10.10.2"
+    "liquidjs": "^10.10.2",
+    "pnpm": "^9.15.4"
   }
 }

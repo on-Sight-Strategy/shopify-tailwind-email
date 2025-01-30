@@ -1,7 +1,7 @@
 module.exports = {
   theme: {
     fontFamily: {
-      // Insert custom font families here
+      tahoma: ['Tahoma', 'sans-serif']
     },
     extend: {
       colors: {
@@ -12,8 +12,19 @@ module.exports = {
         white: '#ffffff',
 
         // Brand colors
-        // ...
-      },
-    },
-  },
+        dark: '#3B3B3B',
+        grey: '#DBDBDB',
+        blue: {
+          DEFAULT: '#3544F3',
+          light: '#DCEDFF',
+        },
+        yellow: '#FDD844',
+        red: '#CF2D2E',
+        berry: {
+          DEFAULT: '#5F4ED8',
+          light: '#EDE1FF',
+        }
+      }
+    }
+  }
 }

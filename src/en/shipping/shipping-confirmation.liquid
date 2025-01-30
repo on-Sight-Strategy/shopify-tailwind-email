@@ -39,8 +39,12 @@
     <meta name='viewport' content='width=device-width'>
     <link rel='stylesheet' type='text/css' href='/assets/notifications/styles.css'>
     <style>
+      body { font-family: tahoma; color: #121212; }
       .button__cell { background: {{ shop.email_accent_color }}; }
       a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
+      strong { color: #121212; font-weight: 700; }
+      .order-list__item:last-child { border-bottom-width: 0px; }
+      .content__cell { border-bottom-width: 0px; }
     </style>
   </head>
 
@@ -69,11 +73,7 @@
                                   <a href='{{shop.url}}'>{{ shop.name }}</a>
                                 </h1>
                               {%- endif %}
-                            </td>
-
-                            <td class='order-number__cell'>
-                              <span class='order-number__text'> Order {{ order_name }} </span>
-                            </td>
+                            </td>                        
                           </tr>
                         </table>
                       </td>
@@ -89,10 +89,15 @@
               <td class='content__cell'>
                 <center>
                   <table class='container'>
+                    <tr class="block mb-4" style="margin-bottom: 1rem; display: block;">
+                      <td class="order-number__cell text-left" style="text-align: left;">
+                        <span class="order-number__text text-[#121212] text-base" style="font-size: 1rem; line-height: 1.5rem; --tw-text-opacity: 1;"> Order {{ order_name }} </span>
+                      </td>
+                    </tr>
                     <tr>
                       <td>
                         <h2>{{ email_title }}</h2>
-                        <p>{{ email_body }}</p>
+                        <p class="text-[#121212]">{{ email_body }}</p>
                         {% if fulfillment.estimated_delivery_at %}
                           <p>{{ email_emphasis }}</p>
                         {% endif %}
@@ -105,8 +110,8 @@
                               <td class='actions__cell'>
                                 <table class='button main-action-cell'>
                                   <tr>
-                                    <td class='button__cell'>
-                                      <a href='{{ order_status_url }}' class='button__text'>View your order</a>
+                                    <td class='button__cell bg-[#3544F3] border-[#3544F3] border-2 text-white rounded-full'>
+                                      <a href='{{ order_status_url }}' class='button__text py-5'>View your order</a>
                                     </td>
                                   </tr>
                                 </table>
@@ -165,7 +170,7 @@
             </tr>
           </table>
 
-          <table class='row section'>
+          <table class='row'>
             <tr>
               <td class='section__cell'>
                 <center>
@@ -268,7 +273,7 @@
                   <table class='container'>
                     <tr>
                       <td>
-                        <p class='disclaimer__subtext'>
+                        <p class='disclaimer__subtext text-[#121212]'>
                           If you have any questions, reply to this email or contact us at
                           <a href='mailto:{{ shop.email }}'>{{ shop.email }}</a>
                         </p>
