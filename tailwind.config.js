@@ -11,8 +11,13 @@ module.exports = {
         black: '#000000',
         white: '#ffffff',
 
-        // Brand colors
-        // ...
+        dark: '#090D1C',
+        onyx: "#121212",
+        blue: '#0B76A0',
+        gray: {
+          DEFAULT: "#777777",
+          medium: "#555555",
+        }
       },
     },
   },

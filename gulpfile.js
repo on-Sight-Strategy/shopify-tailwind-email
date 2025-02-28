@@ -18,7 +18,7 @@ gulp.task('mailwind', () => {
     .pipe(exec(file => {
       var originalFile = file.path
       var destinationFile = file.path.replace("src", "views")
-      return `mailwind --input-html ${originalFile}  --output-html ${destinationFile}`
+      return `mailwind --input-html ${originalFile}  --output-html ${destinationFile} --tailwind-config ./tailwind.config.js`
     }, options))
 })
 

@@ -1,0 +1,57 @@
+<!-- Order Status -->
+<div class="py-6 px-5" style="padding-left: 1.25rem; padding-right: 1.25rem; padding-top: 1.5rem; padding-bottom: 1.5rem;">
+  <table>
+    <tr>
+      <td>
+        <p class="uppercase onyx" style="text-transform: uppercase;">Order {{ order_name }}</p>
+        <h2 class="mt-5 text-2xl onyx" style="margin-top: 1.25rem; font-size: 1.5rem; line-height: 2rem;">
+          {{ email_title }}
+        </h2>
+        <p class="onyx">{{ email_body }}</p>
+
+        {% if order_status_url %}
+          <table class="row actions">
+            <tr>
+              <td class="empty-line">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="actions__cell">
+                <table class="button main-action-cell">
+                  <tr>
+                    <td class="button__cell rounded-full" style="border-radius: 9999px;">
+                      <a href="{{ order_status_url }}" class="button__text">View your order</a>
+                    </td>
+                  </tr>
+                </table>
+                {% if shop.url %}
+                  <table class="link secondary-action-cell">
+                    <tr>
+                      <td class="link__cell">or <a href="{{ shop.url }}">Visit our store</a></td>
+                    </tr>
+                  </table>
+                {% endif %}
+              </td>
+            </tr>
+          </table>
+        {% else %}
+          {% if shop.url %}
+            <table class="row actions">
+              <tr>
+                <td class="actions__cell">
+                  <table class="button main-action-cell">
+                    <tr>
+                      <td class="button__cell rounded-full" style="border-radius: 9999px;">
+                        <a href="{{ shop.url }}" class="button__text">Visit our store</a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          {% endif %}
+        {% endif %}
+      </td>
+    </tr>
+  </table>
+</div>
+<!-- End Order Status -->
