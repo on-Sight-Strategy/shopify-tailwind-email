@@ -67,6 +67,12 @@ const linkList = [
   },
   {
     category: 'orders',
+    title_en: 'Gift card receipt',
+    title_ja: '',
+    path: '/orders/gift-card-receipt',
+  },
+  {
+    category: 'orders',
     title_en: 'Payment error',
     title_ja: '支払いエラー',
     path: '/orders/failed-payment-processing',

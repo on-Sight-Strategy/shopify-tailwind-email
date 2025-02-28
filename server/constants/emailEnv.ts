@@ -148,9 +148,21 @@ const emailEnv = {
   // Gift card info
   gift_card: {
     balance: 100,
+    initial_value: 100,
+    recipient: {
+      nickname: 'Bobby',
+      email: 'bobby@gmail.com',
+      name: "Robert",
+    },
+    send_on: 'Mar 1, 2025',
+    message: "Wishing you a happy birthday filled with joy, laughter, and all the things you love. Have an amazing day!",
+    expires_on: "Mar 1, 2026",
+    code: "A1B2 3C4D 5E6F 7G8H",
+    url: 'https://everydayoil.com/gift_cards/9929092/preview',
+    pass_url: 'https://everydayoil.com/gift_cards/9929092/preview',
     customer: {
       last_name: 'Smith',
-    },
+    }
   },
   // Shipping info
   shipping_price: 10.0,

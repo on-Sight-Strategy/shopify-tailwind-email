@@ -16,4 +16,9 @@ module.exports = {
       },
     },
   },
+  corePlugins: {
+    textOpacity: false,
+    backgroundOpacity: false,
+    borderOpacity: false,
+  }
 }
