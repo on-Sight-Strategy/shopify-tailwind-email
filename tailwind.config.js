@@ -1,7 +1,7 @@
 module.exports = {
   theme: {
     fontFamily: {
-      // Insert custom font families here
+      sans: ['Courier New', 'sans-serif'],
     },
     extend: {
       colors: {

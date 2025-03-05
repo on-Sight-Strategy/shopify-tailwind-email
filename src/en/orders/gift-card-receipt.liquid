@@ -24,10 +24,15 @@
     <style>
       .button__cell { background: {{ shop.email_accent_color }}; }
       a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
+       @media (max-width: 639px) {
+        .footer-link {
+          padding-right: 20px !important; /* Adjust padding for smaller screens */
+        }
+      }
     </style>
   </head>
 
-  <body class="bg-day mx-4">
+  <body class="bg-day mx-4 font-sans">
    <div class="giftcard__body">
   {% if gift_card.recipient %}
     {% if shop.email_logo_url %}
@@ -68,12 +73,12 @@
     </div>
 
     {% if gift_card.recipient and gift_card.message != blank %}
-      <div class="text-center text-sm pt-8">
+      <div class="text-center text-sm pt-8 mx-auto" style="max-width: 100%; width: 90%; height: auto; max-width: 600px;">
         "{{ gift_card.message }}"
       </div>
     {% endif %}
 
-   <table class="w-3/4 mx-auto max-w-[600px] mt-6">
+   <table class="mx-auto max-w-[600px] mt-6" style="max-width: 100%; width: 90%; height: auto; max-width: 600px;">
     <tr style="border-bottom: 1px solid black;">
       <td class="text-left uppercase py-5 text-xs">Amount</td>
       <td class="text-right uppercase py-5 text-xs">Online Code</td>
@@ -98,7 +103,7 @@
         </span>
       </a>
     </div>
-    <div class="mx-auto w-3/4 max-w-[600px]" style="border-bottom: 1px solid black;"></div>
+    <div class="mx-auto max-w-[600px]" style="border-bottom: 1px solid black; max-width: 100%; width: 90%; height: auto; max-width: 600px;"></div>
 
     <div class="text-center pt-8 -mx-4">
       <a href="{{ shop.url }}">
@@ -133,16 +138,16 @@
   
   <tr>
     <td class="text-center pt-5" colspan="3">
-      <a href="{{ shop.url }}/shop" class="footer-link underline" style="padding-right: 10px;">Shop</a>
-      <a href="{{ shop.url }}/faq" class="footer-link underline" style="padding-right: 10px;">FAQ</a>
-      <a href="{{ shop.url }}/account" class="footer-link underline" style="padding-right: 10px;">Account</a>
-      <a href="{{ shop.url }}/contact" class="footer-link underline">Contact</a>
+      <a href="{{ shop.url }}/shop" class="footer-link underline font-sans pr-12">Shop</a>
+      <a href="{{ shop.url }}/faq" class="footer-link underline font-sans pr-12">FAQ</a>
+      <a href="{{ shop.url }}/account" class="footer-link underline font-sans pr-12">Account</a>
+      <a href="{{ shop.url }}/contact" class="underline font-sans">Contact</a>
     </td>
   </tr>
   
   <tr>
     <td class="text-center pt-5 pb-5">
-      <p class="text-black">
+      <p class="text-black font-sans">
         If you have any questions, reply to this email or contact us at
         <a href="mailto:{{ shop.email }}">{{ shop.email }}</a>
       </p>

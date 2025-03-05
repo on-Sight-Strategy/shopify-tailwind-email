@@ -34,10 +34,16 @@
     <style>
       .button__cell { background: {{ shop.email_accent_color }}; }
       a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
+      @media (max-width: 639px) {
+        .footer-link {
+          padding-right: 20px !important; /* Adjust padding for smaller screens */
+        }
+      }
     </style>
+    
   </head>
 
-  <body class="bg-day mx-4" style="margin-left: 1rem; margin-right: 1rem; background-color: #F9F8F2;">
+  <body class="bg-day mx-4 font-sans" style="margin-left: 1rem; margin-right: 1rem; background-color: #F9F8F2; font-family: Courier New, sans-serif;">
    <div class="giftcard__body">
   {% if gift_card.recipient %}
     {% if shop.email_logo_url %}
@@ -69,7 +75,7 @@
     </div>
 
     {% if gift_card.recipient and gift_card.message != blank %}
-      <div class="text-center text-sm pt-8" style="padding-top: 2rem; text-align: center; font-size: 0.875rem; line-height: 1.25rem;">
+      <div class="text-center text-sm pt-8 mx-auto" style="margin-left: auto; margin-right: auto; padding-top: 2rem; text-align: center; font-size: 0.875rem; line-height: 1.25rem; max-width: 100%; width: 90%; height: auto; max-width: 600px;">
         "{{ gift_card.message }}"
       </div>
     {% endif %}
@@ -129,16 +135,16 @@
   
   <tr>
     <td class="text-center pt-5" colspan="3" style="padding-top: 1.25rem; text-align: center;">
-      <a href="{{ shop.url }}/shop" class="footer-link underline" style="text-decoration-line: underline; padding-right: 10px;">Shop</a>
-      <a href="{{ shop.url }}/faq" class="footer-link underline" style="text-decoration-line: underline; padding-right: 10px;">FAQ</a>
-      <a href="{{ shop.url }}/account" class="footer-link underline" style="text-decoration-line: underline; padding-right: 10px;">Account</a>
-      <a href="{{ shop.url }}/contact" class="footer-link underline" style="text-decoration-line: underline;">Contact</a>
+      <a href="{{ shop.url }}/shop" class="footer-link underline font-sans pr-12" style="padding-right: 3rem; font-family: Courier New, sans-serif; text-decoration-line: underline;">Shop</a>
+      <a href="{{ shop.url }}/faq" class="footer-link underline font-sans pr-12" style="padding-right: 3rem; font-family: Courier New, sans-serif; text-decoration-line: underline;">FAQ</a>
+      <a href="{{ shop.url }}/account" class="footer-link underline font-sans pr-12" style="padding-right: 3rem; font-family: Courier New, sans-serif; text-decoration-line: underline;">Account</a>
+      <a href="{{ shop.url }}/contact" class="underline font-sans" style="font-family: Courier New, sans-serif; text-decoration-line: underline;">Contact</a>
     </td>
   </tr>
   
   <tr>
     <td class="text-center pt-5 pb-5" style="padding-bottom: 1.25rem; padding-top: 1.25rem; text-align: center;">
-      <p class="text-black" style="color: #000000;">
+      <p class="text-black font-sans" style="font-family: Courier New, sans-serif; color: #000000;">
         If you have any questions, reply to this email or contact us at
         <a href="mailto:{{ shop.email }}">{{ shop.email }}</a>
       </p>
