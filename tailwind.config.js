@@ -10,6 +10,7 @@ module.exports = {
         current: 'currentColor',
         black: '#000000',
         white: '#ffffff',
+        day: '#F9F8F2',
 
         // Brand colors
         // ...
