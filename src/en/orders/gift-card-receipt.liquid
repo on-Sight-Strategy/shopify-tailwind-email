@@ -8,12 +8,11 @@
   {% endif %}
   {% capture email_title %}
     {% if gift_card.send_on != blank %}
-      Here's your gift card that will be sent to {{ recipient_name }} on {{ gift_card.send_on | date: '%B %e, %Y' }}.
-    {% else %}
-      Here's your gift card that was sent to {{ recipient_name }}.
+      You sent a gift card to {{ recipient_name }}
     {% endif %}
   {% endcapture %}
 {% endif %}
+
 
 <!doctype html>
 <html lang='en'>
@@ -28,163 +27,128 @@
     </style>
   </head>
 
-  <body>
-    <table align='center' class='body giftcard__body'>
-      <tr>
-        <td class='empty-line'>&nbsp;</td>
-      </tr>
-      <tr>
-        <td class='empty-line'>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>
-          <table class='row content'>
-            <tr>
-              <td class='content__cell'>
-                <center>
-                  <table class='container'>
-                    <tr>
-                      <td>
-                        {% if shop.email_logo_url %}
-                          <table align='center' class='giftcard__doubletopmargin'>
-                            <tr>
-                              <td>
-                                <img
-                                  src='{{shop.email_logo_url}}'
-                                  alt='{{ shop.name }}'
-                                  class='giftcard__logosize'
-                                  width='{{ shop.email_logo_width }}'
-                                >
-                              </td>
-                            </tr>
-                          </table>
-                        {% endif %}
+  <body class="bg-day mx-4">
+   <div class="giftcard__body">
+  {% if gift_card.recipient %}
+    {% if shop.email_logo_url %}
+      <div class="text-center">
+        <img
+          src="{{ shop.email_logo_url }}"
+          alt="{{ shop.name }}"
+          class="giftcard__logosize"
+          width="{{ shop.email_logo_width }}"
+        >
+      </div>
+    {% endif %}
+    <div class="text-center pt-8">
+       <svg xmlns="http://www.w3.org/2000/svg" width="130" height="13" viewBox="0 0 130 13" fill="none">
+        <path d="M7.40788 0.68573V2.6535H2.40462V5.31444H7.31933V7.2831H2.40462V10.5897H7.40887V12.5583H0V0.68573H7.40788Z" fill="#F2BA39"/>
+        <path d="M16.2236 12.5575H14.1582L9.27832 0.68573H11.7536L15.2088 9.28254L18.663 0.68573H21.1025L16.2226 12.5583L16.2236 12.5575Z" fill="#F2BA39"/>
+        <path d="M30.9684 0.68573V2.6535H25.9642V5.31444H30.8789V7.2831H25.9642V10.5897H30.9684V12.5583H23.5605V0.68573H30.9684Z" fill="#F2BA39"/>
+        <path d="M36.7738 7.18812V12.5575H34.3691V0.68573H38.2154C39.7286 0.68573 40.7264 1.07981 41.4746 1.7246C42.2048 2.35443 42.6326 3.23584 42.6326 4.22809C42.6326 5.8185 41.5104 7.20395 39.8012 7.64466L43.4345 12.5575H40.6916L36.7738 7.18812ZM37.9308 5.92846C38.8212 5.92846 39.2839 5.73933 39.64 5.44025C39.9604 5.157 40.1564 4.74708 40.1564 4.27471C40.1564 3.80234 39.9604 3.3933 39.64 3.10917C39.2839 2.79426 38.8212 2.62096 37.9308 2.62096H36.7738V5.92846H37.9308Z" fill="#F2BA39"/>
+        <path d="M50.0416 5.40944L53.2651 0.68573H55.9542L51.2176 7.51972V12.5583H48.8309V7.51972L44.0933 0.68573H46.8182L50.0416 5.40944Z" fill="#F2BA39"/>
+        <path d="M67.0659 10.8413C65.8552 11.9118 64.1987 12.5575 61.9373 12.5575H58.3936V0.68573H61.9373C64.1987 0.68573 65.8552 1.33139 67.0659 2.40193C68.2767 3.47247 69.0069 4.96875 69.0069 6.62162C69.0069 8.27449 68.2767 9.77077 67.0659 10.8413ZM60.7972 10.5897H61.6876C63.3262 10.5897 64.4484 10.149 65.2493 9.44003C66.0511 8.73191 66.5317 7.75549 66.5317 6.62162C66.5317 5.48775 66.0511 4.51134 65.2493 3.80322C64.4484 3.09422 63.3262 2.65351 61.6876 2.65351H60.7972V10.5897Z" fill="#F2BA39"/>
+        <path d="M77.8404 0.68573L83.1471 12.5583H80.6181L79.4611 9.95987H73.7086L72.5516 12.5583H70.0942L75.3999 0.68573H77.8394H77.8404ZM76.5938 3.37833H76.558L74.5274 8.07038H78.6234L76.5928 3.37833H76.5938Z" fill="#F2BA39"/>
+        <path d="M88.3117 5.40944L91.5351 0.68573H94.2242L89.4876 7.51972V12.5583H87.1009V7.51972L82.3633 0.68573H85.0883L88.3117 5.40944Z" fill="#F2BA39"/>
+        <path d="M100.065 6.62161C100.065 3.18921 103.057 0.464935 107.011 0.464935C110.964 0.464935 113.974 3.18921 113.974 6.62161C113.974 10.054 110.964 12.7783 107.011 12.7783C103.057 12.7783 100.065 10.054 100.065 6.62161ZM111.499 6.62161C111.499 4.27558 109.575 2.49605 107.011 2.49605C104.446 2.49605 102.541 4.27558 102.541 6.62161C102.541 8.96764 104.446 10.7472 107.011 10.7472C109.575 10.7472 111.499 8.96764 111.499 6.62161Z" fill="#F2BA39"/>
+        <path d="M119.44 0.68573V12.5575H117.036V0.68573H119.44Z" fill="#F2BA39"/>
+        <path d="M125.691 0.68573V10.5897H130.001V12.5583H123.288V0.68573H125.692H125.691Z" fill="#F2BA39"/>
+      </svg>
+    </div>
+    <div class="text-center pt-8">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0992/9092/files/A_GIFT_FOR_YOU_2.png?v=1733861831"
+        alt="Gift Card"
+        class="w-60"
+      >
+    </div>
 
-                        <table align='center' class='row giftcard__topmargin'>
-                          <tr>
-                            <td class='giftcard__title'>{{ email_title }}</td>
-                          </tr>
-                        </table>
+    <div class="pt-8 text-center uppercase text-xl max-w-[200px] mx-auto">
+      {{ email_title }}
+    </div>
 
-                        {% if gift_card.recipient and gift_card.message != blank %}
-                          <table align='center' class='row giftcard__topmargin'>
-                            <tr>
-                              <td class='giftcard__message text-black border border-black'>
-                                "{{ gift_card.message }}"
-                              </td>
-                            </tr>
-                          </table>
-                        {% endif %}
+    {% if gift_card.recipient and gift_card.message != blank %}
+      <div class="text-center text-sm pt-8">
+        "{{ gift_card.message }}"
+      </div>
+    {% endif %}
 
-                        <table align='center' class='giftcard__topmargin'>
-                          <tr>
-                            <td class='giftcard__balance'>{{ gift_card.initial_value | money_with_currency }}</td>
-                          </tr>
-                          {% if gift_card.expires_on %}
-                            <tr>
-                              <td class='giftcard__smalltext'>
-                                Expires {{ gift_card.expires_on | date: '%B %e, %Y' }}
-                              </td>
-                            </tr>
-                          {% endif %}
-                        </table>
+   <table class="w-3/4 mx-auto max-w-[600px] mt-6">
+    <tr style="border-bottom: 1px solid black;">
+      <td class="text-left uppercase py-5 text-xs">Amount</td>
+      <td class="text-right uppercase py-5 text-xs">Online Code</td>
+    </tr>
+    <tr style="border-bottom: 1px solid black;">
+      <td class="text-left py-5 text-sm">{{ gift_card.initial_value | money_with_currency }}</td>
+      <td class="text-right py-5 text-sm">{{ gift_card.code | format_code }}</td>
+    </tr>
+  </table>
 
-                        <table align='center' class='giftcard__doubletopmargin'>
-                          <tr>
-                            <td>
-                              <img
-                                data-src='{{ "Gift_Card.png" | file_url }}'
-                                src='https://cdn.shopify.com/s/files/1/0992/9092/files/Gift_Card.png?v=1733514655'
-                                alt='Gift card image'
-                                width='240'
-                              >
-                            </td>
-                          </tr>
-                        </table>
 
-                        <table align='center' class='row giftcard__topmargin'>
-                          <tr>
-                            <td class='giftcard__shop_name'>{{ shop.name }}</td>
-                          </tr>
-                        </table>
+    <div class="actions text-center pt-5">
+      <a href="{{ shop.url }}" class="button__text bg-black text-white py-5 px-10 inline-block uppercase max-w-80 w-3/4">Visit Store</a>
+    </div>
+    <div class="text-center pt-5 pb-8">
+      <a href="{{ gift_card.url }}" class="link__text uppercase">View gift card balance 
+        <span class="pl-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 16 10" fill="none">
+          <path d="M0 5L14.2105 5" stroke="#101820" stroke-linejoin="round"/>
+          <path d="M11.4634 0.625L14.5581 5L11.4634 9.375" stroke="#101820" stroke-linejoin="round"/>
+        </svg>
+        </span>
+      </a>
+    </div>
+    <div class="mx-auto w-3/4 max-w-[600px]" style="border-bottom: 1px solid black;"></div>
 
-                        <table align='center' class='row giftcard__topmargin'>
-                          <tr>
-                            <td class='giftcard__smalltext'>Use the gift card code online</td>
-                          </tr>
-                          <tr>
-                            <td class='giftcard__code'>
-                              {{ gift_card.code | format_code }}
-                            </td>
-                          </tr>
-                        </table>
+    <div class="text-center pt-8 -mx-4">
+      <a href="{{ shop.url }}">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0992/9092/files/Shop_Oil.png?v=1741200428"
+        alt="Shop All"
+         style="max-width: 100%; width: 90%; height: auto; max-width: 384px;"
+        
+      >
+      </a>
+    </div>
 
-                        <table class='row actions'>
-                          <tr>
-                            <td class='actions__cell'>
-                              <table align='center' class='button'>
-                                <tr>
-                                  <td class='button__cell'>
-                                    <a href='{{ shop.url }}' class='button__text'>Visit online store</a>
-                                  </td>
-                                </tr>
-                              </table>
-                              <table align='center' class='button'>
-                                <tr>
-                                  <td class='link__cell'>
-                                    <a href='{{ gift_card.url }}' class='link__text'>View gift card balance</a>
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
-                        </table>
+    <div class="py-8 text-center max-w-[600px] mx-auto">
+      <p class="pb-5 uppercase text-black text-sm font-bold">USE EVERY DAY / ALL OVER</p>
+      <p class="pb-5 text-black text-sm">Certified organic and microbiome-friendly skincare for the face, body and hair (everywhere).</p>
+      <p class="text-black text-sm">Everyday Oil balances with your skin's natural oils to cleanse as it nourishes, absorbing quickly and leaving a dewy glow. This gentle approach to skincare protects your delicate microbiome and is non-comedogenic. Our sustainable, concentrated formula works best with water.</p>
+    </div>
+    
+  {% endif %}
+</div>
 
-                        {% if gift_card.pass_url %}
-                          <table align='center' class='row'>
-                            <tr>
-                              <td class='giftcard__textcenter'>
-                                <a href='{{ gift_card.pass_url }}' class='apple-wallet-button'>
-                                  <img
-                                    src='{{ 'gift-card/add-to-apple-wallet.png' | shopify_asset_url }}'
-                                    alt='Add to Apple Wallet'
-                                    width='120'
-                                    height='40'
-                                  >
-                                </a>
-                              </td>
-                            </tr>
-                          </table>
-                        {% endif %}
-                      </td>
-                    </tr>
-                  </table>
-                </center>
-              </td>
-            </tr>
-          </table>
-          <table class='row footer'>
-            <tr>
-              <td class='footer__cell'>
-                <center>
-                  <table class='container'>
-                    <tr>
-                      <td>
-                        <p class='disclaimer__subtext'>
-                          If you have any questions, reply to this email or contact us at
-                          <a href='mailto:{{ shop.email }}'>{{ shop.email }}</a>
-                        </p>
-                      </td>
-                    </tr>
-                  </table>
-                </center>
-              </td>
-            </tr>
-          </table>
 
-          <img src='{{ 'notifications/spacer.png' | shopify_asset_url }}' class='spacer' height='1'>
-        </td>
-      </tr>
-    </table>
+<!-- Footer -->
+<table class="row footer" style="border-top: 1px solid black;">
+  <tr>
+    <td class="text-center pt-5" colspan="3">
+     <svg xmlns="http://www.w3.org/2000/svg" width="103" height="30" viewBox="0 0 103 30" fill="none">
+      <path d="M47.1732 30C64.2336 29.977 78.7649 29.9934 80.6518 29.9934C82.1067 29.9934 91.1234 29.9844 103 29.9893C102.068 13.3413 79.4105 0 51.5021 0C23.5937 0 0.933909 13.3372 0 29.9869C7.4372 29.9893 12.6427 29.9934 13.722 29.9934C15.6081 29.9934 30.1269 29.977 47.1732 30Z" fill="#F2BA39"/>
+     </svg>
+    </td>
+  </tr>
+  
+  <tr>
+    <td class="text-center pt-5" colspan="3">
+      <a href="{{ shop.url }}/shop" class="footer-link underline" style="padding-right: 10px;">Shop</a>
+      <a href="{{ shop.url }}/faq" class="footer-link underline" style="padding-right: 10px;">FAQ</a>
+      <a href="{{ shop.url }}/account" class="footer-link underline" style="padding-right: 10px;">Account</a>
+      <a href="{{ shop.url }}/contact" class="footer-link underline">Contact</a>
+    </td>
+  </tr>
+  
+  <tr>
+    <td class="text-center pt-5 pb-5">
+      <p class="text-black">
+        If you have any questions, reply to this email or contact us at
+        <a href="mailto:{{ shop.email }}">{{ shop.email }}</a>
+      </p>
+    </td>
+  </tr>
+</table>
+
   </body>
 </html>
