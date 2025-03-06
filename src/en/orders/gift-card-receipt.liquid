@@ -15,37 +15,33 @@
 
 
 <!doctype html>
-<html lang='en'>
+<html lang="en">
   <head>
     <title>{{ email_title }}</title>
-    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-    <meta name='viewport' content='width=device-width'>
-    <link rel='stylesheet' type='text/css' href='/assets/notifications/styles.css'>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/assets/notifications/styles.css">
     <style>
       .button__cell { background: {{ shop.email_accent_color }}; }
       a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
-       @media (max-width: 639px) {
+      @media (max-width: 639px) {
         .footer-link {
           padding-right: 20px !important; /* Adjust padding for smaller screens */
         }
       }
     </style>
+    
   </head>
 
-  <body class="bg-day mx-4 font-sans">
+  <body class="bg-day mx-4 font-sans" style="margin-left: 1rem; margin-right: 1rem; background-color: #F9F8F2; font-family: Courier New, sans-serif;">
+     <div style="background-color: #F9F8F2; width: 100%;">
    <div class="giftcard__body">
-  {% if gift_card.recipient %}
     {% if shop.email_logo_url %}
-      <div class="text-center">
-        <img
-          src="{{ shop.email_logo_url }}"
-          alt="{{ shop.name }}"
-          class="giftcard__logosize"
-          width="{{ shop.email_logo_width }}"
-        >
+      <div class="text-center" style="text-align: center;">
+        <img src="{{ shop.email_logo_url }}" alt="{{ shop.name }}" class="giftcard__logosize" width="{{ shop.email_logo_width }}">
       </div>
     {% endif %}
-    <div class="text-center pt-8">
+    <div class="text-center pt-8" style="padding-top: 2rem; text-align: center;">
        <svg xmlns="http://www.w3.org/2000/svg" width="130" height="13" viewBox="0 0 130 13" fill="none">
         <path d="M7.40788 0.68573V2.6535H2.40462V5.31444H7.31933V7.2831H2.40462V10.5897H7.40887V12.5583H0V0.68573H7.40788Z" fill="#F2BA39"/>
         <path d="M16.2236 12.5575H14.1582L9.27832 0.68573H11.7536L15.2088 9.28254L18.663 0.68573H21.1025L16.2226 12.5583L16.2236 12.5575Z" fill="#F2BA39"/>
@@ -60,42 +56,38 @@
         <path d="M125.691 0.68573V10.5897H130.001V12.5583H123.288V0.68573H125.692H125.691Z" fill="#F2BA39"/>
       </svg>
     </div>
-    <div class="text-center pt-8">
-      <img
-        src="https://cdn.shopify.com/s/files/1/0992/9092/files/A_GIFT_FOR_YOU_2.png?v=1733861831"
-        alt="Gift Card"
-        class="w-60"
-      >
+    <div class="text-center pt-8" style="padding-top: 2rem; text-align: center;">
+      <img src="https://cdn.shopify.com/s/files/1/0992/9092/files/A_GIFT_FOR_YOU_2.png?v=1733861831" alt="Gift Card" class="w-60" style="width: 15rem;">
     </div>
 
-    <div class="pt-8 text-center uppercase text-xl max-w-[200px] mx-auto">
+    <div class="pt-8 text-center uppercase text-xl max-w-[200px] mx-auto font-sans" style="margin-left: auto; margin-right: auto; max-width: 200px; padding-top: 2rem; text-align: center; font-family: Courier New, sans-serif; font-size: 1.25rem; line-height: 1.75rem; text-transform: uppercase;">
       {{ email_title }}
     </div>
 
     {% if gift_card.recipient and gift_card.message != blank %}
-      <div class="text-center text-sm pt-8 mx-auto" style="max-width: 100%; width: 90%; height: auto; max-width: 600px;">
+      <div class="text-center text-sm pt-8 mx-auto font-sans" style="margin-left: auto; margin-right: auto; padding-top: 2rem; text-align: center; font-family: Courier New, sans-serif; font-size: 0.875rem; line-height: 1.25rem; max-width: 100%; width: 90%; height: auto; max-width: 600px;">
         "{{ gift_card.message }}"
       </div>
     {% endif %}
 
-   <table class="mx-auto max-w-[600px] mt-6" style="max-width: 100%; width: 90%; height: auto; max-width: 600px;">
+   <table class="mx-auto max-w-[600px] mt-6" style="margin-left: auto; margin-right: auto; margin-top: 1.5rem; max-width: 100%; width: 90%; height: auto; max-width: 600px;">
     <tr style="border-bottom: 1px solid black;">
-      <td class="text-left uppercase py-5 text-xs">Amount</td>
-      <td class="text-right uppercase py-5 text-xs">Online Code</td>
+      <td class="text-left uppercase py-5 text-xs font-sans" style="padding-top: 1.25rem; padding-bottom: 1.25rem; text-align: left; font-family: Courier New, sans-serif; font-size: 0.75rem; line-height: 1rem; text-transform: uppercase;">Amount</td>
+      <td class="text-right uppercase py-5 text-xs font-sans" style="padding-top: 1.25rem; padding-bottom: 1.25rem; text-align: right; font-family: Courier New, sans-serif; font-size: 0.75rem; line-height: 1rem; text-transform: uppercase;">Online Code</td>
     </tr>
     <tr style="border-bottom: 1px solid black;">
-      <td class="text-left py-5 text-sm">{{ gift_card.initial_value | money_with_currency }}</td>
-      <td class="text-right py-5 text-sm">{{ gift_card.code | format_code }}</td>
+      <td class="text-left py-5 text-sm font-sans" style="padding-top: 1.25rem; padding-bottom: 1.25rem; text-align: left; font-family: Courier New, sans-serif; font-size: 0.875rem; line-height: 1.25rem;">{{ gift_card.initial_value | money_with_currency }}</td>
+      <td class="text-right py-5 text-sm font-sans" style="padding-top: 1.25rem; padding-bottom: 1.25rem; text-align: right; font-family: Courier New, sans-serif; font-size: 0.875rem; line-height: 1.25rem;">{{ gift_card.code | format_code }}</td>
     </tr>
   </table>
 
 
-    <div class="actions text-center pt-5">
-      <a href="{{ shop.url }}" class="button__text bg-black text-white py-5 px-10 inline-block uppercase max-w-80 w-3/4">Visit Store</a>
+    <div class="actions text-center pt-5" style="padding-top: 1.25rem; text-align: center;">
+      <a href="{{ shop.url }}" class="button__text bg-black text-white py-5 px-10 inline-block uppercase max-w-80 w-3/4 font-sans" style="display: inline-block; width: 75%; max-width: 20rem; background-color: #000000; padding-left: 2.5rem; padding-right: 2.5rem; padding-top: 1.25rem; padding-bottom: 1.25rem; font-family: Courier New, sans-serif; text-transform: uppercase; color: #ffffff;">VISIT STORE</a>
     </div>
-    <div class="text-center pt-5 pb-8">
-      <a href="{{ gift_card.url }}" class="link__text uppercase">View gift card balance 
-        <span class="pl-2">
+    <div class="text-center pt-5 pb-8" style="padding-bottom: 2rem; padding-top: 1.25rem; text-align: center;">
+      <a href="{{ gift_card.url }}" class="link__text uppercase font-sans" style="font-family: Courier New, sans-serif !important; text-transform: uppercase !important; color: black !important;">View gift card balance 
+        <span class="pl-2" style="padding-left: 0.5rem;">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 16 10" fill="none">
           <path d="M0 5L14.2105 5" stroke="#101820" stroke-linejoin="round"/>
           <path d="M11.4634 0.625L14.5581 5L11.4634 9.375" stroke="#101820" stroke-linejoin="round"/>
@@ -103,33 +95,27 @@
         </span>
       </a>
     </div>
-    <div class="mx-auto max-w-[600px]" style="border-bottom: 1px solid black; max-width: 100%; width: 90%; height: auto; max-width: 600px;"></div>
+    <div class="mx-auto max-w-[600px]" style="margin-left: auto; margin-right: auto; border-bottom: 1px solid black; max-width: 100%; width: 90%; height: auto; max-width: 600px;"></div>
 
-    <div class="text-center pt-8 -mx-4">
+    <div class="text-center pt-8 -mx-4" style="margin-left: -1rem; margin-right: -1rem; padding-top: 2rem; text-align: center;">
       <a href="{{ shop.url }}">
-      <img
-        src="https://cdn.shopify.com/s/files/1/0992/9092/files/Shop_Oil.png?v=1741200428"
-        alt="Shop All"
-         style="max-width: 100%; width: 90%; height: auto; max-width: 384px;"
-        
-      >
+      <img src="https://cdn.shopify.com/s/files/1/0992/9092/files/Shop_Oil.png?v=1741200428" alt="Shop All" style="max-width: 100%; width: 90%; height: auto; max-width: 384px;">
       </a>
     </div>
 
-    <div class="py-8 text-center max-w-[600px] mx-auto">
-      <p class="pb-5 uppercase text-black text-sm font-bold">USE EVERY DAY / ALL OVER</p>
-      <p class="pb-5 text-black text-sm">Certified organic and microbiome-friendly skincare for the face, body and hair (everywhere).</p>
-      <p class="text-black text-sm">Everyday Oil balances with your skin's natural oils to cleanse as it nourishes, absorbing quickly and leaving a dewy glow. This gentle approach to skincare protects your delicate microbiome and is non-comedogenic. Our sustainable, concentrated formula works best with water.</p>
+    <div class="py-8 text-center max-w-[600px] mx-auto" style="margin-left: auto; margin-right: auto; max-width: 600px; padding-top: 2rem; padding-bottom: 2rem; text-align: center;">
+      <p class="pb-5 uppercase text-black text-sm font-bold font-sans" style="padding-bottom: 1.25rem; font-family: Courier New, sans-serif; font-size: 0.875rem; line-height: 1.25rem; font-weight: 700; text-transform: uppercase; color: #000000;">USE EVERY DAY / ALL OVER</p>
+      <p class="pb-5 text-black text-sm font-sans" style="padding-bottom: 1.25rem; font-family: Courier New, sans-serif; font-size: 0.875rem; line-height: 1.25rem; color: #000000;">Certified organic and microbiome-friendly skincare for the face, body and hair (everywhere).</p>
+      <p class="text-black text-sm font-sans" style="font-family: Courier New, sans-serif; font-size: 0.875rem; line-height: 1.25rem; color: #000000;">Everyday Oil balances with your skin's natural oils to cleanse as it nourishes, absorbing quickly and leaving a dewy glow. This gentle approach to skincare protects your delicate microbiome and is non-comedogenic. Our sustainable, concentrated formula works best with water.</p>
     </div>
     
-  {% endif %}
 </div>
 
 
 <!-- Footer -->
 <table class="row footer" style="border-top: 1px solid black;">
   <tr>
-    <td class="text-center pt-5" colspan="3">
+    <td class="text-center pt-5" colspan="3" style="padding-top: 1.25rem; text-align: center;">
      <svg xmlns="http://www.w3.org/2000/svg" width="103" height="30" viewBox="0 0 103 30" fill="none">
       <path d="M47.1732 30C64.2336 29.977 78.7649 29.9934 80.6518 29.9934C82.1067 29.9934 91.1234 29.9844 103 29.9893C102.068 13.3413 79.4105 0 51.5021 0C23.5937 0 0.933909 13.3372 0 29.9869C7.4372 29.9893 12.6427 29.9934 13.722 29.9934C15.6081 29.9934 30.1269 29.977 47.1732 30Z" fill="#F2BA39"/>
      </svg>
@@ -137,23 +123,23 @@
   </tr>
   
   <tr>
-    <td class="text-center pt-5" colspan="3">
-      <a href="{{ shop.url }}/shop" class="footer-link underline font-sans pr-12">Shop</a>
-      <a href="{{ shop.url }}/faq" class="footer-link underline font-sans pr-12">FAQ</a>
-      <a href="{{ shop.url }}/account" class="footer-link underline font-sans pr-12">Account</a>
-      <a href="{{ shop.url }}/contact" class="underline font-sans">Contact</a>
+    <td class="text-center pt-5" colspan="3" style="padding-top: 1.25rem; text-align: center;">
+      <a href="{{ shop.url }}/shop" class="footer-link underline font-sans pr-12" style="color: black !important; text-decoration: underline !important; font-family: 'Courier New', Courier, monospace; padding-right: 3rem;">Shop</a>
+      <a href="{{ shop.url }}/faq" class="footer-link underline font-sans pr-12" style="color: black !important; text-decoration: underline !important; font-family: 'Courier New', Courier, monospace; padding-right: 3rem;">FAQ</a>
+      <a href="{{ shop.url }}/account" class="footer-link underline font-sans pr-12" style="color: black !important; text-decoration: underline !important; font-family: 'Courier New', Courier, monospace; padding-right: 3rem;">Account</a>
+      <a href="{{ shop.url }}/contact" class="underline font-sans" style="color: black !important; text-decoration: underline !important; font-family: 'Courier New', Courier, monospace;">Contact</a>
     </td>
   </tr>
   
   <tr>
-    <td class="text-center pt-5 pb-5">
-      <p class="text-black font-sans">
+    <td class="text-center pt-5 pb-5" style="padding-bottom: 1.25rem; padding-top: 1.25rem; text-align: center;">
+      <p class="text-black font-sans" style="font-family: Courier New, sans-serif; color: #000000 !important;">
         If you have any questions, reply to this email or contact us at
-        <a href="mailto:{{ shop.email }}">{{ shop.email }}</a>
+        <a style="color: black !important; text-decoration: underline !important; font-family: 'Courier New', Courier, monospace;" href="mailto:{{ shop.email }}">{{ shop.email }}</a>
       </p>
     </td>
   </tr>
 </table>
-
+      </div>
   </body>
 </html>
