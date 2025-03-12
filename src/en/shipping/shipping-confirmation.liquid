@@ -216,9 +216,15 @@
                           {% elsif fulfillment.tracking_numbers.size == 1 %}
                             Tracking number: {{ fulfillment.tracking_numbers.first }}
                           {% else %}
-                            Tracking numbers:<br>
+                            {{ fulfillment.tracking_company }} tracking numbers:<br>
                             {% for tracking_number in fulfillment.tracking_numbers %}
-                              {{ tracking_number -}}
+                              {% if fulfillment.tracking_urls[forloop.index0] %}
+                                <a href='{{ fulfillment.tracking_urls[forloop.index0] }}'>
+                                  {{ tracking_number }}
+                                </a>
+                              {% else %}
+                                {{ tracking_number }}
+                              {% endif %}
                               <br>
                             {% endfor %}
                           {% endif %}
