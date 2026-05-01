@@ -125,6 +125,18 @@
         width: 100% !important
       }
 
+      a .order-confirmation-hero-desktop {
+        display: none !important;
+        max-height: 0 !important;
+        overflow: hidden !important
+      }
+
+      a .order-confirmation-hero-mobile {
+        display: block !important;
+        max-height: none !important;
+        overflow: visible !important
+      }
+
       td.kmMobileStretch {
         padding-left: 0 !important;
         padding-right: 0 !important
@@ -213,6 +225,21 @@
         padding-left: 18px !important
       }
 
+      td.kmTextBlockInner.order-confirmation-hero-wrap {
+        padding-left: 32px !important;
+        padding-right: 32px !important
+      }
+
+      td.kmTextBlockInner.order-confirmation-hero-wrap td.kmTextContent,
+      td.kmTextBlockInner.order-confirmation-hero-wrap td.kmTextContent p {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        color: #333333 !important;
+        font-weight: 400 !important
+      }
+
       table.kmTableBlock.kmTableMobile td.kmTableBlockInner {
         padding-left: 9px !important;
         padding-right: 9px !important
@@ -238,6 +265,34 @@
         line-height: 1.3 !important
       }
 
+      table.kmTableBlock.kmTableMobile td.kmTableBlockInner table.order-line-items td.order-line-details h3 {
+        font-size: 14px !important;
+        line-height: 1.3 !important;
+        font-weight: 700 !important;
+        color: #333333 !important
+      }
+
+      table.kmTableBlock.kmTableMobile td.kmTableBlockInner table.order-line-items p.order-line-variant {
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+        color: #777777 !important
+      }
+
+      table.kmTableBlock.kmTableMobile td.kmTableBlockInner table.order-line-items td.order-line-price-cell {
+        font-size: 13px !important;
+        line-height: 1.3 !important;
+        color: #333333 !important
+      }
+
+      table.kmTableBlock.kmTableMobile td.kmTableBlockInner table.order-line-items td.order-line-price-cell .order-line-original-price {
+        font-size: 12px !important
+      }
+
+      table.kmTableBlock.kmTableMobile td.kmTableBlockInner table.order-line-items td.order-line-price-cell .order-line-final-price {
+        font-size: 13px !important;
+        color: #333333 !important
+      }
+
       /* FYI/DATE/etc.: keep two columns beside each other on mobile (no kmFloatLeft stack) */
       table.templateRow.order-summary-rows {
         width: 100% !important;
@@ -259,6 +314,21 @@
         min-width: 0 !important;
         vertical-align: top !important;
         box-sizing: border-box !important
+      }
+
+      td.kmTableBlockInner.order-summary-totals-wrap {
+        padding-left: 32px !important;
+        padding-right: 32px !important
+      }
+
+      td.kmTextBlockInner.order-summary-note-wrap td.kmTextContent {
+        padding-left: 32px !important;
+        padding-right: 32px !important
+      }
+
+      table.kmTableBlock.kmTableMobile td.order-summary-totals-wrap table.order-summary-totals-table td.kmTextContent {
+        font-size: 12px !important;
+        line-height: 1.4 !important
       }
 
       th.contact-us-teal.kmTextContent {
@@ -718,25 +788,43 @@
       height: auto !important
     }
 
-    a .shop-category-img-mobile {
-      display: none !important;
-      max-height: 0 !important;
-      overflow: hidden !important
-    }
-
-    @media only screen and (max-width:480px) {
-      a .shop-category-img-desktop {
+      a .shop-category-img-mobile {
         display: none !important;
         max-height: 0 !important;
         overflow: hidden !important
       }
 
-      a .shop-category-img-mobile {
-        display: block !important;
-        max-height: none !important;
-        overflow: visible !important
+      a .order-confirmation-hero-mobile {
+        display: none !important;
+        max-height: 0 !important;
+        overflow: hidden !important
       }
-    }
+
+      @media only screen and (max-width:480px) {
+        a .shop-category-img-desktop {
+          display: none !important;
+          max-height: 0 !important;
+          overflow: hidden !important
+        }
+
+        a .shop-category-img-mobile {
+          display: block !important;
+          max-height: none !important;
+          overflow: visible !important
+        }
+
+        a .order-confirmation-hero-desktop {
+          display: none !important;
+          max-height: 0 !important;
+          overflow: hidden !important
+        }
+
+        a .order-confirmation-hero-mobile {
+          display: block !important;
+          max-height: none !important;
+          overflow: visible !important
+        }
+      }
 
     td.customer-favorites-section {
       width: 100%;
@@ -922,7 +1010,25 @@
                                       <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmImageContentContainer" style="min-width:100%" width="100%">
                                         <tbody>
                                           <tr>
-                                            <td class="kmImageContent" style="padding:0;text-align: center;" valign="top"> <a href="https://www.tombihn.com/" target="_self"> <img align="center" alt class="kmImage" src="https://d3k81ch9hvuctc.cloudfront.net/company/XjLncj/images/a0960f47-5e4d-4cf2-b70e-1f6cc8bab9a5.png" style="max-width:700px;padding:0;border-width:0;" width="582"> </a>
+                                            <td class="kmImageContent" style="padding:0;text-align:center;" valign="top"><a href="https://www.tombihn.com/" style="display:block;line-height:0;text-decoration:none;" target="_self"><img align="center" alt="TOM BIHN" border="0" class="kmImage order-confirmation-hero-desktop" src="https://cdn.shopify.com/s/files/1/1089/8530/files/HERO_9bea88c7-84eb-4581-9274-0282c9657baf.jpg?v=1777667394" style="display:block;width:100%;max-width:600px;height:auto;padding:0;margin:0 auto;border:0;outline:none;text-decoration:none;line-height:0;font-size:0;" width="600"><img align="center" alt="TOM BIHN" border="0" class="kmImage order-confirmation-hero-mobile" src="https://cdn.shopify.com/s/files/1/1089/8530/files/HEROmobile.jpg?v=1777667527" style="display:none;mso-hide:all;width:100%;max-width:600px;height:auto;padding:0;margin:0 auto;border:0;outline:none;text-decoration:none;line-height:0;font-size:0;" width="600"></a></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
+                                <tbody class="kmTextBlockOuter">
+                                  <tr>
+                                    <td class="kmTextBlockInner order-confirmation-hero-wrap" style="padding:12px 32px 0;" valign="top">
+                                      <table align="center" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" role="presentation" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td class="kmTextContent" style="padding:16px 0 8px;text-align:center;font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:1.5;color:#333333;font-weight:400;mso-ansi-font-weight:normal;" valign="top">
+                                              <p style="margin:0;padding:0;color:#333333;font-size:14px;font-weight:400;">
+                                                Thanks for your order {{ order.name }}! We&rsquo;re getting it ready and
+                                                will let you know when it ships.</p>
                                             </td>
                                           </tr>
                                         </tbody>
@@ -931,51 +1037,6 @@
                                   </tr>
                                 </tbody>
                               </table>
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" width="100%">
-                                <tbody class="kmDividerBlockOuter">
-                                  <tr>
-                                    <td class="kmDividerBlockInner" style="padding-top:36px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
-                                        <tbody>
-                                          <tr>
-                                            <td><span></span></td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmImageBlock" style="min-width:100%" width="100%">
-                                <tbody class="kmImageBlockOuter">
-                                  <tr>
-                                    <td class="kmImageBlockInner" style="padding:9px;padding-left:9;padding-right:9;" valign="top">
-                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmImageContentContainer" style="min-width:100%" width="100%">
-                                        <tbody>
-                                          <tr>
-                                            <td class="kmImageContent" style="padding-top:0px;padding-bottom:0;padding-left:9px;padding-right:9px;text-align: center;" valign="top"> <img align="center" alt="Thanks for your order" class="kmImage" src="https://d3k81ch9hvuctc.cloudfront.net/company/XjLncj/images/f05d6c45-f8f9-4409-9691-3f6c045ff70a.png" style="max-width:366px;padding:0;border-width:0;" width="366"> </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" width="100%">
-                                <tbody class="kmDividerBlockOuter">
-                                  <tr>
-                                    <td class="kmDividerBlockInner" style="padding-top:30px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
-                                        <tbody>
-                                          <tr>
-                                            <td><span></span></td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table> 
 
                               <!-- products -->
                                 <table border="0" cellpadding="0" cellspacing="0" class="kmTableBlock kmTableMobile" width="100%">
@@ -984,33 +1045,53 @@
                                       <td class="kmTableBlockInner" style="padding-top:0px;padding-left:95px;padding-bottom:0px;padding-right:95px;" valign="top"> 
                                         
                                         {% if line_items %} 
-                                          <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTable" style="text-align:left;" width="100%">
+                                          <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTable order-line-items" style="text-align:left;" width="100%">
                                             <thead>
                                               <tr>
-                                                <th class="kmTextContent" style="text-align:left;width:5%;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;text-align:center;" valign="top"></th>
-                                                <th class="kmTextContent" style="text-align:left;width:100px;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;text-align:center;" valign="top"></th>
-                                                <th class="kmTextContent" style="text-align:left;width:225px;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;text-align:center;" valign="top"></th>
+                                                <th class="kmTextContent" style="text-align:center;width:40px;padding:0;" valign="top"></th>
+                                                <th class="kmTextContent" style="text-align:left;width:80px;padding:0;" valign="top"></th>
+                                                <th class="kmTextContent" style="text-align:left;padding:0;" valign="top"></th>
+                                                <th class="kmTextContent" style="text-align:right;width:96px;padding:0;" valign="top"></th>
                                               </tr>
                                             </thead>
                                             <tbody> 
                                               {% for line in line_items %} 
                                                 <tr class="kmTableRow" style="border-bottom: 1px solid #dde2e5;">
-                                                  <td class="kmTextContent" style="text-align:left;width:5%;border-bottom-style:none;border-bottom-width:0;border-bottom-color:#FFFFFF;padding-top:20px;padding-left:12px;padding-bottom:20px;padding-right:12px;border-right-width:0px;border-right-color:#864F4F;border-right-style:none;" valign="middle">
-                                                    <p style="padding-bottom:0; white-space: nowrap;">{{ line.quantity }}<span>x</span></p>
+                                                  <td class="kmTextContent" style="text-align:center;width:40px;border-bottom-style:none;border-bottom-width:0;border-bottom-color:#FFFFFF;padding:20px 8px 20px 0;font-family:Helvetica, Arial, sans-serif;font-size:13px;line-height:1.4;color:#333333;border-right-width:0;border-right-style:none;" valign="middle">
+                                                    <p style="margin:0;padding:0;white-space:nowrap;">{{ line.quantity }}<span>x</span></p>
                                                   </td>
-                                                  <td class="kmTextContent" style="text-align:left;width:100px;border-top-style:none;border-top-width:0px;border-top-color:#FFFFFF;padding-top:20px;padding-left:12px;padding-bottom:20px;padding-right:12px;border-right-width:0px;border-right-color:#864F4F;border-right-style:none;" valign="middle">
+                                                  <td class="kmTextContent" style="text-align:left;width:80px;border-top-style:none;border-top-width:0;border-top-color:#FFFFFF;padding:20px 12px 20px 0;border-right-width:0;border-right-style:none;" valign="middle">
                                                     <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
                                                       <tr>
-                                                        <td class="kmImageContent" style="padding-top:0px;padding-bottom:0;padding-left:0;padding-right:0;" valign="top">
-                                                          <img align="left" alt class="kmImage" src="{{ line | img_url: 'small' }}" style="max-width:px;" width>
+                                                        <td class="kmImageContent" style="padding:0;" valign="top">
+                                                          <img align="left" alt class="kmImage order-line-image" src="{{ line | img_url: 'compact_cropped' }}" width="72" style="border-radius:4px;display:block;width:72px;max-width:72px;height:auto;border:0;outline:none;text-decoration:none;">
                                                         </td>
                                                       </tr>
                                                     </table>
                                                   </td>
-                                                  <td class="kmTextContent" style="border-right:none; text-align:left; width:225px; border-top-style:none; border-top-width:0; border-top-color:#FFF; padding-top:20px; padding-left:12px; padding-bottom:20px; padding-right:12px; border-right-width:0; border-right-color:#864F4F; border-right-style:none" valign="middle">
-                                                    <h3 style="margin-bottom: 1px;"><span style="font-size:17px;"><span style="color:#1A1818;">{{ line.title }}</span></span></h3>
-                                                    <p style="padding-bottom: 5px;"><span style="font-size:12px; text-transform: uppercase;">{{ line.variant.title }}</span></p>
-                                                    <p style="padding-bottom:0; text-transform:uppercase"><span style="font-size:12px;">{{ line.price | money }} each</span></p>
+                                                  <td class="kmTextContent order-line-details" style="border-right:none;text-align:left;border-top-style:none;border-top-width:0;border-top-color:#FFF;padding:20px 12px 20px 0;border-right-width:0;border-right-style:none;font-family:Helvetica, Arial, sans-serif;" valign="middle">
+                                                    <h3 style="margin:0 0 4px;padding:0;font-size:14px;font-weight:700;line-height:1.3;color:#333333;font-family:Helvetica, Arial, sans-serif;">
+                                                      {{ line.title }}
+                                                    </h3>
+                                                    {% if line.variant.title != 'Default Title' %}
+                                                      <p class="order-line-variant" style="margin:0;padding:0;font-size:12px;font-weight:400;line-height:1.4;color:#777777;font-family:Helvetica, Arial, sans-serif;">
+                                                        {{ line.variant.title }}
+                                                      </p>
+                                                    {% endif %}
+                                                  </td>
+                                                  <td class="kmTextContent order-line-price-cell" style="text-align:right;white-space:nowrap;border-top-style:none;border-top-width:0;border-top-color:#FFF;padding:20px 0 20px 12px;border-right-width:0;border-right-style:none;font-family:Helvetica, Arial, sans-serif;font-size:13px;line-height:1.3;color:#333333;font-weight:400;" valign="top">
+                                                    {% if line.original_line_price != line.final_line_price %}
+                                                      <span class="order-line-original-price" style="color:#777777;text-decoration:line-through;font-size:12px;display:block;margin-bottom:2px;">
+                                                        {{- line.original_line_price | money -}}
+                                                      </span>
+                                                    {% endif %}
+                                                    <span class="order-line-final-price" style="color:#333333;font-size:13px;">
+                                                      {% if line.final_line_price > 0 %}
+                                                        {{ line.final_line_price | money }}
+                                                      {% else %}
+                                                        Free
+                                                      {% endif %}
+                                                    </span>
                                                   </td>
                                                 </tr> 
                                               {% endfor %}
@@ -1035,14 +1116,45 @@
                         <tbody>
                           <tr>
                             <td class="rowContainer kmFloatLeft" valign="top">
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" width="100%">
-                                <tbody class="kmDividerBlockOuter">
+                              {% comment %} Order totals: one row per line, label left / value right {% endcomment %}
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTableBlock kmTableMobile" width="100%">
+                                <tbody class="kmTableBlockOuter">
                                   <tr>
-                                    <td class="kmDividerBlockInner" style="padding-top:20px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
+                                    <td class="kmTableBlockInner order-summary-totals-wrap" style="padding-top:16px;padding-bottom:16px;padding-left:32px;padding-right:32px;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTable order-summary-totals-table" role="presentation" width="100%" style="width:100%;border-collapse:collapse;table-layout:fixed;">
                                         <tbody>
+                                          {% if discounts %}
+                                            <tr>
+                                              <td class="kmTextContent order-summary-totals-cell order-summary-totals-label" style="margin:0;border-top:1px solid #EEE;padding:12px 8px 6px 0;text-align:left;vertical-align:middle;color:#555555;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:400;line-height:1.4;" valign="middle">Discounts:</td>
+                                              <td class="kmTextContent order-summary-totals-cell order-summary-totals-value" style="margin:0;border-top:1px solid #EEE;padding:12px 0 6px 8px;text-align:right;vertical-align:middle;color:#555555;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:400;line-height:1.4;white-space:nowrap;" valign="middle">-{{ discounts_savings | money }}</td>
+                                            </tr>
+                                          {% endif %}
+                                          {% if discounts %}
+                                            <tr>
+                                              <td class="kmTextContent order-summary-totals-cell order-summary-totals-label" style="margin:0;border-top:none;padding:6px 8px 6px 0;text-align:left;vertical-align:middle;color:#555555;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:400;line-height:1.4;" valign="middle">Subtotal:</td>
+                                              <td class="kmTextContent order-summary-totals-cell order-summary-totals-value" style="margin:0;border-top:none;padding:6px 0 6px 8px;text-align:right;vertical-align:middle;color:#555555;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:400;line-height:1.4;white-space:nowrap;" valign="middle">{{ subtotal_price | money }}</td>
+                                            </tr>
+                                          {% else %}
+                                            <tr>
+                                              <td class="kmTextContent order-summary-totals-cell order-summary-totals-label" style="margin:0;border-top:1px solid #EEE;padding:12px 8px 6px 0;text-align:left;vertical-align:middle;color:#555555;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:400;line-height:1.4;" valign="middle">Subtotal:</td>
+                                              <td class="kmTextContent order-summary-totals-cell order-summary-totals-value" style="margin:0;border-top:1px solid #EEE;padding:12px 0 6px 8px;text-align:right;vertical-align:middle;color:#555555;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:400;line-height:1.4;white-space:nowrap;" valign="middle">{{ subtotal_price | money }}</td>
+                                            </tr>
+                                          {% endif %}
+                                          {% if requires_shipping %}
+                                            <tr>
+                                              <td class="kmTextContent order-summary-totals-cell order-summary-totals-label" style="margin:0;padding:6px 8px 6px 0;text-align:left;vertical-align:middle;color:#555555;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:400;line-height:1.4;" valign="middle">Shipping:</td>
+                                              <td class="kmTextContent order-summary-totals-cell order-summary-totals-value" style="margin:0;padding:6px 0 6px 8px;text-align:right;vertical-align:middle;color:#555555;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:400;line-height:1.4;white-space:nowrap;" valign="middle">{{ shipping_price | money }}</td>
+                                            </tr>
+                                          {% endif %}
+                                          {% if tax_price > 0 %}
+                                            <tr>
+                                              <td class="kmTextContent order-summary-totals-cell order-summary-totals-label" style="margin:0;padding:6px 8px 6px 0;text-align:left;vertical-align:middle;color:#575757;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:400;line-height:1.4;" valign="middle">Tax:</td>
+                                              <td class="kmTextContent order-summary-totals-cell order-summary-totals-value" style="margin:0;padding:6px 0 6px 8px;text-align:right;vertical-align:middle;color:#575757;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:400;line-height:1.4;white-space:nowrap;" valign="middle">{{ tax_price | money }}</td>
+                                            </tr>
+                                          {% endif %}
                                           <tr>
-                                            <td><span></span></td>
+                                            <td class="kmTextContent order-summary-totals-cell order-summary-totals-total-label" style="margin:0;border-top:1px solid #EEE;padding:14px 8px 4px 0;text-align:left;vertical-align:middle;color:#1A1818;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:700;line-height:1.4;" valign="middle"><strong>Total:</strong></td>
+                                            <td class="kmTextContent order-summary-totals-cell order-summary-totals-total-value" style="margin:0;border-top:1px solid #EEE;padding:14px 0 4px 8px;text-align:right;vertical-align:middle;color:#1A1818;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:700;line-height:1.4;white-space:nowrap;" valign="middle"><strong>{{ total_price | money }}</strong></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -1050,29 +1162,17 @@
                                   </tr>
                                 </tbody>
                               </table>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="center" valign="top">
-                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
-                        <tbody>
-                          <tr>
-                            <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="50%">
                               <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
                                 <tbody class="kmTextBlockOuter">
                                   <tr>
-                                    <td class="kmTextBlockInner" style valign="top">
-                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
+                                    <td class="kmTextBlockInner order-summary-note-wrap" style="padding-top:0;padding-bottom:10px;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" role="presentation" width="100%">
                                         <tbody>
                                           <tr>
-                                            <td class="kmTextContent" style="padding-top:10px;padding-bottom:10px;padding-left:95px;padding-right:10px;" valign="top">
-                                              <h4><span style="font-size: 12px; text-transform: uppercase;">NOTE/COMMENT:</span>
-                                              </h4>
-                                              <p style="padding-bottom:0; font-family: Helvetica, Arial, sans-serif; font-size: 10px;">
+                                            <td class="kmTextContent" style="padding-top:8px;padding-bottom:16px;padding-left:32px;padding-right:32px;" valign="top">
+                                              <p style="margin:0;padding:0;font-family:Helvetica, Arial, sans-serif;">
+                                                <span style="font-size:11px;font-weight:bold;color:#1A1818;">Note / comment</span></p>
+                                              <p style="margin:8px 0 0;padding:0;font-family: Helvetica, Arial, sans-serif; font-size:10px;line-height:1.45;color:#575757;">
                                                 {{ shipping_method.title }}
                                                 <br>
                                                 {% unless note == blank %}
@@ -1088,97 +1188,13 @@
                                 </tbody>
                               </table>
                             </td>
-                            <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="50%">
-                              <!--[if !mso]><!-->
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock kmMobileOnly" width="100%">
-                                <tbody class="kmDividerBlockOuter">
-                                  <tr>
-                                    <td class="kmDividerBlockInner" style="padding-top:10px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
-                                        <tbody>
-                                          <tr>
-                                            <td><span></span></td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              <!--<![endif]-->
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmTableBlock kmTableMobile" width="100%">
-                                <tbody class="kmTableBlockOuter">
-                                  <tr>
-                                    <td class="kmTableBlockInner" style="padding-top:10px;padding-left:10px;padding-bottom:10px;padding-right:95px;" valign="top">
-                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTable" style width="100%">
-                                        <thead>
-                                          <tr>
-                                            <th class="kmTextContent" style="text-align:left;font-weight:bold;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> </th>
-                                            <th class="kmTextContent" style="text-align:right;font-weight:bold;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> </th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr class="kmTableRow">
-                                            <td class="kmTextContent" style="text-align:left;;border-top-style:none;border-top-width:0px;padding-top:0px;padding-left:5px;padding-bottom:0px;padding-right:5px;" valign="top">
-                                              {% if discounts %}
-                                                <p><span style="font-size: 12px; text-transform: uppercase;">DISCOUNTS:</span>
-                                                </p>
-                                              {% endif %}
-                                              <p><span style="font-size: 12px; text-transform: uppercase;">SUBTOTAL:</span>
-                                              </p>
-                                              {% if requires_shipping %}
-                                                <p>
-                                                  <span style="font-size: 12px; text-transform: uppercase;">SHIPPING:</span>
-                                                </p>
-                                              {% endif %}
-                                                                                                                                  {% if tax_price > 0 %}
-                                                <p>
-                                                  <span style="font-size: 12px; text-transform: uppercase;">TAX:</span>
-                                                </p>
-                                              {% endif %}
-                                              <p style="padding-bottom:0"><strong><span style="font-size: 12px; text-transform: uppercase;">TOTAL:</span></strong>
-                                              </p>
-                                            </td>
-                                            <td class="kmTextContent" style="border-right:none; text-align:right; border-top-style:none; border-top-width:0; padding-top:0; padding-left:5px; padding-bottom:0; padding-right:5px" valign="top">
-                                              {% if discounts %}
-                                                <p><span style="font-size: 12px; text-transform: uppercase;">{{ discounts_savings | money }}</span>
-                                                </p>
-                                              {% endif %}
-                                              <p>
-                                                <span style="font-size: 12px; text-transform: uppercase;">{{ subtotal_price | money }}</span>
-                                              </p>
-                                              {% if requires_shipping %}
-                                                <p>
-                                                  <span style="font-size: 12px; text-transform: uppercase;"></span>
-                                                  <span style="font-size: 12px; text-transform: uppercase;">{{ shipping_price | money }}</span>
-                                                </p>
-                                              {% endif %}
-                                              {% if tax_price > 0 %}
-                                                <p>
-                                                  <span style="font-size: 12px; text-transform: uppercase;"></span>
-                                                  <span style="font-size: 12px; text-transform: uppercase;">{{ tax_price | money }}</span>
-                                                </p>
-                                              {% endif %}
-                                              <p style="padding-bottom:0">
-                                                <span style="font-size: 12px; text-transform: uppercase;"></span>
-                                                <strong><span style="font-size: 12px; text-transform: uppercase;">{{ total_price | money }}</span></strong>
-                                              </p>
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </td>
                           </tr>
                         </tbody>
                       </table>
                     </td>
                   </tr>
                   <tr>
-                    <td align="center" valign="top" bgcolor="#E9F1F7" style="background-color:#E9F1F7;border-top:1px solid #DDE8EE;">
+                    <td align="center" valign="top" bgcolor="#E9F1F7" style="background-color:#E9F1F7;border-top:1px solid #EEE;">
                       <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
                         <tbody>
                           <tr>
@@ -1212,7 +1228,7 @@
                                 <tbody class="kmDividerBlockOuter">
                                   <tr>
                                     <td class="kmDividerBlockInner" style="padding-top:0px;padding-bottom:0px;padding-left:18px;padding-right:18px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" style="border-top-width:1px;border-top-style:solid;border-top-color:#DDE8EE;" width="100%">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" style="border-top-width:1px;border-top-style:solid;border-top-color:#EEE;" width="100%">
                                         <tbody>
                                           <tr>
                                             <td><span></span></td>
@@ -1228,7 +1244,7 @@
                                 <tbody class="kmDividerBlockOuter">
                                   <tr>
                                     <td class="kmDividerBlockInner" style="padding-top:0px;padding-bottom:0px;padding-left:30px;padding-right:30px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" style="border-top-width:1px;border-top-style:solid;border-top-color:#DDE8EE;" width="100%">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" style="border-top-width:1px;border-top-style:solid;border-top-color:#EEE;" width="100%">
                                         <tbody>
                                           <tr>
                                             <td><span></span></td>
@@ -1294,7 +1310,7 @@
                   </tr>
                   <!-- DATE -->
                   <tr>
-                    <td align="center" valign="top" bgcolor="#E9F1F7" style="border-top:1px solid #DDE8EE;">
+                    <td align="center" valign="top" bgcolor="#E9F1F7" style="border-top:1px solid #EEE;">
                       <table border="0" cellpadding="0" cellspacing="0" class="templateRow order-summary-rows" role="presentation" width="100%">
                         <tbody>
                           <tr>
@@ -1341,7 +1357,7 @@
                   <!-- SHIPPING ADDRESS -->
                   {% if requires_shipping and shipping_address %}
                     <tr>
-                      <td align="center" valign="top" bgcolor="#E9F1F7" style="border-top:1px solid #DDE8EE;">
+                      <td align="center" valign="top" bgcolor="#E9F1F7" style="border-top:1px solid #EEE;">
                         <table border="0" cellpadding="0" cellspacing="0" class="templateRow order-summary-rows" role="presentation" width="100%">
                           <tbody>
                             <tr>
@@ -1394,7 +1410,7 @@
                   {% endif %}
                   <!-- BILLING ADDRESS -->
                   <tr>
-                    <td align="center" valign="top" bgcolor="#E9F1F7" style="background-color:#E9F1F7;border-top:1px solid #DDE8EE;border-bottom:1px solid #DDE8EE;">
+                    <td align="center" valign="top" bgcolor="#E9F1F7" style="background-color:#E9F1F7;border-top:1px solid #EEE;border-bottom:1px solid #EEE;">
                       <table border="0" cellpadding="0" cellspacing="0" class="templateRow order-summary-rows" role="presentation" width="100%">
                         <tbody>
                           <tr>
@@ -1597,13 +1613,13 @@
                       </table>
                     </td>
                   </tr>
-                  {% comment %} Trust bar: fluid 3 cols (max-width 600). SVGs: limited in Outlook. {% endcomment %}
+                  {% comment %} Trust bar: solid #E9F1F7, three columns (max-width 600). SVGs hidden in Outlook. {% endcomment %}
                   <tr>
                     <td align="center" valign="top">
                       <table border="0" cellpadding="0" cellspacing="0" class="templateRow" role="presentation" width="100%">
                         <tbody>
                           <tr>
-                            <td class="rowContainer kmFloatLeft" bgcolor="#E9F1F7" valign="top" style="background-color:#E9F1F7;background-image:linear-gradient(rgba(160,174,188,0.28) 1px,transparent 1px),linear-gradient(90deg,rgba(160,174,188,0.28) 1px,transparent 1px);background-size:14px 14px;">
+                            <td class="rowContainer kmFloatLeft" bgcolor="#E9F1F7" valign="top" style="background-color:#E9F1F7;">
                               <table border="0" cellpadding="0" cellspacing="0" role="presentation" align="center" class="trust-bar-inner" width="100%" style="border-collapse:collapse;table-layout:fixed;width:100%;max-width:600px;">
                                 <tbody>
                                   <tr>
