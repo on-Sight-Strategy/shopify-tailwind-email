@@ -359,6 +359,10 @@
       border-top: 0
     }
 
+    body {
+      font-family: Helvetica, Arial, sans-serif
+    }
+
     body,
     #bodyTable {
       background-color: #F7F7F7
@@ -382,7 +386,7 @@
     h1 {
       color: #37718E !important;
       display: block;
-      font-family: "Trebuchet MS";
+      font-family: Helvetica, Arial, sans-serif;
       font-size: 40px;
       font-style: normal;
       font-weight: normal;
@@ -398,7 +402,7 @@
     h2 {
       color: #37718E !important;
       display: block;
-      font-family: Georgia;
+      font-family: Helvetica, Arial, sans-serif;
       font-size: 24px;
       font-style: italic;
       font-weight: lighter;
@@ -413,7 +417,7 @@
 
     h3 {
       display: block;
-      font-family: "Helvetica Neue", Arial;
+      font-family: Helvetica, Arial, sans-serif;
       font-size: 24px;
       font-style: normal;
       font-weight: bold;
@@ -428,7 +432,7 @@
 
     h4 {
       display: block;
-      font-family: "Helvetica Neue", Arial;
+      font-family: Helvetica, Arial, sans-serif;
       font-size: 18px;
       font-style: normal;
       font-weight: italic;
@@ -443,7 +447,7 @@
 
     .rowContainer .kmTextContent {
       color: #1A1818;
-      font-family: "Trebuchet MS";
+      font-family: Helvetica, Arial, sans-serif;
       font-size: 14px;
       line-height: 1.3;
       letter-spacing: 0;
@@ -500,7 +504,7 @@
 
     .kmButtonContent {
       color: white;
-      font-family: "Trebuchet MS";
+      font-family: Helvetica, Arial, sans-serif;
       font-size: 16px
     }
 
@@ -510,13 +514,13 @@
       text-align: center;
       text-decoration: none;
       color: white;
-      font-family: "Trebuchet MS";
+      font-family: Helvetica, Arial, sans-serif;
       font-size: 16px
     }
 
     .kmButtonBarContent,
     .kmButtonCollectionContent {
-      font-family: "Trebuchet MS"
+      font-family: Helvetica, Arial, sans-serif
     }
 
     .kmVerticalButtonContent {
@@ -680,6 +684,15 @@
       padding: 0 !important
     }
 
+    p.crew-footer-best-regards {
+      font-size: 14px !important;
+      font-style: italic !important
+    }
+
+    p.crew-footer-crew-title {
+      font-size: 36px !important
+    }
+
     img.crew-footer-airplane-img {
       display: block !important;
       margin-left: auto !important;
@@ -741,6 +754,18 @@
         width: 8px !important;
         min-width: 8px !important;
         max-width: 8px !important
+      }
+
+      p.crew-footer-best-regards {
+        font-size: 12px !important
+      }
+
+      p.crew-footer-crew-title {
+        font-size: 24px !important
+      }
+
+      p.tom-bihn-section-heading {
+        font-size: 20px !important
       }
 
       img.crew-footer-airplane-img {
@@ -955,7 +980,7 @@
                                               <h4><span
                                                   style="font-size: 12px; text-transform: uppercase;">NOTE/COMMENT:</span>
                                               </h4>
-                                              <p style="padding-bottom:0; font-family: courier, monospace; font-size: 10px;">
+                                              <p style="padding-bottom:0; font-family: Helvetica, Arial, sans-serif; font-size: 10px;">
                                                 {{ shipping_method.title }}
                                                 <br />
                                                 {% unless note == blank %}
@@ -1127,7 +1152,7 @@
                                                 Summary</span> </td>
                                             <td class="kmTextContent"
                                               style="border-right:none; text-align:right; color:#37718E; border-top-style:none; border-top-width:0; border-top-color:#d9d9d9; padding-top:0; padding-left:0; padding-bottom:0; padding-right:0"
-                                              valign="top"> <span style="font-family:courier,monospace;"><span
+                                              valign="top"> <span style="font-family: Helvetica, Arial, sans-serif;"><span
                                                   style="font-size: 16px; text-transform: uppercase;">ORDER {{
                                                   order.name }}</span></span> </td>
                                           </tr>
@@ -1220,7 +1245,7 @@
                                           <tr>
                                             <td class="kmTextContent"
                                               style="padding-top:15px;padding-bottom:15px;padding-left:10px;padding-right:30px;"
-                                              valign="top"> <span style="font-family:courier,monospace;"><span
+                                              valign="top"> <span style="font-family: Helvetica, Arial, sans-serif;"><span
                                                   style="color: rgb(26, 24, 24); font-size: 12px;">All regular (not
                                                   pre-order) orders for bags are shipping within 2-3
                                                   business days, and often much sooner than that.</span></span> </td>
@@ -1285,7 +1310,7 @@
                                           <tr>
                                             <td class="kmTextContent"
                                               style="padding-top:15px;padding-bottom:15px;padding-left:10px;padding-right:30px;"
-                                              valign="top"> <span style="font-family:courier,monospace;"><span
+                                              valign="top"> <span style="font-family: Helvetica, Arial, sans-serif;"><span
                                                   style="font-size: 12px;">{{ date | date: "%m/%d/%Y" }}</span></span>
                                             </td>
                                           </tr>
@@ -1340,24 +1365,24 @@
                                               <td class="kmTextContent"
                                                 style="padding-top:15px;padding-bottom:15px;padding-left:10px;padding-right:30px;"
                                                 valign="top"> <span
-                                                  style="font-family: courier, monospace; font-size: 12px;"><span
-                                                    style="font-family: courier, monospace; font-size: 12px;">{{
+                                                  style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><span
+                                                    style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                     shipping_address.name }}</span></span><br /> <span
-                                                  style="font-family: courier, monospace; font-size: 12px;"><span
-                                                    style="font-family: courier, monospace; font-size: 12px;">{{
+                                                  style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><span
+                                                    style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                     shipping_address.company }}</span></span><br /> <span
-                                                  style="font-family: courier, monospace; font-size: 12px;"><span
-                                                    style="font-family: courier, monospace; font-size: 12px;">{{
+                                                  style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><span
+                                                    style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                     shipping_address.street }}</span></span><br /> <span
-                                                  style="font-family: courier, monospace; font-size: 12px;"><span
-                                                    style="font-family: courier, monospace; font-size: 12px;">{{
+                                                  style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><span
+                                                    style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                     shipping_address.city }}</span></span><br /> <span
-                                                  style="font-family: courier, monospace; font-size: 12px;"><span
-                                                    style="font-family: courier, monospace; font-size: 12px;">{{
+                                                  style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><span
+                                                    style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                     shipping_address.province }} {{ shipping_address.zip
                                                     }}</span></span><br /> <span
-                                                  style="font-family: courier, monospace; font-size: 12px;"><span
-                                                    style="font-family: courier, monospace; font-size: 12px;">{{
+                                                  style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><span
+                                                    style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                     shipping_address.country }}</span></span> </td>
                                             </tr>
                                           </tbody>
@@ -1411,35 +1436,35 @@
                                             <td class="kmTextContent"
                                               style="padding-top:15px;padding-bottom:15px;padding-left:10px;padding-right:30px;"
                                               valign="top"> <span
-                                                style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;"></span><span
-                                                style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;">{{
+                                                style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;"></span><span
+                                                style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                 billing_address.name }}</span><span
-                                                style='color: rgb(34, 34, 34); font-family: "Trebuchet MS", sans-serif; font-size: 14px;'></span><br
-                                                style='color: rgb(34, 34, 34); font-family: "Trebuchet MS", sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);' />
+                                                style='color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;'></span><br
+                                                style='color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);' />
                                               <span
-                                                style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;">{{
+                                                style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                 billing_address.company }}</span><span
-                                                style='color: rgb(34, 34, 34); font-family: "Trebuchet MS", sans-serif; font-size: 14px;'></span><br
-                                                style='color: rgb(34, 34, 34); font-family: "Trebuchet MS", sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);' />
+                                                style='color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;'></span><br
+                                                style='color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);' />
                                               <span
-                                                style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;">{{
+                                                style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                 billing_address.street }}</span><span
-                                                style='color: rgb(34, 34, 34); font-family: "Trebuchet MS", sans-serif; font-size: 14px;'></span><br
-                                                style='color: rgb(34, 34, 34); font-family: "Trebuchet MS", sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);' />
+                                                style='color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;'></span><br
+                                                style='color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);' />
                                               <span
-                                                style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;">{{
+                                                style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                 billing_address.city }}</span><span
-                                                style='color: rgb(34, 34, 34); font-family: "Trebuchet MS", sans-serif; font-size: 14px;'></span><br
-                                                style='color: rgb(34, 34, 34); font-family: "Trebuchet MS", sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);' />
+                                                style='color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;'></span><br
+                                                style='color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);' />
                                               <span
-                                                style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;">{{
+                                                style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                 billing_address.province }} {{ billing_address.zip }}</span><span
-                                                style='color: rgb(34, 34, 34); font-family: "Trebuchet MS", sans-serif; font-size: 14px;'></span><br
-                                                style='color: rgb(34, 34, 34); font-family: "Trebuchet MS", sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);' />
+                                                style='color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;'></span><br
+                                                style='color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);' />
                                               <span
-                                                style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;">{{
+                                                style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                 billing_address.country }}</span><span
-                                                style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;"></span>
+                                                style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;"></span>
                                             </td>
                                           </tr>
                                         </tbody>
@@ -1592,10 +1617,10 @@
                               <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
                                 <tbody>
                                   <tr>
-                                    <td class="pb-6 pt-8 text-center px-9" align="center"
-                                      style="padding-top:32px;padding-bottom:24px;padding-left:9px;padding-right:9px;">
-                                      <p class="m-0 text-xl font-semibold text-black"
-                                        style="margin:0;font-family: Arial, Helvetica, sans-serif;color:#111111;line-height:1.3;font-size:20px;font-weight:bold;">
+                                    <td class="text-center px-9" align="center"
+                                      style="padding-top:20px;padding-bottom:20px;padding-left:9px;padding-right:9px;">
+                                      <p class="m-0 text-black tom-bihn-section-heading"
+                                        style="margin:0;font-family: 'Trebuchet MS', Helvetica, Arial, sans-serif;color:#111111;line-height:1.3;font-size:24px;font-weight:bold;">
                                         Shop By Category
                                       </p>
                                     </td>
@@ -1716,16 +1741,16 @@
                       <table border="0" cellpadding="0" cellspacing="0" class="templateRow" role="presentation" width="100%">
                         <tbody>
                           <tr>
-                            <td class="rowContainer kmFloatLeft" bgcolor="#E8EDF3"
+                            <td class="rowContainer kmFloatLeft" bgcolor="#E9F1F7"
                               valign="top"
-                              style="background-color:#E8EDF3;background-image:linear-gradient(rgba(160,174,188,0.28) 1px,transparent 1px),linear-gradient(90deg,rgba(160,174,188,0.28) 1px,transparent 1px);background-size:14px 14px;">
+                              style="background-color:#E9F1F7;background-image:linear-gradient(rgba(160,174,188,0.28) 1px,transparent 1px),linear-gradient(90deg,rgba(160,174,188,0.28) 1px,transparent 1px);background-size:14px 14px;">
                               <table border="0" cellpadding="0" cellspacing="0" role="presentation"
                                 align="center" class="trust-bar-inner" width="100%"
                                 style="border-collapse:collapse;table-layout:fixed;width:100%;max-width:600px;">
                                 <tbody>
                                   <tr>
                                     <td class="trust-bar-col" valign="top" align="center" width="33.33%"
-                                      style="width:33.333%;padding:38px 8px;font-family:Arial,Helvetica,sans-serif;color:#111111;word-wrap:break-word;overflow-wrap:break-word;">
+                                      style="width:33.333%;padding:38px 8px;font-family: Helvetica, Arial, sans-serif;color:#111111;word-wrap:break-word;overflow-wrap:break-word;">
                                       <!--[if mso]>
                                       <div style="height:14px;line-height:14px;font-size:1px;">&nbsp;</div>
                                       <![endif]-->
@@ -1736,12 +1761,12 @@
                                       </svg>
                                       <!--<![endif]-->
                                       <p
-                                        style="margin:14px 0 0;padding:0;line-height:1.4;font-size:14px;text-align:center;width:100%;max-width:100%;word-wrap:break-word;overflow-wrap:break-word;word-break:break-word;-ms-word-break:break-word;mso-margin-top-alt:14px;mso-margin-bottom-alt:0;">
+                                        style="margin:14px 0 0;padding:0;line-height:1.4;font-size:12px;text-align:center;width:100%;max-width:100%;word-wrap:break-word;overflow-wrap:break-word;word-break:break-word;-ms-word-break:break-word;mso-margin-top-alt:14px;mso-margin-bottom-alt:0;">
                                         Lifetime Guarantee
                                       </p>
                                     </td>
                                     <td class="trust-bar-col" valign="top" align="center" width="33.33%"
-                                      style="width:33.333%;padding:38px 8px;font-family:Arial,Helvetica,sans-serif;color:#111111;word-wrap:break-word;overflow-wrap:break-word;">
+                                      style="width:33.333%;padding:38px 8px;font-family: Helvetica, Arial, sans-serif;color:#111111;word-wrap:break-word;overflow-wrap:break-word;">
                                       <!--[if mso]>
                                       <div style="height:14px;line-height:14px;font-size:1px;">&nbsp;</div>
                                       <![endif]-->
@@ -1754,12 +1779,12 @@
                                       </svg>
                                       <!--<![endif]-->
                                       <p
-                                        style="margin:14px 0 0;padding:0;line-height:1.4;font-size:14px;text-align:center;width:100%;max-width:100%;word-wrap:break-word;overflow-wrap:break-word;word-break:break-word;-ms-word-break:break-word;mso-margin-top-alt:14px;mso-margin-bottom-alt:0;">
+                                        style="margin:14px 0 0;padding:0;line-height:1.4;font-size:12px;text-align:center;width:100%;max-width:100%;word-wrap:break-word;overflow-wrap:break-word;word-break:break-word;-ms-word-break:break-word;mso-margin-top-alt:14px;mso-margin-bottom-alt:0;">
                                         Original designs since 1972
                                       </p>
                                     </td>
                                     <td class="trust-bar-col" valign="top" align="center" width="33.33%"
-                                      style="width:33.333%;padding:38px 8px;font-family:Arial,Helvetica,sans-serif;color:#111111;word-wrap:break-word;overflow-wrap:break-word;">
+                                      style="width:33.333%;padding:38px 8px;font-family: Helvetica, Arial, sans-serif;color:#111111;word-wrap:break-word;overflow-wrap:break-word;">
                                       <!--[if mso]>
                                       <div style="height:14px;line-height:14px;font-size:1px;">&nbsp;</div>
                                       <![endif]-->
@@ -1771,7 +1796,7 @@
                                       </svg>
                                       <!--<![endif]-->
                                       <p
-                                        style="margin:14px 0 0;padding:0;line-height:1.4;font-size:14px;text-align:center;width:100%;max-width:100%;word-wrap:break-word;overflow-wrap:break-word;word-break:break-word;-ms-word-break:break-word;mso-margin-top-alt:14px;mso-margin-bottom-alt:0;">
+                                        style="margin:14px 0 0;padding:0;line-height:1.4;font-size:12px;text-align:center;width:100%;max-width:100%;word-wrap:break-word;overflow-wrap:break-word;word-break:break-word;-ms-word-break:break-word;mso-margin-top-alt:14px;mso-margin-bottom-alt:0;">
                                         Built for travel and everyday
                                       </p>
                                     </td>
@@ -1796,9 +1821,9 @@
                                 style="width:100%;max-width:100%;box-sizing:border-box;">
                                 <tbody>
                                   <tr>
-                                    <td align="center" style="padding:0;" valign="top">
-                                      <p
-                                        style="margin:0;font-family: Arial, Helvetica, sans-serif;color:#111111;line-height:1.3;font-size:20px;font-weight:600;">
+                                    <td align="center" style="padding:0 0 8px;" valign="top">
+                                      <p class="tom-bihn-section-heading"
+                                        style="margin:0;font-family: 'Trebuchet MS', Helvetica, Arial, sans-serif;color:#111111;line-height:1.3;font-size:24px;font-weight:600;">
                                         Customer Favorites
                                       </p>
                                     </td>
@@ -1813,7 +1838,7 @@
                                         <tbody>
                                           <tr>
                                             <td bgcolor="#E9F1F7" class="customer-favorites-card-cell" valign="top"
-                                              style="min-width:0;vertical-align:top;background-color:#E9F1F7;border-radius:14px;line-height:normal;font-family: Arial, Helvetica, sans-serif;">
+                                              style="min-width:0;vertical-align:top;background-color:#E9F1F7;border-radius:14px;line-height:normal;font-family: Helvetica, Arial, sans-serif;">
                                               <a href="https://www.tombihn.com/collections/all-tom-bihn-stuff/products/synik-26"
                                                 style="color:#111111;text-decoration:none;display:block;"
                                                 target="_blank">
@@ -1836,7 +1861,7 @@
                                             <td class="customer-favorites-gap" width="12" bgcolor="#FFFFFF" valign="top"
                                               style="width:12px;line-height:0;font-size:0;mso-line-height-rule:exactly;">&#8203;</td>
                                             <td bgcolor="#E9F1F7" class="customer-favorites-card-cell" valign="top"
-                                              style="min-width:0;vertical-align:top;background-color:#E9F1F7;border-radius:14px;line-height:normal;font-family: Arial, Helvetica, sans-serif;">
+                                              style="min-width:0;vertical-align:top;background-color:#E9F1F7;border-radius:14px;line-height:normal;font-family: Helvetica, Arial, sans-serif;">
                                               <a href="https://www.tombihn.com/collections/all-tom-bihn-stuff/products/synapse-25"
                                                 style="color:#111111;text-decoration:none;display:block;"
                                                 target="_blank">
@@ -1859,7 +1884,7 @@
                                             <td class="customer-favorites-gap" width="12" bgcolor="#FFFFFF" valign="top"
                                               style="width:12px;line-height:0;font-size:0;mso-line-height-rule:exactly;">&#8203;</td>
                                             <td bgcolor="#E9F1F7" class="customer-favorites-card-cell" valign="top"
-                                              style="min-width:0;vertical-align:top;background-color:#E9F1F7;border-radius:14px;line-height:normal;font-family: Arial, Helvetica, sans-serif;">
+                                              style="min-width:0;vertical-align:top;background-color:#E9F1F7;border-radius:14px;line-height:normal;font-family: Helvetica, Arial, sans-serif;">
                                               <a href="https://www.tombihn.com/products/monster-truck"
                                                 style="color:#111111;text-decoration:none;display:block;"
                                                 target="_blank">
@@ -1905,13 +1930,13 @@
                                   <tr>
                                     <td align="center" bgcolor="#37718E" valign="top"
                                       style="background-color:#37718E;border-radius:0;padding:24px 12px;">
-                                      <p
-                                        style="margin:0 0 6px;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.4;color:#FFFFFF;text-align:center;">
+                                      <p class="crew-footer-best-regards"
+                                        style="margin:0 0 6px;padding:0;font-family: Helvetica, Arial, sans-serif;font-size:14px;font-style:italic;line-height:1.4;color:#FFFFFF;text-align:center;mso-font-style:italic;">
                                         Best Regards,
                                       </p>
-                                      <p
-                                        style="margin:0 0 6px;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;line-height:1.2;color:#FFFFFF;text-align:center;letter-spacing:0.04em;text-transform:uppercase;mso-ansi-font-weight:bold;">
-                                        The TOM BIHN Crew
+                                      <p class="crew-footer-crew-title"
+                                        style="margin:0 0 6px;padding:0;font-family: 'Trebuchet MS', Helvetica, Arial, sans-serif;font-size:36px;font-weight:700;line-height:1.2;color:#FFFFFF;text-align:center;letter-spacing:normal;mso-ansi-font-weight:bold;">
+                                        The <span style="letter-spacing:0.04em;">TOM BIHN</span> Crew
                                       </p>
                                       <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
                                         <tbody>
@@ -1934,10 +1959,10 @@
                                           </tr>
                                           <tr>
                                             <td align="center"
-                                              style="padding:4px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.55;color:#FFFFFF;text-align:center;">
-                                              <p style="margin:0;padding:0;color:#FFFFFF;">4750A Ohio Ave S.</p>
-                                              <p style="margin:6px 0 0;padding:0;color:#FFFFFF;">Seattle WA 98134</p>
-                                              <p style="margin:6px 0 0;padding:0;color:#FFFFFF;">USA</p>
+                                              style="padding:4px 0 0;font-family: Helvetica, Arial, sans-serif;font-size:11px;line-height:1.55;color:#FFFFFF;text-align:center;">
+                                              <p style="margin:0;padding:0;color:#FFFFFF;font-size:11px;">4750A Ohio Ave S.</p>
+                                              <p style="margin:6px 0 0;padding:0;color:#FFFFFF;font-size:11px;">Seattle WA 98134</p>
+                                              <p style="margin:6px 0 0;padding:0;color:#FFFFFF;font-size:11px;">USA</p>
                                             </td>
                                           </tr>
                                         </tbody>
