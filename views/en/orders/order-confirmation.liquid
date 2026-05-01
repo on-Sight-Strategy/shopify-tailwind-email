@@ -1,585 +1,1509 @@
-{% capture email_title %}Thank you for your purchase! {% endcapture %}
-{% capture email_body %}
-  {% if requires_shipping %}
-    {% case delivery_method %}
-      {% when 'pick-up' %}
-        You’ll receive an email when your order is ready for pickup.
-      {% when 'local' %}
-        Hi {{ customer.first_name }}, we're getting your order ready for delivery.
-      {% else %}
-        Hi {{ customer.first_name }}, we're getting your order ready to be shipped. We will notify you when it has been
-        sent.
-    {% endcase %}
-    {% if delivery_instructions != blank %}
-      <p><b>Delivery information:</b> {{ delivery_instructions }}</p>
-    {% endif %}
-    {% if consolidated_estimated_delivery_time %}
-      <p>
-        Estimated delivery <b>{{ consolidated_estimated_delivery_time }}</b>
-      </p>
-    {% endif %}
-  {% endif %}
-{% endcapture %}
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>{{ email_title }}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="/assets/notifications/styles.css">
-    <style>
-      .button__cell { background: {{ shop.email_accent_color }}; }
-      a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
-    </style>
-  </head>
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title></title>
+  <style type="text/css">
+    @media only screen and (max-width:480px) {
 
-  <body>
-    <table class="body">
-      <tr>
-        <td>
-          <table class="header row">
-            <tr>
-              <td class="header__cell">
-                <center>
-                  <table class="container">
-                    <tr>
-                      <td>
-                        <table class="row">
+      body,
+      table,
+      td,
+      p,
+      a,
+      li,
+      blockquote {
+        -webkit-text-size-adjust: none !important
+      }
+
+      body {
+        width: 100% !important;
+        min-width: 100% !important
+      }
+
+      #bodyCell {
+        padding: 10px !important
+      }
+
+      table.kmMobileHide {
+        display: none !important
+      }
+
+      table.kmDesktopOnly,
+      td.kmDesktopOnly,
+      th.kmDesktopOnly,
+      tr.kmDesktopOnly,
+      td.kmDesktopWrapHeaderMobileNone {
+        display: none !important
+      }
+
+      table.kmMobileOnly {
+        display: table !important
+      }
+
+      tr.kmMobileOnly {
+        display: table-row !important
+      }
+
+      td.kmMobileOnly,
+      td.kmDesktopWrapHeader,
+      th.kmMobileOnly {
+        display: table-cell !important
+      }
+
+      tr.kmMobileNoAlign,
+      table.kmMobileNoAlign {
+        float: none !important;
+        text-align: initial !important;
+        vertical-align: middle !important;
+        table-layout: fixed !important
+      }
+
+      tr.kmMobileCenterAlign {
+        float: none !important;
+        text-align: center !important;
+        vertical-align: middle !important;
+        table-layout: fixed !important
+      }
+
+      td.kmButtonCollection {
+        padding-left: 9px !important;
+        padding-right: 9px !important;
+        padding-top: 9px !important;
+        padding-bottom: 9px !important
+      }
+
+      td.kmMobileHeaderStackDesktopNone,
+      img.kmMobileHeaderStackDesktopNone,
+      td.kmMobileHeaderStack {
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-bottom: 9px !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important
+      }
+
+      td.kmMobileWrapHeader,
+      td.kmMobileWrapHeaderDesktopNone {
+        display: inline-block !important
+      }
+
+      td.kmMobileHeaderSpacing {
+        padding-right: 10px !important
+      }
+
+      td.kmMobileHeaderNoSpacing {
+        padding-right: 0 !important
+      }
+
+      table.kmDesktopAutoWidth {
+        width: inherit !important
+      }
+
+      table.kmMobileAutoWidth {
+        width: 100% !important
+      }
+
+      table.kmTextContentContainer {
+        width: 100% !important
+      }
+
+      table.kmBoxedTextContentContainer {
+        width: 100% !important
+      }
+
+      td.kmImageContent {
+        padding-left: 0 !important;
+        padding-right: 0 !important
+      }
+
+      img.kmImage {
+        width: 100% !important
+      }
+
+      td.kmMobileStretch {
+        padding-left: 0 !important;
+        padding-right: 0 !important
+      }
+
+      table.kmSplitContentLeftContentContainer,
+      table.kmSplitContentRightContentContainer,
+      table.kmColumnContainer,
+      td.kmVerticalButtonBarContentOuter table.kmButtonBarContent,
+      td.kmVerticalButtonCollectionContentOuter table.kmButtonCollectionContent,
+      table.kmVerticalButton,
+      table.kmVerticalButtonContent {
+        width: 100% !important
+      }
+
+      td.kmButtonCollectionInner {
+        padding-left: 9px !important;
+        padding-right: 9px !important;
+        padding-top: 9px !important;
+        padding-bottom: 9px !important
+      }
+
+      td.kmVerticalButtonIconContent,
+      td.kmVerticalButtonTextContent,
+      td.kmVerticalButtonContentOuter {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 9px !important
+      }
+
+      table.kmSplitContentLeftContentContainer td.kmTextContent,
+      table.kmSplitContentRightContentContainer td.kmTextContent,
+      table.kmColumnContainer td.kmTextContent,
+      table.kmSplitContentLeftContentContainer td.kmImageContent,
+      table.kmSplitContentRightContentContainer td.kmImageContent {
+        padding-top: 9px !important
+      }
+
+      td.rowContainer.kmFloatLeft,
+      td.rowContainer.kmFloatLeft,
+      td.rowContainer.kmFloatLeft.firstColumn,
+      td.rowContainer.kmFloatLeft.firstColumn,
+      td.rowContainer.kmFloatLeft.lastColumn,
+      td.rowContainer.kmFloatLeft.lastColumn {
+        float: left;
+        clear: both;
+        width: 100% !important
+      }
+
+      table.templateContainer,
+      table.templateContainer.brandingContainer,
+      div.templateContainer,
+      div.templateContainer.brandingContainer,
+      table.templateRow {
+        max-width: 600px !important;
+        width: 100% !important
+      }
+
+      h1 {
+        font-size: 40px !important;
+        line-height: 1.1 !important
+      }
+
+      h2 {
+        font-size: 32px !important;
+        line-height: 1.1 !important
+      }
+
+      h3 {
+        font-size: 24px !important;
+        line-height: 1.1 !important
+      }
+
+      h4 {
+        font-size: 18px !important;
+        line-height: 1.1 !important
+      }
+
+      td.kmTextContent {
+        font-size: 14px !important;
+        line-height: 1.3 !important
+      }
+
+      td.kmTextBlockInner td.kmTextContent {
+        padding-right: 18px !important;
+        padding-left: 18px !important
+      }
+
+      table.kmTableBlock.kmTableMobile td.kmTableBlockInner {
+        padding-left: 9px !important;
+        padding-right: 9px !important
+      }
+
+      table.kmTableBlock.kmTableMobile td.kmTableBlockInner .kmTextContent {
+        font-size: 14px !important;
+        line-height: 1.3 !important;
+        padding-left: 4px !important;
+        padding-right: 4px !important
+      }
+
+      table.trust-bar-inner {
+        width: 100% !important;
+        max-width: 100% !important
+      }
+    }
+  </style>
+  <!--[if mso]> <style> .templateContainer { border: 0px none ; background-color: #ffffff; border-radius: 0px; } #brandingContainer { background-color: transparent !important; border: 0; } .templateContainerInner { padding: 0px; } </style> <![endif]-->
+  <style>
+    span.yshortcuts:hover {
+      background-color: none !important;
+      border: none !important
+    }
+
+    span.yshortcuts:active {
+      background-color: none !important;
+      border: none !important
+    }
+
+    span.yshortcuts:focus {
+      background-color: none !important;
+      border: none !important
+    }
+
+    .rowContainer .kmTextContent a:link {
+      color: #FFF;
+      font-weight: normal;
+      text-decoration: underline
+    }
+
+    .rowContainer .kmTextContent a:visited {
+      color: #FFF;
+      font-weight: normal;
+      text-decoration: underline
+    }
+
+    .kmTable .kmTableRow:last-child>td {
+      border-bottom: none !important
+    }
+  </style>
+  <style>
+    #outlook a {
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 0;
+      padding-bottom: 0
+    }
+
+    .ReadMsgBody {
+      width: 100%
+    }
+
+    .ExternalClass {
+      width: 100%
+    }
+
+    span.yshortcuts {
+      background-color: none !important;
+      border: none !important
+    }
+
+    span.yshortcuts:hover,
+    span.yshortcuts:active,
+    span.yshortcuts:focus {
+      background-color: none !important;
+      border: none !important
+    }
+
+    body {
+      margin: 0;
+      padding: 0
+    }
+
+    a {
+      word-wrap: break-word !important;
+      max-width: 100%
+    }
+
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      max-width: 100%
+    }
+
+    img[align="left"] {
+      margin-right: 0
+    }
+
+    img[align="right"] {
+      margin-left: 0
+    }
+
+    table,
+    td {
+      border-collapse: collapse;
+      mso-table-lspace: 0;
+      mso-table-rspace: 0;
+      table-layout: fixed
+    }
+
+    p {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-bottom: 1em
+    }
+
+    p:last-child {
+      padding-bottom: 0
+    }
+
+    #bodyTable,
+    #bodyCell {
+      height: 100% !important;
+      margin: 0;
+      width: 100% !important;
+      table-layout: auto
+    }
+
+    #bodyTable {
+      padding: 0
+    }
+
+    #bodyCell {
+      padding-top: 50px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      padding-right: 20px;
+      border-top: 0
+    }
+
+    body,
+    #bodyTable {
+      background-color: #F7F7F7
+    }
+
+    .templateContainer {
+      border: 0 none transparent;
+      background-color: #fff;
+      border-radius: 0
+    }
+
+    .brandingContainer {
+      background-color: transparent;
+      border: 0
+    }
+
+    .templateContainerInner {
+      padding: 0
+    }
+
+    h1 {
+      color: #37718E !important;
+      display: block;
+      font-family: "Trebuchet MS";
+      font-size: 40px;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1.1;
+      letter-spacing: 2px;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: left
+    }
+
+    h2 {
+      color: #37718E !important;
+      display: block;
+      font-family: Georgia;
+      font-size: 24px;
+      font-style: italic;
+      font-weight: lighter;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      margin-bottom: 8px;
+      text-align: left
+    }
+
+    h3 {
+      display: block;
+      font-family: "Helvetica Neue", Arial;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: bold;
+      line-height: 1.1;
+      letter-spacing: 0;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      margin-bottom: 12px;
+      text-align: left
+    }
+
+    h4 {
+      display: block;
+      font-family: "Helvetica Neue", Arial;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: italic;
+      line-height: 1.1;
+      letter-spacing: 0;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      margin-bottom: 9px;
+      text-align: left
+    }
+
+    .rowContainer .kmTextContent {
+      color: #1A1818;
+      font-family: "Trebuchet MS";
+      font-size: 14px;
+      line-height: 1.3;
+      letter-spacing: 0;
+      text-align: left;
+      max-width: 100%;
+      word-wrap: break-word
+    }
+
+    .rowContainer .kmTextContent a,
+    .rowContainer .kmTextContent a:link,
+    .rowContainer .kmTextContent a:visited,
+    .rowContainer .kmTextContent a .yshortcuts {
+      color: #FFF;
+      font-weight: normal;
+      text-decoration: underline
+    }
+
+    .rowContainer .kmTextContent .kmParagraph {
+      padding-bottom: 9px
+    }
+
+    .kmImageContent {
+      padding: 0;
+      font-size: 0
+    }
+
+    .kmImage {
+      padding-bottom: 0;
+      display: inline !important;
+      vertical-align: top;
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      font-size: 12px;
+      width: 100%
+    }
+
+    .kmButtonBlockInner,
+    .kmButtonCollectionInner {
+      min-width: 60px;
+      padding: 9px 18px
+    }
+
+    .kmButtonContentContainer {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      background-color: #999;
+      border-collapse: separate
+    }
+
+    .kmButtonContent {
+      color: white;
+      font-family: "Trebuchet MS";
+      font-size: 16px
+    }
+
+    .kmButton {
+      font-weight: bold;
+      line-height: 100%;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      font-family: "Trebuchet MS";
+      font-size: 16px
+    }
+
+    .kmButtonBarContent,
+    .kmButtonCollectionContent {
+      font-family: "Trebuchet MS"
+    }
+
+    .kmVerticalButtonContent {
+      border-collapse: separate
+    }
+
+    .kmTable .kmTableRow>td:last-child {
+      border-right: none !important
+    }
+
+    .kmTable .kmTableRow:last-child>td {
+      border-bottom: none !important
+    }
+
+    .kmMobileOnly {
+      display: none
+    }
+
+    .kmDesktopWrapHeader,
+    .kmDesktopWrapHeaderMobileNone {
+      display: inline-block
+    }
+
+    .kmHide {
+      display: none
+    }
+
+    .kmMobileHeaderStackDesktopNone,
+    .kmMobileWrapHeaderDesktopNone {
+      display: none
+    }
+
+    .kmDesktopAutoWidth {
+      width: 100%
+    }
+
+    table.trust-bar-inner {
+      width: 100% !important;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      border-collapse: collapse;
+      table-layout: fixed
+    }
+
+    table.trust-bar-inner td.trust-bar-col {
+      width: 33.333% !important;
+      min-width: 0;
+      box-sizing: border-box
+    }
+
+    table.shop-category-grid-inner {
+      width: 100% !important;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      border-collapse: collapse;
+      table-layout: fixed
+    }
+
+    table.shop-category-grid-inner td.shop-category-half {
+      width: 50% !important;
+      min-width: 0;
+      box-sizing: border-box
+    }
+
+    table.shop-category-grid-inner td.shop-category-third {
+      width: 33.333% !important;
+      min-width: 0;
+      box-sizing: border-box
+    }
+
+    table.shop-category-grid-inner img.shop-category-img {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important
+    }
+
+    a .shop-category-img-mobile {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important
+    }
+
+    @media only screen and (max-width:480px) {
+      a .shop-category-img-desktop {
+        display: none !important;
+        max-height: 0 !important;
+        overflow: hidden !important
+      }
+
+      a .shop-category-img-mobile {
+        display: block !important;
+        max-height: none !important;
+        overflow: visible !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" data-upload-file-url="/ajax/email-editor/file/upload" data-upload-files-url="/ajax/email-editor/files/upload" id="bodyTable" width="100%">
+      <tbody>
+        <tr>
+          <td align="center" id="bodyCell" valign="top">
+            <!--[if !mso]><!-->
+            <div class="templateContainer" style="display: table; width:600px">
+              <div class="templateContainerInner">
+                <!--<![endif]-->
+                <!--[if mso]> <table border="0" cellpadding="0" cellspacing="0" class="templateContainer" width="600" style="border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;"> <tbody> <tr> <td class="templateContainerInner" style="border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;"> <![endif]-->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td align="center" valign="top">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                        <tbody>
                           <tr>
-                            <td class="shop-name__cell">
-                              {%- if shop.email_logo_url %}
-                                <img src="{{shop.email_logo_url}}" alt="{{ shop.name }}" width="{{ shop.email_logo_width }}">
-                              {%- else %}
-                                <h1 class="shop-name__text">
-                                  <a href="{{shop.url}}">{{ shop.name }}</a>
-                                </h1>
-                              {%- endif %}
-                            </td>
-
-                            <td class="order-number__cell">
-                              <span class="order-number__text text-blue-500 text-3xl" style="font-size: 30px; color: #3b82f6;"> Order {{ order_name }} </span>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </center>
-              </td>
-            </tr>
-          </table>
-
-          <table class="row content">
-            <tr>
-              <td class="content__cell">
-                <center>
-                  <table class="container">
-                    <tr>
-                      <td>
-                        <h2>{{ email_title }}</h2>
-                        <p>{{ email_body }}</p>
-                        {% if order_status_url %}
-                          <table class="row actions">
-                            <tr>
-                              <td class="empty-line">&nbsp;</td>
-                            </tr>
-                            <tr>
-                              <td class="actions__cell">
-                                <table class="button main-action-cell">
+                            <td class="rowContainer kmFloatLeft" valign="top">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmImageBlock" style="min-width:100%" width="100%">
+                                <tbody class="kmImageBlockOuter">
                                   <tr>
-                                    <td class="button__cell">
-                                      <a href="{{ order_status_url }}" class="button__text">View your order</a>
+                                    <td class="kmImageBlockInner" style="padding:0px;padding-left:9;padding-right:9;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmImageContentContainer" style="min-width:100%" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td class="kmImageContent" style="padding:0;text-align: center;" valign="top"> <a href="https://www.tombihn.com/" target="_self"> <img align="center" alt class="kmImage" src="https://d3k81ch9hvuctc.cloudfront.net/company/XjLncj/images/a0960f47-5e4d-4cf2-b70e-1f6cc8bab9a5.png" style="max-width:700px;padding:0;border-width:0;" width="582"> </a>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
                                     </td>
                                   </tr>
-                                </table>
-                                {% if shop.url %}
-                                  <table class="link secondary-action-cell">
-                                    <tr>
-                                      <td class="link__cell">or <a href="{{ shop.url }}">Visit our store</a></td>
-                                    </tr>
-                                  </table>
-                                {% endif %}
-                              </td>
-                            </tr>
-                          </table>
-                        {% else %}
-                          {% if shop.url %}
-                            <table class="row actions">
-                              <tr>
-                                <td class="actions__cell">
-                                  <table class="button main-action-cell">
-                                    <tr>
-                                      <td class="button__cell">
-                                        <a href="{{ shop.url }}" class="button__text">Visit our store</a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                            </table>
-                          {% endif %}
-                        {% endif %}
-                      </td>
-                    </tr>
-                  </table>
-                </center>
-              </td>
-            </tr>
-          </table>
-
-          {% assign gift_card_line_item = line_items | where: 'gift_card' %}
-          {% if gift_card_line_item.first %}
-            <table class="row section">
-              <tr>
-                <td class="section__cell">
-                  <center>
-                    <table class="container">
-                      <tr>
-                        <td>
-                          <h3>Gift card</h3>
-                        </td>
-                      </tr>
-                    </table>
-                    <table class="container">
-                      <tr>
-                        <td>
-                          <p>You’ll receive separate emails for any gift cards.</p>
-                        </td>
-                      </tr>
-                    </table>
-                  </center>
-                </td>
-              </tr>
-            </table>
-          {% endif %}
-
-          <table class="row section">
-            <tr>
-              <td class="section__cell">
-                <center>
-                  <table class="container">
-                    <tr>
-                      <td>
-                        <h3>Order summary</h3>
-                      </td>
-                    </tr>
-                  </table>
-                  <table class="container">
-                    <tr>
-                      <td>
-                        <table class="row">
-                          {% for line in subtotal_line_items %}
-                            <tr class="order-list__item">
-                              <td class="order-list__item__cell">
-                                <table>
-                                  <td>
-                                    {% if line.image %}
-                                      <img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="60" height="60" class="order-list__product-image">
-                                    {% endif %}
-                                  </td>
-                                  <td class="order-list__product-description-cell">
-                                    {% if line.product.title %}
-                                      {% assign line_title = line.product.title %}
-                                    {% else %}
-                                      {% assign line_title = line.title %}
-                                    {% endif %}
-
-                                    {% if line.quantity < line.quantity %}
-                                      {% capture line_display %}
-                                        {{ line.quantity }} of {{ line.quantity }}
-                                      {% endcapture %}
-                                    {% else %}
-                                      {% assign line_display = line.quantity %}
-                                    {% endif %}
-
-                                    <span class="order-list__item-title">
-                                      {{- line_title }}&nbsp;&times;&nbsp;{{ line_display -}}</span><br>
-
-                                    {% if line.variant.title != 'Default Title' %}
-                                      <span class="order-list__item-variant">{{ line.variant.title }}</span><br>
-                                    {% endif %}
-
-                                    {% if line.selling_plan_allocation %}
-                                      <span class="order-list__item-variant">
-                                        {{- line.selling_plan_allocation.selling_plan.name -}}</span><br>
-                                    {% endif %}
-
-                                    {% if line.refunded_quantity > 0 %}
-                                      <span class="order-list__item-refunded">Refunded</span>
-                                    {% endif %}
-
-                                    {% if line.discount_allocations %}
-                                      {% for discount_allocation in line.discount_allocations %}
-                                        {% if discount_allocation.discount_application.target_selection != 'all' %}
-                                          <span class="order-list__item-discount-allocation">
-                                            <img src="{{ 'notifications/discounttag.png' | shopify_asset_url }}" width="18" height="18" class="discount-tag-icon">
-                                            <span>
-                                              {{ discount_allocation.discount_application.title | upcase }}
-                                              (-{{ discount_allocation.amount | money }})
-                                            </span>
-                                          </span>
-                                        {% endif %}
-                                      {% endfor %}
-                                    {% endif %}
-                                  </td>
-                                  <td class="order-list__price-cell">
-                                    {% if line.original_line_price != line.final_line_price %}
-                                      <del class="order-list__item-original-price">
-                                        {{- line.original_line_price | money -}}
-                                      </del>
-                                    {% endif %}
-                                    <p class="order-list__item-price">
-                                      {% if line.final_line_price > 0 %}
-                                        {{ line.final_line_price | money }}
-                                      {% else %}
-                                        Free
-                                      {% endif %}
-                                    </p>
-                                  </td>
-                                </table>
-                              </td>
-                            </tr>
-                          {%- endfor %}
-                        </table>
-
-                        <table class="row subtotal-lines">
-                          <tr>
-                            <td class="subtotal-spacer"></td>
-                            <td>
-                              <table class="row subtotal-table">
-                                {% for discount_application in discount_applications %}
-                                  {% if discount_application.target_selection == 'all' %}
-                                    {% capture discount_title %}
-                                      {% if discount_application.title %}
-                                        {{ discount_application.title | upcase }}
-                                      {% else %}
-                                        Discount
-                                      {% endif %}
-                                    {% endcapture %}
-
-                                    <tr class="subtotal-line">
-                                      <td class="subtotal-line__title">
-                                        <p>
-                                          <span>Discount</span>
-                                          <span class="subtotal-line__discount">
-                                            <img src="{{ 'notifications/discounttag.png' | shopify_asset_url }}" width="18" height="18" class="discount-tag-icon">
-                                            <span class="subtotal-line__discount-title">{{ discount_title }}</span>
-                                          </span>
-                                        </p>
-                                      </td>
-                                      <td class="subtotal-line__value">
-                                        <strong>-{{ discount_application.total_allocated_amount | money }}</strong>
-                                      </td>
-                                    </tr>
-                                  {% endif %}
-                                {% endfor %}
-
-                                <tr class="subtotal-line">
-                                  <td class="subtotal-line__title">
-                                    <p>
-                                      <span>Subtotal</span>
-                                    </p>
-                                  </td>
-                                  <td class="subtotal-line__value">
-                                    <strong>{{ subtotal_price | money }}</strong>
-                                  </td>
-                                </tr>
-
-                                {% if delivery_method == 'pick-up' %}
-                                  <tr class="subtotal-line">
-                                    <td class="subtotal-line__title">
-                                      <p>
-                                        <span>Pickup</span>
-                                      </p>
-                                    </td>
-                                    <td class="subtotal-line__value">
-                                      <strong>{{ shipping_price | money }}</strong>
-                                    </td>
-                                  </tr>
-                                {% else %}
-                                  <tr class="subtotal-line">
-                                    <td class="subtotal-line__title">
-                                      <p>
-                                        <span>Shipping</span>
-                                      </p>
-                                    </td>
-                                    <td class="subtotal-line__value">
-                                      <strong>{{ shipping_price | money }}</strong>
-                                    </td>
-                                  </tr>
-                                {% endif %}
-
-                                {% if total_duties %}
-                                  <tr class="subtotal-line">
-                                    <td class="subtotal-line__title">
-                                      <p>
-                                        <span>Duties</span>
-                                      </p>
-                                    </td>
-                                    <td class="subtotal-line__value">
-                                      <strong>{{ total_duties | money }}</strong>
-                                    </td>
-                                  </tr>
-                                {% endif %}
-
-                                <tr class="subtotal-line">
-                                  <td class="subtotal-line__title">
-                                    <p>
-                                      <span>Taxes</span>
-                                    </p>
-                                  </td>
-                                  <td class="subtotal-line__value">
-                                    <strong>{{ tax_price | money }}</strong>
-                                  </td>
-                                </tr>
-
-                                {% if total_tip and total_tip > 0 %}
-                                  <tr class="subtotal-line">
-                                    <td class="subtotal-line__title">
-                                      <p>
-                                        <span>Tip</span>
-                                      </p>
-                                    </td>
-                                    <td class="subtotal-line__value">
-                                      <strong>{{ total_tip | money }}</strong>
-                                    </td>
-                                  </tr>
-                                {% endif %}
+                                </tbody>
                               </table>
-                              {% assign transaction_size = 0 %}
-                              {% assign transaction_amount = 0 %}
-                              {% for transaction in transactions %}
-                                {% unless transaction.kind == 'capture' or transaction.kind == 'void' %}
-                                  {% assign transaction_size = transaction_size | plus: 1 %}
-                                  {% assign transaction_amount = transaction_amount | plus: transaction.amount %}
-                                {% endunless %}
-                              {% endfor %}
-                              <table class="row subtotal-table subtotal-table--total">
-                                {% if payment_terms %}
-                                  {% assign due_at_date = payment_terms.next_payment.due_at | date: '%b %d, %Y' %}
-
-                                  <tr class="subtotal-line">
-                                    <td class="subtotal-line__title">
-                                      <p>
-                                        <span>Total paid today</span>
-                                      </p>
-                                    </td>
-                                    <td class="subtotal-line__value">
-                                      <strong>{{ transaction_amount | money_with_currency }}</strong>
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" width="100%">
+                                <tbody class="kmDividerBlockOuter">
+                                  <tr>
+                                    <td class="kmDividerBlockInner" style="padding-top:36px;">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td><span></span></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
                                     </td>
                                   </tr>
-
-                                  <div class="payment-terms">
-                                    <tr class="subtotal-line">
-                                      <td class="subtotal-line__title">
-                                        <p>
-                                          <span>Total due {{ due_at_date }}</span>
-                                        </p>
-                                      </td>
-                                      <td class="subtotal-line__value">
-                                        <strong>
-                                          {{- payment_terms.next_payment.amount_due | money_with_currency -}}
-                                        </strong>
-                                      </td>
-                                    </tr>
-                                  </div>
-                                {% else %}
-                                  <tr class="subtotal-line">
-                                    <td class="subtotal-line__title">
-                                      <p>
-                                        <span>Total</span>
-                                      </p>
-                                    </td>
-                                    <td class="subtotal-line__value">
-                                      <strong>{{ total_price | money_with_currency }}</strong>
-                                    </td>
-                                  </tr>
-                                {% endif %}
+                                </tbody>
                               </table>
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmImageBlock" style="min-width:100%" width="100%">
+                                <tbody class="kmImageBlockOuter">
+                                  <tr>
+                                    <td class="kmImageBlockInner" style="padding:9px;padding-left:9;padding-right:9;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmImageContentContainer" style="min-width:100%" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td class="kmImageContent" style="padding-top:0px;padding-bottom:0;padding-left:9px;padding-right:9px;text-align: center;" valign="top"> <img align="center" alt="Thanks for your order" class="kmImage" src="https://d3k81ch9hvuctc.cloudfront.net/company/XjLncj/images/f05d6c45-f8f9-4409-9691-3f6c045ff70a.png" style="max-width:366px;padding:0;border-width:0;" width="366"> </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" width="100%">
+                                <tbody class="kmDividerBlockOuter">
+                                  <tr>
+                                    <td class="kmDividerBlockInner" style="padding-top:30px;">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td><span></span></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table> 
 
-                              {% if total_discounts > 0 %}
-                                <p class="total-discount">
-                                  You saved <span class="total-discount--amount">{{ total_discounts | money }}</span>
-                                </p>
-                              {% endif %}
-
-                              {% unless payment_terms %}
-                                {% if transaction_size > 1 or transaction_amount < total_price %}
-                                  <table class="row subtotal-table">
+                              <!-- products -->
+                                <table border="0" cellpadding="0" cellspacing="0" class="kmTableBlock kmTableMobile" width="100%">
+                                  <tbody class="kmTableBlockOuter">
                                     <tr>
-                                      <td colspan="2" class="subtotal-table__line"></td>
+                                      <td class="kmTableBlockInner" style="padding-top:0px;padding-left:95px;padding-bottom:0px;padding-right:95px;" valign="top"> 
+                                        
+                                        {% if line_items %} 
+                                          <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTable" style="text-align:left;" width="100%">
+                                            <thead>
+                                              <tr>
+                                                <th class="kmTextContent" style="text-align:left;width:5%;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;text-align:center;" valign="top"></th>
+                                                <th class="kmTextContent" style="text-align:left;width:100px;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;text-align:center;" valign="top"></th>
+                                                <th class="kmTextContent" style="text-align:left;width:225px;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;text-align:center;" valign="top"></th>
+                                              </tr>
+                                            </thead>
+                                            <tbody> 
+                                              {% for line in line_items %} 
+                                                <tr class="kmTableRow" style="border-bottom: 1px solid #dde2e5;">
+                                                  <td class="kmTextContent" style="text-align:left;width:5%;border-bottom-style:none;border-bottom-width:0;border-bottom-color:#FFFFFF;padding-top:20px;padding-left:12px;padding-bottom:20px;padding-right:12px;border-right-width:0px;border-right-color:#864F4F;border-right-style:none;" valign="middle">
+                                                    <p style="padding-bottom:0; white-space: nowrap;">{{ line.quantity }}<span>x</span></p>
+                                                  </td>
+                                                  <td class="kmTextContent" style="text-align:left;width:100px;border-top-style:none;border-top-width:0px;border-top-color:#FFFFFF;padding-top:20px;padding-left:12px;padding-bottom:20px;padding-right:12px;border-right-width:0px;border-right-color:#864F4F;border-right-style:none;" valign="middle">
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                      <tr>
+                                                        <td class="kmImageContent" style="padding-top:0px;padding-bottom:0;padding-left:0;padding-right:0;" valign="top">
+                                                          <img align="left" alt class="kmImage" src="{{ line | img_url: 'small' }}" style="max-width:px;" width>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </td>
+                                                  <td class="kmTextContent" style="border-right:none; text-align:left; width:225px; border-top-style:none; border-top-width:0; border-top-color:#FFF; padding-top:20px; padding-left:12px; padding-bottom:20px; padding-right:12px; border-right-width:0; border-right-color:#864F4F; border-right-style:none" valign="middle">
+                                                    <h3 style="margin-bottom: 1px;"><span style="font-size:17px;"><span style="color:#1A1818;">{{ line.title }}</span></span></h3>
+                                                    <p style="padding-bottom: 5px;"><span style="font-size:12px; text-transform: uppercase;">{{ line.variant.title }}</span></p>
+                                                    <p style="padding-bottom:0; text-transform:uppercase"><span style="font-size:12px;">{{ line.price | money }} each</span></p>
+                                                  </td>
+                                                </tr> 
+                                              {% endfor %}
+                                            </tbody>
+                                          </table>
+                                        {% endif %} 
+                                      </td>
                                     </tr>
-                                    <tr>
-                                      <td colspan="2" class="subtotal-table__small-space"></td>
-                                    </tr>
+                                  </tbody>
+                                </table>
+                              <!-- (end) products -->
 
-                                    {% for transaction in transactions %}
-                                      {% if transaction.status == 'success'
-                                        and transaction.kind == 'authorization'
-                                        or transaction.kind == 'sale'
-                                      %}
-                                        {% if transaction.payment_details.credit_card_company %}
-                                          {% capture transaction_name -%}
-                                            {{- transaction.payment_details.credit_card_company }} (ending in
-                                            {{ transaction.payment_details.credit_card_last_four_digits }})
-                                          {%- endcapture %}
-                                        {% else %}
-                                          {% capture transaction_name -%}
-                                            {{- transaction.gateway_display_name -}}
-                                          {%- endcapture %}
-                                        {% endif %}
-
-                                        <tr class="subtotal-line">
-                                          <td class="subtotal-line__title">
-                                            <p>
-                                              <span>{{ transaction_name }}</span>
-                                            </p>
-                                          </td>
-                                          <td class="subtotal-line__value">
-                                            <strong>{{ transaction.amount | money }}</strong>
-                                          </td>
-                                        </tr>
-                                      {% endif %}
-                                      {% if transaction.kind == 'refund' %}
-                                        {% if transaction.payment_details.credit_card_company %}
-                                          {% assign refund_method_title = transaction.payment_details.credit_card_company %}
-                                        {% else %}
-                                          {% assign refund_method_title = transaction.gateway %}
-                                        {% endif %}
-
-                                        <tr class="subtotal-line">
-                                          <td class="subtotal-line__title">
-                                            <p>
-                                              <span>Refund</span>
-                                              <br>
-                                              <small>{{ refund_method_title | capitalize }}</small>
-                                            </p>
-                                          </td>
-                                          <td class="subtotal-line__value">
-                                            <strong>- {{ transaction.amount | money }}</strong>
-                                          </td>
-                                        </tr>
-                                      {% endif %}
-                                    {% endfor %}
-                                  </table>
-                                {% endif %}
-                              {% endunless %}
                             </td>
                           </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </center>
-              </td>
-            </tr>
-          </table>
-
-          <table class="row section">
-            <tr>
-              <td class="section__cell">
-                <center>
-                  <table class="container">
-                    <tr>
-                      <td>
-                        <h3>Customer information</h3>
-                      </td>
-                    </tr>
-                  </table>
-                  <table class="container">
-                    <tr>
-                      <td>
-                        <table class="row">
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" valign="top">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                        <tbody>
                           <tr>
-                            {% if requires_shipping and shipping_address %}
-                              <td class="customer-info__item">
-                                <h4>Shipping address</h4>
-                                {{ shipping_address | format_address }}
-                              </td>
-                            {% endif %}
-                            {% if billing_address %}
-                              <td class="customer-info__item">
-                                <h4>Billing address</h4>
-                                {{ billing_address | format_address }}
-                              </td>
-                            {% endif %}
+                            <td class="rowContainer kmFloatLeft" valign="top">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" width="100%">
+                                <tbody class="kmDividerBlockOuter">
+                                  <tr>
+                                    <td class="kmDividerBlockInner" style="padding-top:20px;">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td><span></span></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
                           </tr>
-                        </table>
-                        <table class="row">
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" valign="top">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                        <tbody>
                           <tr>
-                            {% if requires_shipping and shipping_address %}
-                              <td class="customer-info__item">
-                                <h4>Shipping method</h4>
-                                <p>{{ shipping_method.title }}</p>
-                              </td>
-                            {% endif %}
-                            {% assign transaction_count = transactions | size %}
-                            {% if transaction_count > 0 %}
-                              <td class="customer-info__item">
-                                <h4>Payment method</h4>
-                                {% for transaction in transactions %}
-                                  {% if transaction.status == 'success' or transaction.status == 'pending' %}
-                                    {% if transaction.kind == 'authorization' or transaction.kind == 'sale' %}
-                                      {% if transaction.payment_details.credit_card_company %}
-                                        <p class="customer-info__item-content">
-                                          <img src="{{ transaction.payment_details.credit_card_company | payment_icon_png_url  }}" class="customer-info__item-credit" height="24" alt="{{ transaction.payment_details.credit_card_company }}">
-                                          <span>ending with
-                                            {{ transaction.payment_details.credit_card_last_four_digits }} &mdash;
-                                            <strong>{{ transaction.amount | money }}</strong></span>
-                                        </p>
-                                      {% elsif transaction.gateway_display_name == 'Gift card' %}
-                                        <p class="customer-info__item-content">
-                                          <img src="{{ transaction.gateway_display_name | downcase | replace: ' ', '-'  | payment_type_img_url }}" class="customer-info__item-credit" height="24">
-                                          ending with
-                                          {{ transaction.payment_details.gift_card.last_four_characters | upcase }}
-                                          &mdash; <strong>{{ transaction.amount | money }}</strong> <br>
-                                          &emsp;&emsp;&emsp;&nbsp;Gift card balance:
-                                          {{ transaction.payment_details.gift_card.balance | money }}
-                                        </p>
-                                      {% else %}
-                                        <p class="customer-info__item-content">
-                                          {{ transaction.gateway_display_name }} &mdash;
-                                          <strong>{{ transaction.amount | money }}</strong>
-                                        </p>
-                                      {% endif %}
-                                    {% endif %}
-                                  {% endif %}
-                                {% endfor %}
-                              </td>
-                            {% endif %}
+                            <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="50%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
+                                <tbody class="kmTextBlockOuter">
+                                  <tr>
+                                    <td class="kmTextBlockInner" style valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td class="kmTextContent" style="padding-top:10px;padding-bottom:10px;padding-left:95px;padding-right:10px;" valign="top">
+                                              <h4><span style="font-size: 12px; text-transform: uppercase;">NOTE/COMMENT:</span>
+                                              </h4>
+                                              <p style="padding-bottom:0; font-family: courier, monospace; font-size: 10px;">
+                                                {{ shipping_method.title }}
+                                                <br>
+                                                {% unless note == blank %}
+                                                  {{ note }}
+                                                {% endunless %}
+                                              </p>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="50%">
+                              <!--[if !mso]><!-->
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock kmMobileOnly" width="100%">
+                                <tbody class="kmDividerBlockOuter">
+                                  <tr>
+                                    <td class="kmDividerBlockInner" style="padding-top:10px;">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td><span></span></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!--<![endif]-->
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTableBlock kmTableMobile" width="100%">
+                                <tbody class="kmTableBlockOuter">
+                                  <tr>
+                                    <td class="kmTableBlockInner" style="padding-top:10px;padding-left:10px;padding-bottom:10px;padding-right:95px;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTable" style width="100%">
+                                        <thead>
+                                          <tr>
+                                            <th class="kmTextContent" style="text-align:left;font-weight:bold;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> </th>
+                                            <th class="kmTextContent" style="text-align:right;font-weight:bold;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> </th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr class="kmTableRow">
+                                            <td class="kmTextContent" style="text-align:left;;border-top-style:none;border-top-width:0px;padding-top:0px;padding-left:5px;padding-bottom:0px;padding-right:5px;" valign="top">
+                                              {% if discounts %}
+                                                <p><span style="font-size: 12px; text-transform: uppercase;">DISCOUNTS:</span>
+                                                </p>
+                                              {% endif %}
+                                              <p><span style="font-size: 12px; text-transform: uppercase;">SUBTOTAL:</span>
+                                              </p>
+                                              {% if requires_shipping %}
+                                                <p>
+                                                  <span style="font-size: 12px; text-transform: uppercase;">SHIPPING:</span>
+                                                </p>
+                                              {% endif %}
+                                                                                                                                  {% if tax_price > 0 %}
+                                                <p>
+                                                  <span style="font-size: 12px; text-transform: uppercase;">TAX:</span>
+                                                </p>
+                                              {% endif %}
+                                              <p style="padding-bottom:0"><strong><span style="font-size: 12px; text-transform: uppercase;">TOTAL:</span></strong>
+                                              </p>
+                                            </td>
+                                            <td class="kmTextContent" style="border-right:none; text-align:right; border-top-style:none; border-top-width:0; padding-top:0; padding-left:5px; padding-bottom:0; padding-right:5px" valign="top">
+                                              {% if discounts %}
+                                                <p><span style="font-size: 12px; text-transform: uppercase;">{{ discounts_savings | money }}</span>
+                                                </p>
+                                              {% endif %}
+                                              <p>
+                                                <span style="font-size: 12px; text-transform: uppercase;">{{ subtotal_price | money }}</span>
+                                              </p>
+                                              {% if requires_shipping %}
+                                                <p>
+                                                  <span style="font-size: 12px; text-transform: uppercase;"></span>
+                                                  <span style="font-size: 12px; text-transform: uppercase;">{{ shipping_price | money }}</span>
+                                                </p>
+                                              {% endif %}
+                                              {% if tax_price > 0 %}
+                                                <p>
+                                                  <span style="font-size: 12px; text-transform: uppercase;"></span>
+                                                  <span style="font-size: 12px; text-transform: uppercase;">{{ tax_price | money }}</span>
+                                                </p>
+                                              {% endif %}
+                                              <p style="padding-bottom:0">
+                                                <span style="font-size: 12px; text-transform: uppercase;"></span>
+                                                <strong><span style="font-size: 12px; text-transform: uppercase;">{{ total_price | money }}</span></strong>
+                                              </p>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
                           </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" valign="top">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="rowContainer kmFloatLeft" valign="top">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" width="100%">
+                                <tbody class="kmDividerBlockOuter">
+                                  <tr>
+                                    <td class="kmDividerBlockInner" style="padding-top:30px;">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td><span></span></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTableBlock kmTableMobile" width="100%">
+                                <tbody class="kmTableBlockOuter">
+                                  <tr>
+                                    <td class="kmTableBlockInner" style="padding-top:17px;padding-left:30px;padding-bottom:17px;padding-right:30px;background-color:#EAF1F7;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTable" style="color:#37718E;" width="100%">
+                                        <thead>
+                                          <tr>
+                                            <th class="kmTextContent" style="text-align:left;font-weight:bold;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> </th>
+                                            <th class="kmTextContent" style="text-align:right;font-weight:bold;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> </th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr class="kmTableRow">
+                                            <td class="kmTextContent" style="text-align:left;color:#37718E;border-top-style:none;border-top-width:0px;border-top-color:#d9d9d9;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> <span style="font-size:17px;text-transform:uppercase;">Order
+                                                Summary</span> </td>
+                                            <td class="kmTextContent" style="border-right:none; text-align:right; color:#37718E; border-top-style:none; border-top-width:0; border-top-color:#d9d9d9; padding-top:0; padding-left:0; padding-bottom:0; padding-right:0" valign="top"> <span style="font-family:courier,monospace;"><span style="font-size: 16px; text-transform: uppercase;">ORDER {{
+                                                  order.name }}</span></span> </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!--[if !mso]><!-->
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock kmMobileOnly" style="background-color:#EAF1F7" width="100%">
+                                <tbody class="kmDividerBlockOuter">
+                                  <tr>
+                                    <td class="kmDividerBlockInner" style="padding-top:0px;padding-bottom:0px;padding-left:18px;padding-right:18px;">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" style="border-top-width:1px;border-top-style:solid;border-top-color:#37718E;" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td><span></span></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!--<![endif]-->
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock kmDesktopOnly" style="background-color:#EAF1F7" width="100%">
+                                <tbody class="kmDividerBlockOuter">
+                                  <tr>
+                                    <td class="kmDividerBlockInner" style="padding-top:0px;padding-bottom:0px;padding-left:30px;padding-right:30px;">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" style="border-top-width:1px;border-top-style:solid;border-top-color:#37718E;" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td><span></span></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <!-- FYI -->
+                  <tr>
+                    <td align="center" valign="top" bgcolor="#EAF1F7">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="25%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
+                                <tbody class="kmTextBlockOuter">
+                                  <tr>
+                                    <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:0px;padding-left:30px;padding-right:10px;color:#37718E;" valign="top"> FYI </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="75%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
+                                <tbody class="kmTextBlockOuter">
+                                  <tr>
+                                    <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:15px;padding-left:10px;padding-right:30px;" valign="top"> <span style="font-family:courier,monospace;"><span style="color: rgb(26, 24, 24); font-size: 12px;">All regular (not
+                                                  pre-order) orders for bags are shipping within 2-3
+                                                  business days, and often much sooner than that.</span></span> </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" valign="top">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="rowContainer kmFloatLeft" valign="top"> </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <!-- DATE -->
+                  <tr>
+                    <td align="center" valign="top" bgcolor="#EAF1F7">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="25%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
+                                <tbody class="kmTextBlockOuter">
+                                  <tr>
+                                    <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:0px;padding-left:30px;padding-right:10px;color:#37718E;" valign="top"> DATE </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="75%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
+                                <tbody class="kmTextBlockOuter">
+                                  <tr>
+                                    <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:15px;padding-left:10px;padding-right:30px;" valign="top"> <span style="font-family:courier,monospace;"><span style="font-size: 12px;">{{ date | date: "%m/%d/%Y" }}</span></span>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <!-- SHIPPING ADDRESS -->
+                  {% if requires_shipping and shipping_address %}
+                    <tr>
+                      <td align="center" valign="top" bgcolor="#EAF1F7">
+                        <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                          <tbody>
+                            <tr>
+                              <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="25%">
+                                <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
+                                  <tbody class="kmTextBlockOuter">
+                                    <tr>
+                                      <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                        <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
+                                          <tbody>
+                                            <tr>
+                                              <td class="kmTextContent" style="padding-top:15px;padding-bottom:0px;padding-left:30px;padding-right:10px;color:#37718E;" valign="top"> SHIPPING ADDRESS </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                              <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="75%">
+                                <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
+                                  <tbody class="kmTextBlockOuter">
+                                    <tr>
+                                      <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                        <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
+                                          <tbody>
+                                            <tr>
+                                              <td class="kmTextContent" style="padding-top:15px;padding-bottom:15px;padding-left:10px;padding-right:30px;" valign="top"> <span style="font-family: courier, monospace; font-size: 12px;"><span style="font-family: courier, monospace; font-size: 12px;">{{
+                                                    shipping_address.name }}</span></span><br> <span style="font-family: courier, monospace; font-size: 12px;"><span style="font-family: courier, monospace; font-size: 12px;">{{
+                                                    shipping_address.company }}</span></span><br> <span style="font-family: courier, monospace; font-size: 12px;"><span style="font-family: courier, monospace; font-size: 12px;">{{
+                                                    shipping_address.street }}</span></span><br> <span style="font-family: courier, monospace; font-size: 12px;"><span style="font-family: courier, monospace; font-size: 12px;">{{
+                                                    shipping_address.city }}</span></span><br> <span style="font-family: courier, monospace; font-size: 12px;"><span style="font-family: courier, monospace; font-size: 12px;">{{
+                                                    shipping_address.province }} {{ shipping_address.zip
+                                                    }}</span></span><br> <span style="font-family: courier, monospace; font-size: 12px;"><span style="font-family: courier, monospace; font-size: 12px;">{{
+                                                    shipping_address.country }}</span></span> </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
                         </table>
                       </td>
                     </tr>
-                  </table>
-                </center>
-              </td>
-            </tr>
-          </table>
-
-          <table class="row footer">
-            <tr>
-              <td class="footer__cell">
-                <center>
-                  <table class="container">
-                    <tr>
-                      <td>
-                        <p class="disclaimer__subtext">
-                          If you have any questions, reply to this email or contact us at
-                          <a href="mailto:{{ shop.email }}">{{ shop.email }}</a>
-                        </p>
-                      </td>
-                    </tr>
-                  </table>
-                </center>
-              </td>
-            </tr>
-          </table>
-
-          <img src="{{ 'notifications/spacer.png' | shopify_asset_url }}" class="spacer" height="1">
-        </td>
-      </tr>
+                  {% endif %}
+                  <!-- BILLING ADDRESS -->
+                  <tr>
+                    <td align="center" valign="top" bgcolor="#EAF1F7">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="25%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
+                                <tbody class="kmTextBlockOuter">
+                                  <tr>
+                                    <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:0px;padding-left:30px;padding-right:10px;color:#37718E;" valign="top"> BILLING ADDRESS </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="75%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
+                                <tbody class="kmTextBlockOuter">
+                                  <tr>
+                                    <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:15px;padding-left:10px;padding-right:30px;" valign="top"> <span style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;"></span><span style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;">{{
+                                                billing_address.name }}</span><span style="color: rgb(34, 34, 34); font-family: &quot;Trebuchet MS&quot;, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: &quot;Trebuchet MS&quot;, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);">
+                                              <span style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;">{{
+                                                billing_address.company }}</span><span style="color: rgb(34, 34, 34); font-family: &quot;Trebuchet MS&quot;, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: &quot;Trebuchet MS&quot;, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);">
+                                              <span style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;">{{
+                                                billing_address.street }}</span><span style="color: rgb(34, 34, 34); font-family: &quot;Trebuchet MS&quot;, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: &quot;Trebuchet MS&quot;, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);">
+                                              <span style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;">{{
+                                                billing_address.city }}</span><span style="color: rgb(34, 34, 34); font-family: &quot;Trebuchet MS&quot;, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: &quot;Trebuchet MS&quot;, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);">
+                                              <span style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;">{{
+                                                billing_address.province }} {{ billing_address.zip }}</span><span style="color: rgb(34, 34, 34); font-family: &quot;Trebuchet MS&quot;, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: &quot;Trebuchet MS&quot;, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);">
+                                              <span style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;">{{
+                                                billing_address.country }}</span><span style="color: rgb(26, 24, 24); font-family: courier, monospace; font-size: 12px;"></span>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" valign="top">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="rowContainer kmFloatLeft" valign="top">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" style="background-color:#37718E" width="100%">
+                                <tbody class="kmDividerBlockOuter">
+                                  <tr>
+                                    <td class="kmDividerBlockInner" style="padding-top:15px;">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td><span></span></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" valign="top">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="50%"> </td>
+                            <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="50%"> </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <!-- Contact Us -->
+                  <tr>
+                    <td align="center" valign="top" bgcolor="#37718E">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="40%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
+                                <tbody class="kmTextBlockOuter">
+                                  <tr>
+                                    <td class="kmTextBlockInner" style="background-color:#37718E;padding-top:0px;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td class="kmTextContent" style="padding-top:10px;padding-bottom:10px;padding-left:30px;padding-right:25px;color:#FFFFFF;font-size:16px;font-weight:bold;line-height:1.5;background-color:#37718E;" valign="top">
+                                              <p style="padding-bottom:0"><span style="font-size:16px;">Have questions
+                                                  about your order? Feel free to respond to this email or give us a
+                                                  call!</span></p>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="60%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmTableBlock kmTableMobile" width="100%">
+                                <tbody class="kmTableBlockOuter">
+                                  <tr>
+                                    <td class="kmTableBlockInner" style="padding-top:5px;padding-left:25px;padding-bottom:4px;padding-right:30px;background-color:#37718E;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTable" style="color:#FFFFFF;text-align:left;" width="100%">
+                                        <thead>
+                                          <tr>
+                                            <th class="kmTextContent" style="text-align:left;width:15%;font-weight:bold;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> </th>
+                                            <th class="kmTextContent" style="text-align:left;font-weight:bold;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> </th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr class="kmTableRow">
+                                            <td class="kmTextContent" style="text-align:left;width:15%;color:#FFFFFF;border-top-style:none;border-top-width:0px;padding-top:5px;padding-left:0px;padding-bottom:6px;padding-right:0px;" valign="top"> <img align="left" alt src="https://d3k81ch9hvuctc.cloudfront.net/company/XjLncj/images/b1e4e1bb-b5ee-4cf9-ac85-5cb10954b074.png" style="width: 21px; height: 21px; float: left;"> </td>
+                                            <td class="kmTextContent" style="border-right:none; text-align:left; color:#FFF; border-top-style:none; border-top-width:0; padding-top:5px; padding-left:0; padding-bottom:6px; padding-right:0" valign="top"> <a href="mailto:emailus@tombihn.com" style="color:#FFF; font-weight:normal; text-decoration:underline"><strong>emailus@tombihn.com</strong></a>
+                                            </td>
+                                          </tr>
+                                          <tr class="kmTableRow">
+                                            <td class="kmTextContent" style="text-align:left;width:15%;color:#FFFFFF;border-top-style:none;border-top-width:0px;padding-top:5px;padding-left:0px;padding-bottom:6px;padding-right:0px;" valign="top"> <img alt src="https://d3k81ch9hvuctc.cloudfront.net/company/XjLncj/images/872db1fc-abfe-4192-9040-75afa2f1b864.png" style="width: 21px; height: 21px;"> </td>
+                                            <td class="kmTextContent" style="border-right:none; text-align:left; color:#FFF; border-top-style:none; border-top-width:0; padding-top:5px; padding-left:0; padding-bottom:6px; padding-right:0" valign="top"> <strong>1-800-729-9607 (U.S. and Canada)<br>
+                                                +1-206-652-4123 (other countries)</strong> </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  {% comment %} Shop By Category grid (images + heading only) — below Contact Us. {% endcomment %}
+                  <tr>
+                    <td align="center" valign="top">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" role="presentation" width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="rowContainer kmFloatLeft" style="background-color:#FFFFFF;" valign="top">
+                              <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td class="pb-6 pt-8 text-center px-9" align="center" style="text-align: center; padding-top: 32px; padding-bottom: 24px; padding-left: 9px; padding-right: 9px;">
+                                      <p class="m-0 text-xl font-semibold text-black" style="margin: 0; font-family: Arial, Helvetica, sans-serif; color: #111111; line-height: 1.3; font-size: 20px; font-weight: bold;">
+                                        Shop By Category
+                                      </p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td style="padding:0;line-height:0;font-size:0;" valign="top">
+                                      <table align="center" border="0" cellpadding="0" cellspacing="0" class="shop-category-grid-inner" role="presentation" width="100%" style="width:100%;max-width:600px;border-collapse:collapse;table-layout:fixed;margin-left:auto;margin-right:auto;">
+                                        <tbody>
+                                          <tr>
+                                            <td class="shop-category-half" valign="top" style="width:50%;padding:0;padding-right:1px;line-height:normal;font-size:16px;mso-padding-alt:0 1px 0 0;">
+                                              <a href="https://www.tombihn.com/collections/all-tom-bihn-stuff?filter.p.product_type=Travel%20Bags&amp;sort_by=manual" style="display:block;text-decoration:none;line-height:0;" target="_blank">
+                                                <img alt="Travel bags" border="0" class="shop-category-img shop-category-img-desktop" src="https://cdn.shopify.com/s/files/1/1089/8530/files/travelbagsemail2.jpg?v=1777654377" style="display:block;width:100%;max-width:100%;height:auto;border:0;outline:none;text-decoration:none;" width="600">
+                                                <img alt="Travel bags" border="0" class="shop-category-img shop-category-img-mobile" src="https://cdn.shopify.com/s/files/1/1089/8530/files/travelbagsmobileemail.jpg?v=1777656618" style="display:none;mso-hide:all;width:100%;max-width:100%;height:auto;border:0;outline:none;text-decoration:none;line-height:0;font-size:0;" width="600">
+                                              </a>
+                                            </td>
+                                            <td class="shop-category-half" valign="top" style="width:50%;padding:0;padding-left:1px;line-height:normal;font-size:16px;mso-padding-alt:0 0 0 1px;">
+                                              <a href="https://www.tombihn.com/collections/all-tom-bihn-stuff?filter.p.product_type=Backpacks&amp;sort_by=manual" style="display:block;text-decoration:none;line-height:0;" target="_blank">
+                                                <img alt="Backpacks" border="0" class="shop-category-img shop-category-img-desktop" src="https://cdn.shopify.com/s/files/1/1089/8530/files/backpacksemail2.jpg?v=1777654348" style="display:block;width:100%;max-width:100%;height:auto;border:0;outline:none;text-decoration:none;" width="600">
+                                                <img alt="Backpacks" border="0" class="shop-category-img shop-category-img-mobile" src="https://cdn.shopify.com/s/files/1/1089/8530/files/backpacksmobileemail.jpg?v=1777656604" style="display:none;mso-hide:all;width:100%;max-width:100%;height:auto;border:0;outline:none;text-decoration:none;line-height:0;font-size:0;" width="600">
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td style="padding:0;line-height:0;font-size:0;" valign="top">
+                                      <table align="center" border="0" cellpadding="0" cellspacing="0" class="shop-category-grid-inner" role="presentation" width="100%" style="width:100%;max-width:600px;border-collapse:collapse;table-layout:fixed;margin-left:auto;margin-right:auto;">
+                                        <tbody>
+                                          <tr>
+                                            <td class="shop-category-third" valign="top" style="width:33.333%;padding:0;padding-right:1px;line-height:normal;font-size:16px;mso-padding-alt:0 1px 0 0;">
+                                              <a href="https://www.tombihn.com/collections/all-tom-bihn-stuff?filter.p.product_type=Crossbody%20Bags&amp;sort_by=manual" style="display:block;text-decoration:none;line-height:0;" target="_blank">
+                                                <img alt="Crossbody bags" border="0" class="shop-category-img shop-category-img-desktop" src="https://cdn.shopify.com/s/files/1/1089/8530/files/crossbodyemail2.jpg?v=1777654356" style="display:block;width:100%;max-width:100%;height:auto;border:0;outline:none;text-decoration:none;" width="600">
+                                                <img alt="Crossbody bags" border="0" class="shop-category-img shop-category-img-mobile" src="https://cdn.shopify.com/s/files/1/1089/8530/files/crossbodymobileemail.jpg?v=1777656607" style="display:none;mso-hide:all;width:100%;max-width:100%;height:auto;border:0;outline:none;text-decoration:none;line-height:0;font-size:0;" width="600">
+                                              </a>
+                                            </td>
+                                            <td class="shop-category-third" valign="top" style="width:33.333%;padding:0;padding-left:1px;padding-right:1px;line-height:normal;font-size:16px;mso-padding-alt:0 1px 0 1px;">
+                                              <a href="https://www.tombihn.com/collections/all-tom-bihn-stuff?filter.p.product_type=Totes&amp;sort_by=manual" style="display:block;text-decoration:none;line-height:0;" target="_blank">
+                                                <img alt="Totes" border="0" class="shop-category-img shop-category-img-desktop" src="https://cdn.shopify.com/s/files/1/1089/8530/files/totesemail2.jpg?v=1777654366" style="display:block;width:100%;max-width:100%;height:auto;border:0;outline:none;text-decoration:none;" width="600">
+                                                <img alt="Totes" border="0" class="shop-category-img shop-category-img-mobile" src="https://cdn.shopify.com/s/files/1/1089/8530/files/totesmobileemail.jpg?v=1777656615" style="display:none;mso-hide:all;width:100%;max-width:100%;height:auto;border:0;outline:none;text-decoration:none;line-height:0;font-size:0;" width="600">
+                                              </a>
+                                            </td>
+                                            <td class="shop-category-third" valign="top" style="width:33.333%;padding:0;padding-left:1px;line-height:normal;font-size:16px;mso-padding-alt:0 0 0 1px;">
+                                              <a href="https://www.tombihn.com/collections/all-tom-bihn-stuff?filter.p.product_type=Organizers&amp;sort_by=manual" style="display:block;text-decoration:none;line-height:0;" target="_blank">
+                                                <img alt="Organizers" border="0" class="shop-category-img shop-category-img-desktop" src="https://cdn.shopify.com/s/files/1/1089/8530/files/organizersemail2.jpg?v=1777654455" style="display:block;width:100%;max-width:100%;height:auto;border:0;outline:none;text-decoration:none;" width="600">
+                                                <img alt="Organizers" border="0" class="shop-category-img shop-category-img-mobile" src="https://cdn.shopify.com/s/files/1/1089/8530/files/organizersmobileemail.jpg?v=1777656612" style="display:none;mso-hide:all;width:100%;max-width:100%;height:auto;border:0;outline:none;text-decoration:none;line-height:0;font-size:0;" width="600">
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  {% comment %} Trust bar: fluid 3 cols (max-width 600). SVGs: limited in Outlook. {% endcomment %}
+                  <tr>
+                    <td align="center" valign="top">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" role="presentation" width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="rowContainer kmFloatLeft" bgcolor="#E8EDF3" valign="top" style="background-color:#E8EDF3;background-image:linear-gradient(rgba(160,174,188,0.28) 1px,transparent 1px),linear-gradient(90deg,rgba(160,174,188,0.28) 1px,transparent 1px);background-size:14px 14px;">
+                              <table border="0" cellpadding="0" cellspacing="0" role="presentation" align="center" class="trust-bar-inner" width="100%" style="border-collapse:collapse;table-layout:fixed;width:100%;max-width:600px;">
+                                <tbody>
+                                  <tr>
+                                    <td class="trust-bar-col" valign="top" align="center" width="33.33%" style="width:33.333%;padding:38px 8px;font-family:Arial,Helvetica,sans-serif;color:#111111;word-wrap:break-word;overflow-wrap:break-word;">
+                                      <!--[if mso]>
+                                      <div style="height:14px;line-height:14px;font-size:1px;">&nbsp;</div>
+                                      <![endif]-->
+                                      <!--[if !mso]><!-->
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="20" viewBox="0 0 17 20" fill="none" role="img" aria-labelledby="trustTitle1" style="display:block;max-width:100%;height:auto;margin:0 auto;">
+                                        <title id="trustTitle1">Lifetime Guarantee</title>
+                                        <path d="M8.02083 19.0208C8.02083 19.0208 15.3542 15.3542 15.3542 9.85417V3.4375L8.02083 0.6875L0.6875 3.4375V9.85417C0.6875 15.3542 8.02083 19.0208 8.02083 19.0208Z" stroke="black" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"/>
+                                      </svg>
+                                      <!--<![endif]-->
+                                      <p style="margin:14px 0 0;padding:0;line-height:1.4;font-size:14px;text-align:center;width:100%;max-width:100%;word-wrap:break-word;overflow-wrap:break-word;word-break:break-word;-ms-word-break:break-word;mso-margin-top-alt:14px;mso-margin-bottom-alt:0;">
+                                        Lifetime Guarantee
+                                      </p>
+                                    </td>
+                                    <td class="trust-bar-col" valign="top" align="center" width="33.33%" style="width:33.333%;padding:38px 8px;font-family:Arial,Helvetica,sans-serif;color:#111111;word-wrap:break-word;overflow-wrap:break-word;">
+                                      <!--[if mso]>
+                                      <div style="height:14px;line-height:14px;font-size:1px;">&nbsp;</div>
+                                      <![endif]-->
+                                      <!--[if !mso]><!-->
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" role="img" aria-labelledby="trustTitle2" style="display:block;max-width:100%;height:auto;margin:0 auto;">
+                                        <title id="trustTitle2">Original designs since 1972</title>
+                                        <path d="M11 20.1667C16.0627 20.1667 20.1667 16.0627 20.1667 11C20.1667 5.93743 16.0627 1.83337 11 1.83337C5.93743 1.83337 1.83337 5.93743 1.83337 11C1.83337 16.0627 5.93743 20.1667 11 20.1667Z" stroke="black" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M1.83337 11H20.1667" stroke="black" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M11 1.83337C13.2929 4.34353 14.5959 7.60107 14.6667 11C14.5959 14.399 13.2929 17.6566 11 20.1667C8.7072 17.6566 7.40418 14.399 7.33337 11C7.40418 7.60107 8.7072 4.34353 11 1.83337Z" stroke="black" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"/>
+                                      </svg>
+                                      <!--<![endif]-->
+                                      <p style="margin:14px 0 0;padding:0;line-height:1.4;font-size:14px;text-align:center;width:100%;max-width:100%;word-wrap:break-word;overflow-wrap:break-word;word-break:break-word;-ms-word-break:break-word;mso-margin-top-alt:14px;mso-margin-bottom-alt:0;">
+                                        Original designs since 1972
+                                      </p>
+                                    </td>
+                                    <td class="trust-bar-col" valign="top" align="center" width="33.33%" style="width:33.333%;padding:38px 8px;font-family:Arial,Helvetica,sans-serif;color:#111111;word-wrap:break-word;overflow-wrap:break-word;">
+                                      <!--[if mso]>
+                                      <div style="height:14px;line-height:14px;font-size:1px;">&nbsp;</div>
+                                      <![endif]-->
+                                      <!--[if !mso]><!-->
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" role="img" aria-labelledby="trustTitle3" style="display:block;max-width:100%;height:auto;margin:0 auto;">
+                                        <title id="trustTitle3">Built for travel and everyday</title>
+                                        <path d="M18.3334 6.41663H3.66671C2.65419 6.41663 1.83337 7.23744 1.83337 8.24996V17.4166C1.83337 18.4291 2.65419 19.25 3.66671 19.25H18.3334C19.3459 19.25 20.1667 18.4291 20.1667 17.4166V8.24996C20.1667 7.23744 19.3459 6.41663 18.3334 6.41663Z" stroke="black" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14.6667 6.41667V4.58333C14.6667 4.0971 14.4736 3.63079 14.1297 3.28697C13.7859 2.94315 13.3196 2.75 12.8334 2.75H9.16671C8.68048 2.75 8.21416 2.94315 7.87035 3.28697C7.52653 3.63079 7.33337 4.0971 7.33337 4.58333V6.41667" stroke="black" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"/>
+                                      </svg>
+                                      <!--<![endif]-->
+                                      <p style="margin:14px 0 0;padding:0;line-height:1.4;font-size:14px;text-align:center;width:100%;max-width:100%;word-wrap:break-word;overflow-wrap:break-word;word-break:break-word;-ms-word-break:break-word;mso-margin-top-alt:14px;mso-margin-bottom-alt:0;">
+                                        Built for travel and everyday
+                                      </p>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" valign="top">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="rowContainer kmFloatLeft" valign="top">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" width="100%">
+                                <tbody class="kmDividerBlockOuter">
+                                  <tr>
+                                    <td class="kmDividerBlockInner" style="padding-top:30px;">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td><span></span></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmImageBlock" style="min-width:100%" width="100%">
+                                <tbody class="kmImageBlockOuter">
+                                  <tr>
+                                    <td class="kmImageBlockInner" style="padding:9px;padding-left:9;padding-right:9;" valign="top">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmImageContentContainer" style="min-width:100%" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td class="kmImageContent" style="padding-top:0px;padding-bottom:0;padding-left:9px;padding-right:9px;text-align: center;" valign="top"> <a href="https://www.tombihn.com/"> <img align="center" alt class="kmImage" src="https://d3k81ch9hvuctc.cloudfront.net/company/XjLncj/images/2f973279-2221-4086-b48f-ecb0f2bad9db.png" style="max-width:325px;padding:0;border-width:0;" width="325"> </a> </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" width="100%">
+                                <tbody class="kmDividerBlockOuter">
+                                  <tr>
+                                    <td class="kmDividerBlockInner" style="padding-top:30px;">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
+                                        <tbody>
+                                          <tr>
+                                            <td><span></span></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <!--[if !mso]><!-->
+              </div>
+            </div>
+            <div style="display:none !important;visibility:hidden;mso-hide:all;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">
+              ‌</div>
+            <!--<![endif]-->
+            <!--[if mso]> </td> </tr> </tbody> </table> <![endif]-->
+          </td>
+        </tr>
+      </tbody>
     </table>
-  </body>
+  </center>
+</body>
+
 </html>
