@@ -614,6 +614,142 @@
         overflow: visible !important
       }
     }
+
+    td.customer-favorites-section {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box
+    }
+
+    td.customer-favorites-grid-wrap {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box
+    }
+
+    table.customer-favorites-inner {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      table-layout: fixed !important
+    }
+
+    table.customer-favorites-inner td.customer-favorites-card-cell {
+      vertical-align: top;
+      box-sizing: border-box !important;
+      overflow: hidden;
+      padding: 12px !important
+    }
+
+    /* Real gap columns: 12px desktop, 8px mobile (@media below) */
+    table.customer-favorites-inner td.customer-favorites-gap {
+      width: 12px !important;
+      min-width: 12px !important;
+      max-width: 12px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 0 !important;
+      line-height: 0 !important;
+      overflow: hidden !important;
+      vertical-align: top !important;
+      border: 0 !important
+    }
+
+    table.customer-favorites-inner img.customer-favorites-product-img {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: 204px !important;
+      max-height: 204px !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      border: 0 !important;
+      margin: 0 !important
+    }
+
+    table.customer-favorites-inner p.customer-favorites-title {
+      margin: 0 0 4px !important;
+      padding: 0 !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important
+    }
+
+    table.customer-favorites-inner p.customer-favorites-price {
+      margin: 0 !important;
+      padding: 0 !important
+    }
+
+    img.crew-footer-airplane-img {
+      display: block !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 158px !important;
+      height: 94px !important;
+      max-width: 158px !important;
+      max-height: 94px !important;
+      object-fit: contain !important;
+      border: 0 !important
+    }
+
+    /* Must follow desktop rules above: mobile overrides win when viewport matches. */
+    @media only screen and (max-width:480px) {
+      table.customer-favorites-inner img.customer-favorites-product-img {
+        height: 131px !important;
+        max-height: 131px !important;
+        min-height: 0 !important
+      }
+
+      table.customer-favorites-inner p.customer-favorites-title {
+        font-size: 12px !important
+      }
+
+      table.customer-favorites-inner p.customer-favorites-price {
+        font-size: 10px !important
+      }
+
+      td.customer-favorites-section {
+        padding: 20px 9px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important
+      }
+
+      td.customer-favorites-grid-wrap {
+        padding: 12px 0 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important
+      }
+
+      table.customer-favorites-inner {
+        max-width: 100% !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        margin: 0 !important;
+        table-layout: fixed !important;
+        border-spacing: 0 !important
+      }
+
+      table.customer-favorites-inner td.customer-favorites-card-cell {
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        padding: 12px !important
+      }
+
+      table.customer-favorites-inner td.customer-favorites-gap {
+        width: 8px !important;
+        min-width: 8px !important;
+        max-width: 8px !important
+      }
+
+      img.crew-footer-airplane-img {
+        width: 124px !important;
+        height: 73px !important;
+        max-width: 124px !important;
+        max-height: 73px !important
+      }
+    }
   </style>
 </head>
 
@@ -1650,41 +1786,99 @@
                   </tr>
                   <tr>
                     <td align="center" valign="top">
-                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" role="presentation" width="100%">
                         <tbody>
                           <tr>
-                            <td class="rowContainer kmFloatLeft" valign="top">
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" width="100%">
-                                <tbody class="kmDividerBlockOuter">
+                            <td class="rowContainer kmFloatLeft customer-favorites-section" bgcolor="#FFFFFF"
+                              style="background-color:#FFFFFF;padding:20px 9px;mso-padding-alt:20px 9px;max-width:100%;width:100%;box-sizing:border-box;"
+                              valign="top" width="100%">
+                              <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%"
+                                style="width:100%;max-width:100%;box-sizing:border-box;">
+                                <tbody>
                                   <tr>
-                                    <td class="kmDividerBlockInner" style="padding-top:30px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent"
-                                        width="100%">
-                                        <tbody>
-                                          <tr>
-                                            <td><span></span></td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
+                                    <td align="center" style="padding:0;" valign="top">
+                                      <p
+                                        style="margin:0;font-family: Arial, Helvetica, sans-serif;color:#111111;line-height:1.3;font-size:20px;font-weight:600;">
+                                        Customer Favorites
+                                      </p>
                                     </td>
                                   </tr>
-                                </tbody>
-                              </table>
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmImageBlock"
-                                style="min-width:100%" width="100%">
-                                <tbody class="kmImageBlockOuter">
                                   <tr>
-                                    <td class="kmImageBlockInner" style="padding:9px;padding-left:9;padding-right:9;"
-                                      valign="top">
+                                    <td class="customer-favorites-grid-wrap"
+                                      style="padding:12px 0 0;line-height:0;font-size:0;width:100%;max-width:100%;box-sizing:border-box;"
+                                      valign="top" width="100%">
                                       <table align="left" border="0" cellpadding="0" cellspacing="0"
-                                        class="kmImageContentContainer" style="min-width:100%" width="100%">
+                                        class="customer-favorites-inner" role="presentation" width="100%"
+                                        style="width:100%;max-width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;margin:0;box-sizing:border-box;">
                                         <tbody>
                                           <tr>
-                                            <td class="kmImageContent"
-                                              style="padding-top:0px;padding-bottom:0;padding-left:9px;padding-right:9px;text-align: center;"
-                                              valign="top"> <a href="https://www.tombihn.com/"> <img align="center" alt="" class="kmImage"
-                                                src="https://d3k81ch9hvuctc.cloudfront.net/company/XjLncj/images/2f973279-2221-4086-b48f-ecb0f2bad9db.png"
-                                                style="max-width:325px;padding:0;border-width:0;" width="325" /> </a> </td>
+                                            <td bgcolor="#E9F1F7" class="customer-favorites-card-cell" valign="top"
+                                              style="min-width:0;vertical-align:top;background-color:#E9F1F7;border-radius:14px;line-height:normal;font-family: Arial, Helvetica, sans-serif;">
+                                              <a href="https://www.tombihn.com/collections/all-tom-bihn-stuff/products/synik-26"
+                                                style="color:#111111;text-decoration:none;display:block;"
+                                                target="_blank">
+                                                <img alt="Synik 26 Backpack" border="0" class="customer-favorites-product-img"
+                                                  src="https://cdn.shopify.com/s/files/1/1089/8530/files/synikpngemail.png?v=1777660069"
+                                                  height="204"
+                                                  style="display:block;width:100%;max-width:100%;border:0;line-height:0;"
+                                                  width="1" />
+                                                <p
+                                                  class="customer-favorites-title"
+                                                  style="padding:0;font-size:16px;font-weight:600;line-height:1.3;color:#111111;mso-ansi-font-weight:bold;">
+                                                  Synik 26 Backpack
+                                                </p>
+                                                <p
+                                                  class="customer-favorites-price"
+                                                  style="font-size:14px;line-height:1.3;color:rgba(0,0,0,0.5);mso-ansi-font-weight:normal;">
+                                                  $350</p>
+                                              </a>
+                                            </td>
+                                            <td class="customer-favorites-gap" width="12" bgcolor="#FFFFFF" valign="top"
+                                              style="width:12px;line-height:0;font-size:0;mso-line-height-rule:exactly;">&#8203;</td>
+                                            <td bgcolor="#E9F1F7" class="customer-favorites-card-cell" valign="top"
+                                              style="min-width:0;vertical-align:top;background-color:#E9F1F7;border-radius:14px;line-height:normal;font-family: Arial, Helvetica, sans-serif;">
+                                              <a href="https://www.tombihn.com/collections/all-tom-bihn-stuff/products/synapse-25"
+                                                style="color:#111111;text-decoration:none;display:block;"
+                                                target="_blank">
+                                                <img alt="Synapse 25 Backpack" border="0" class="customer-favorites-product-img"
+                                                  src="https://cdn.shopify.com/s/files/1/1089/8530/files/synapsepngemail.png?v=1777660196"
+                                                  height="204"
+                                                  style="display:block;width:100%;max-width:100%;border:0;line-height:0;"
+                                                  width="1" />
+                                                <p
+                                                  class="customer-favorites-title"
+                                                  style="padding:0;font-size:16px;font-weight:600;line-height:1.3;color:#111111;mso-ansi-font-weight:bold;">
+                                                  Synapse 25 Backpack
+                                                </p>
+                                                <p
+                                                  class="customer-favorites-price"
+                                                  style="font-size:14px;line-height:1.3;color:rgba(0,0,0,0.5);mso-ansi-font-weight:normal;">
+                                                  $265</p>
+                                              </a>
+                                            </td>
+                                            <td class="customer-favorites-gap" width="12" bgcolor="#FFFFFF" valign="top"
+                                              style="width:12px;line-height:0;font-size:0;mso-line-height-rule:exactly;">&#8203;</td>
+                                            <td bgcolor="#E9F1F7" class="customer-favorites-card-cell" valign="top"
+                                              style="min-width:0;vertical-align:top;background-color:#E9F1F7;border-radius:14px;line-height:normal;font-family: Arial, Helvetica, sans-serif;">
+                                              <a href="https://www.tombihn.com/products/monster-truck"
+                                                style="color:#111111;text-decoration:none;display:block;"
+                                                target="_blank">
+                                                <img alt="Monster Truck Totebag" border="0" class="customer-favorites-product-img"
+                                                  src="https://cdn.shopify.com/s/files/1/1089/8530/files/truckpngemail.png?v=1777660190"
+                                                  height="204"
+                                                  style="display:block;width:100%;max-width:100%;border:0;line-height:0;"
+                                                  width="1" />
+                                                <p
+                                                  class="customer-favorites-title"
+                                                  style="padding:0;font-size:16px;font-weight:600;line-height:1.3;color:#111111;mso-ansi-font-weight:bold;">
+                                                  Monster Truck Totebag
+                                                </p>
+                                                <p
+                                                  class="customer-favorites-price"
+                                                  style="font-size:14px;line-height:1.3;color:rgba(0,0,0,0.5);mso-ansi-font-weight:normal;">
+                                                  $85</p>
+                                              </a>
+                                            </td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -1692,15 +1886,59 @@
                                   </tr>
                                 </tbody>
                               </table>
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" width="100%">
-                                <tbody class="kmDividerBlockOuter">
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  {% comment %} Closing block: Best Regards + crew + airplane + factory + address {% endcomment %}
+                  <tr>
+                    <td align="center" valign="top">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" role="presentation" width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="rowContainer kmFloatLeft" style="background-color:#FFFFFF;" valign="top">
+                              <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%"
+                                style="width:100%;max-width:600px;margin-left:auto;margin-right:auto;">
+                                <tbody>
                                   <tr>
-                                    <td class="kmDividerBlockInner" style="padding-top:30px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent"
-                                        width="100%">
+                                    <td align="center" bgcolor="#37718E" valign="top"
+                                      style="background-color:#37718E;border-radius:0;padding:24px 12px;">
+                                      <p
+                                        style="margin:0 0 6px;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.4;color:#FFFFFF;text-align:center;">
+                                        Best Regards,
+                                      </p>
+                                      <p
+                                        style="margin:0 0 6px;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;line-height:1.2;color:#FFFFFF;text-align:center;letter-spacing:0.04em;text-transform:uppercase;mso-ansi-font-weight:bold;">
+                                        The TOM BIHN Crew
+                                      </p>
+                                      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
                                         <tbody>
                                           <tr>
-                                            <td><span></span></td>
+                                            <td align="center" style="padding:0 0 6px;">
+                                              <img alt="TOM BIHN airplane" border="0" class="crew-footer-airplane-img"
+                                                src="https://cdn.shopify.com/s/files/1/1089/8530/files/airplanelg.png?v=1777661148"
+                                                height="94"
+                                                style="display:block;margin:0 auto;width:158px;height:94px;max-width:158px;border:0;outline:none;text-decoration:none;object-fit:contain;"
+                                                width="158" />
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td align="center" style="padding:0 0 6px;line-height:0;font-size:0;">
+                                              <img alt="Inside the TOM BIHN Seattle factory" border="0"
+                                                src="https://cdn.shopify.com/s/files/1/1089/8530/files/The_Tom_Bihn_factory.jpg?v=1777661153"
+                                                style="display:block;margin:0 auto;width:100%;max-width:280px;height:auto;border:0;border-radius:8px;outline:none;text-decoration:none;"
+                                                width="280" />
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td align="center"
+                                              style="padding:4px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.55;color:#FFFFFF;text-align:center;">
+                                              <p style="margin:0;padding:0;color:#FFFFFF;">4750A Ohio Ave S.</p>
+                                              <p style="margin:6px 0 0;padding:0;color:#FFFFFF;">Seattle WA 98134</p>
+                                              <p style="margin:6px 0 0;padding:0;color:#FFFFFF;">USA</p>
+                                            </td>
                                           </tr>
                                         </tbody>
                                       </table>
