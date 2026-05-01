@@ -225,6 +225,125 @@
         padding-right: 4px !important
       }
 
+      /* Order summary heading row + FYI/DATE/etc. labels — 10px mobile (12px desktop inline) */
+      td.order-summary-label.kmTextContent,
+      td.kmTextBlockInner td.order-summary-label.kmTextContent {
+        font-size: 10px !important;
+        line-height: 1.3 !important
+      }
+
+      table.kmTableBlock.kmTableMobile td.kmTableBlockInner table.kmTable td.order-summary-heading.kmTextContent,
+      table.kmTableBlock.kmTableMobile td.kmTableBlockInner table.kmTable td.order-summary-heading.kmTextContent span {
+        font-size: 10px !important;
+        line-height: 1.3 !important
+      }
+
+      /* FYI/DATE/etc.: keep two columns beside each other on mobile (no kmFloatLeft stack) */
+      table.templateRow.order-summary-rows {
+        width: 100% !important;
+        max-width: 100% !important;
+        table-layout: fixed !important
+      }
+
+      table.templateRow.order-summary-rows td.rowContainer.firstColumn {
+        width: 25% !important;
+        max-width: 25% !important;
+        min-width: 0 !important;
+        vertical-align: top !important;
+        box-sizing: border-box !important
+      }
+
+      table.templateRow.order-summary-rows td.rowContainer.lastColumn {
+        width: 75% !important;
+        max-width: 75% !important;
+        min-width: 0 !important;
+        vertical-align: top !important;
+        box-sizing: border-box !important
+      }
+
+      th.contact-us-teal.kmTextContent {
+        font-size: 12px !important;
+        font-weight: 400 !important
+      }
+
+      td.contact-us-teal.kmTextContent,
+      td.contact-us-teal.kmTextContent a {
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+        font-weight: 400 !important
+      }
+
+      table.kmTableBlock.kmTableMobile td.kmTableBlockInner td.contact-us-teal.kmTextContent,
+      table.kmTableBlock.kmTableMobile td.kmTableBlockInner td.contact-us-teal.kmTextContent a {
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+        font-weight: 400 !important
+      }
+
+      /* Contact Us: same row layout as desktop; 16px section padding; wider right column */
+      td.contact-us-section {
+        padding: 16px !important;
+        mso-padding-alt: 16px !important
+      }
+
+      table.contact-us-row {
+        width: 100% !important;
+        max-width: 100% !important;
+        table-layout: fixed !important
+      }
+
+      /* No kmFloatLeft on these cells so they are not forced full-width + stacked */
+      td.rowContainer.contact-us-left-col {
+        width: 40% !important;
+        max-width: 40% !important;
+        box-sizing: border-box !important;
+        padding-right: 24px !important;
+        padding-bottom: 0 !important;
+        vertical-align: middle !important
+      }
+
+      td.rowContainer.contact-us-right-col {
+        width: 60% !important;
+        max-width: 60% !important;
+        box-sizing: border-box !important;
+        vertical-align: middle !important
+      }
+
+      td.contact-us-left-col td.kmTextBlockInner td.kmTextContent.contact-us-teal {
+        padding-left: 0 !important;
+        padding-right: 0 !important
+      }
+
+      td.contact-us-right-col table.kmTableBlock td.kmTableBlockInner {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important
+      }
+
+      table.contact-us-methods {
+        width: 100% !important;
+        max-width: 100% !important;
+        table-layout: fixed !important
+      }
+
+      table.contact-us-methods td[width="22"],
+      table.contact-us-methods th[width="22"] {
+        width: 22px !important;
+        max-width: 22px !important;
+        padding-left: 0 !important;
+        padding-right: 4px !important
+      }
+
+      td.contact-us-right-col table.kmTableBlock.kmTableMobile td.kmTableBlockInner table.contact-us-methods tbody td.kmTextContent:not([width]) {
+        width: auto !important;
+        padding-left: 4px !important;
+        padding-right: 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important
+      }
+
       table.trust-bar-inner {
         width: 100% !important;
         max-width: 100% !important
@@ -1059,30 +1178,15 @@
                     </td>
                   </tr>
                   <tr>
-                    <td align="center" valign="top">
+                    <td align="center" valign="top" bgcolor="#E9F1F7" style="background-color:#E9F1F7;border-top:1px solid #DDE8EE;">
                       <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
                         <tbody>
                           <tr>
                             <td class="rowContainer kmFloatLeft" valign="top">
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" width="100%">
-                                <tbody class="kmDividerBlockOuter">
-                                  <tr>
-                                    <td class="kmDividerBlockInner" style="padding-top:30px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
-                                        <tbody>
-                                          <tr>
-                                            <td><span></span></td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
                               <table border="0" cellpadding="0" cellspacing="0" class="kmTableBlock kmTableMobile" width="100%">
                                 <tbody class="kmTableBlockOuter">
                                   <tr>
-                                    <td class="kmTableBlockInner" style="padding-top:17px;padding-left:30px;padding-bottom:17px;padding-right:30px;background-color:#EAF1F7;" valign="top">
+                                    <td class="kmTableBlockInner" style="padding-top:17px;padding-left:30px;padding-bottom:17px;padding-right:30px;background-color:#E9F1F7;" valign="top">
                                       <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTable" style="color:#37718E;" width="100%">
                                         <thead>
                                           <tr>
@@ -1092,9 +1196,9 @@
                                         </thead>
                                         <tbody>
                                           <tr class="kmTableRow">
-                                            <td class="kmTextContent" style="text-align:left;color:#37718E;border-top-style:none;border-top-width:0px;border-top-color:#d9d9d9;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> <span style="font-size:17px;text-transform:uppercase;">Order
+                                            <td class="kmTextContent order-summary-heading" style="text-align:left;color:#37718E;font-size:12px;font-weight:bold;line-height:1.3;border-top-style:none;border-top-width:0px;border-top-color:#d9d9d9;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> <span style="font-family:Helvetica, Arial, sans-serif;font-size:12px;text-transform:uppercase;font-weight:bold;">Order
                                                 Summary</span> </td>
-                                            <td class="kmTextContent" style="border-right:none; text-align:right; color:#37718E; border-top-style:none; border-top-width:0; border-top-color:#d9d9d9; padding-top:0; padding-left:0; padding-bottom:0; padding-right:0" valign="top"> <span style="font-family: Helvetica, Arial, sans-serif;"><span style="font-size: 16px; text-transform: uppercase;">ORDER {{
+                                            <td class="kmTextContent order-summary-heading" style="border-right:none;text-align:right;color:#37718E;font-size:12px;font-weight:bold;line-height:1.3;border-top-style:none;border-top-width:0;border-top-color:#d9d9d9;padding-top:0;padding-left:0;padding-bottom:0;padding-right:0;" valign="top"> <span style="font-family: Helvetica, Arial, sans-serif;"><span style="font-size: 12px; text-transform: uppercase; font-weight: bold;">ORDER {{
                                                   order.name }}</span></span> </td>
                                           </tr>
                                         </tbody>
@@ -1104,11 +1208,11 @@
                                 </tbody>
                               </table>
                               <!--[if !mso]><!-->
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock kmMobileOnly" style="background-color:#EAF1F7" width="100%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock kmMobileOnly" style="background-color:#E9F1F7" width="100%">
                                 <tbody class="kmDividerBlockOuter">
                                   <tr>
                                     <td class="kmDividerBlockInner" style="padding-top:0px;padding-bottom:0px;padding-left:18px;padding-right:18px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" style="border-top-width:1px;border-top-style:solid;border-top-color:#37718E;" width="100%">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" style="border-top-width:1px;border-top-style:solid;border-top-color:#DDE8EE;" width="100%">
                                         <tbody>
                                           <tr>
                                             <td><span></span></td>
@@ -1120,11 +1224,11 @@
                                 </tbody>
                               </table>
                               <!--<![endif]-->
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock kmDesktopOnly" style="background-color:#EAF1F7" width="100%">
+                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock kmDesktopOnly" style="background-color:#E9F1F7" width="100%">
                                 <tbody class="kmDividerBlockOuter">
                                   <tr>
                                     <td class="kmDividerBlockInner" style="padding-top:0px;padding-bottom:0px;padding-left:30px;padding-right:30px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" style="border-top-width:1px;border-top-style:solid;border-top-color:#37718E;" width="100%">
+                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" style="border-top-width:1px;border-top-style:solid;border-top-color:#DDE8EE;" width="100%">
                                         <tbody>
                                           <tr>
                                             <td><span></span></td>
@@ -1143,19 +1247,19 @@
                   </tr>
                   <!-- FYI -->
                   <tr>
-                    <td align="center" valign="top" bgcolor="#EAF1F7">
-                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                    <td align="center" valign="top" bgcolor="#E9F1F7">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow order-summary-rows" role="presentation" width="100%">
                         <tbody>
                           <tr>
-                            <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="25%">
+                            <td class="rowContainer firstColumn" valign="top" width="25%">
                               <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
                                 <tbody class="kmTextBlockOuter">
                                   <tr>
-                                    <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                    <td class="kmTextBlockInner" style="background-color:#E9F1F7;" valign="top">
                                       <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
                                         <tbody>
                                           <tr>
-                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:0px;padding-left:30px;padding-right:10px;color:#37718E;" valign="top"> FYI </td>
+                                            <td class="kmTextContent order-summary-label" style="padding-top:15px;padding-bottom:0px;padding-left:30px;padding-right:16px;color:#37718E;font-size:12px;font-weight:bold;line-height:1.3;text-transform:uppercase;font-family:Helvetica, Arial, sans-serif;" valign="top"> FYI </td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -1164,15 +1268,15 @@
                                 </tbody>
                               </table>
                             </td>
-                            <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="75%">
+                            <td class="rowContainer lastColumn" valign="top" width="75%">
                               <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
                                 <tbody class="kmTextBlockOuter">
                                   <tr>
-                                    <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                    <td class="kmTextBlockInner" style="background-color:#E9F1F7;" valign="top">
                                       <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
                                         <tbody>
                                           <tr>
-                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:15px;padding-left:10px;padding-right:30px;" valign="top"> <span style="font-family: Helvetica, Arial, sans-serif;"><span style="color: rgb(26, 24, 24); font-size: 12px;">All regular (not
+                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:15px;padding-left:0;padding-right:30px;" valign="top"> <span style="font-family: Helvetica, Arial, sans-serif;"><span style="color: rgb(26, 24, 24); font-size: 12px;">All regular (not
                                                   pre-order) orders for bags are shipping within 2-3
                                                   business days, and often much sooner than that.</span></span> </td>
                                           </tr>
@@ -1188,32 +1292,21 @@
                       </table>
                     </td>
                   </tr>
-                  <tr>
-                    <td align="center" valign="top">
-                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
-                        <tbody>
-                          <tr>
-                            <td class="rowContainer kmFloatLeft" valign="top"> </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
                   <!-- DATE -->
                   <tr>
-                    <td align="center" valign="top" bgcolor="#EAF1F7">
-                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                    <td align="center" valign="top" bgcolor="#E9F1F7" style="border-top:1px solid #DDE8EE;">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow order-summary-rows" role="presentation" width="100%">
                         <tbody>
                           <tr>
-                            <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="25%">
+                            <td class="rowContainer firstColumn" valign="top" width="25%">
                               <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
                                 <tbody class="kmTextBlockOuter">
                                   <tr>
-                                    <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                    <td class="kmTextBlockInner" style="background-color:#E9F1F7;" valign="top">
                                       <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
                                         <tbody>
                                           <tr>
-                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:0px;padding-left:30px;padding-right:10px;color:#37718E;" valign="top"> DATE </td>
+                                            <td class="kmTextContent order-summary-label" style="padding-top:15px;padding-bottom:0px;padding-left:30px;padding-right:16px;color:#37718E;font-size:12px;font-weight:bold;line-height:1.3;text-transform:uppercase;font-family:Helvetica, Arial, sans-serif;" valign="top"> DATE </td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -1222,15 +1315,15 @@
                                 </tbody>
                               </table>
                             </td>
-                            <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="75%">
+                            <td class="rowContainer lastColumn" valign="top" width="75%">
                               <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
                                 <tbody class="kmTextBlockOuter">
                                   <tr>
-                                    <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                    <td class="kmTextBlockInner" style="background-color:#E9F1F7;" valign="top">
                                       <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
                                         <tbody>
                                           <tr>
-                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:15px;padding-left:10px;padding-right:30px;" valign="top"> <span style="font-family: Helvetica, Arial, sans-serif;"><span style="font-size: 12px;">{{ date | date: "%m/%d/%Y" }}</span></span>
+                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:15px;padding-left:0;padding-right:30px;" valign="top"> <span style="font-family: Helvetica, Arial, sans-serif;"><span style="font-size: 12px;">{{ date | date: "%m/%d/%Y" }}</span></span>
                                             </td>
                                           </tr>
                                         </tbody>
@@ -1248,19 +1341,19 @@
                   <!-- SHIPPING ADDRESS -->
                   {% if requires_shipping and shipping_address %}
                     <tr>
-                      <td align="center" valign="top" bgcolor="#EAF1F7">
-                        <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                      <td align="center" valign="top" bgcolor="#E9F1F7" style="border-top:1px solid #DDE8EE;">
+                        <table border="0" cellpadding="0" cellspacing="0" class="templateRow order-summary-rows" role="presentation" width="100%">
                           <tbody>
                             <tr>
-                              <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="25%">
+                              <td class="rowContainer firstColumn" valign="top" width="25%">
                                 <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
                                   <tbody class="kmTextBlockOuter">
                                     <tr>
-                                      <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                      <td class="kmTextBlockInner" style="background-color:#E9F1F7;" valign="top">
                                         <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
                                           <tbody>
                                             <tr>
-                                              <td class="kmTextContent" style="padding-top:15px;padding-bottom:0px;padding-left:30px;padding-right:10px;color:#37718E;" valign="top"> SHIPPING ADDRESS </td>
+                                              <td class="kmTextContent order-summary-label" style="padding-top:15px;padding-bottom:0px;padding-left:30px;padding-right:16px;color:#37718E;font-size:12px;font-weight:bold;line-height:1.3;text-transform:uppercase;font-family:Helvetica, Arial, sans-serif;" valign="top"> SHIPPING ADDRESS </td>
                                             </tr>
                                           </tbody>
                                         </table>
@@ -1269,15 +1362,15 @@
                                   </tbody>
                                 </table>
                               </td>
-                              <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="75%">
+                              <td class="rowContainer lastColumn" valign="top" width="75%">
                                 <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
                                   <tbody class="kmTextBlockOuter">
                                     <tr>
-                                      <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                      <td class="kmTextBlockInner" style="background-color:#E9F1F7;" valign="top">
                                         <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
                                           <tbody>
                                             <tr>
-                                              <td class="kmTextContent" style="padding-top:15px;padding-bottom:15px;padding-left:10px;padding-right:30px;" valign="top"> <span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
+                                              <td class="kmTextContent" style="padding-top:15px;padding-bottom:15px;padding-left:0;padding-right:30px;" valign="top"> <span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                     shipping_address.name }}</span></span><br> <span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                     shipping_address.company }}</span></span><br> <span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                     shipping_address.street }}</span></span><br> <span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
@@ -1301,19 +1394,19 @@
                   {% endif %}
                   <!-- BILLING ADDRESS -->
                   <tr>
-                    <td align="center" valign="top" bgcolor="#EAF1F7">
-                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                    <td align="center" valign="top" bgcolor="#E9F1F7" style="background-color:#E9F1F7;border-top:1px solid #DDE8EE;border-bottom:1px solid #DDE8EE;">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow order-summary-rows" role="presentation" width="100%">
                         <tbody>
                           <tr>
-                            <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="25%">
+                            <td class="rowContainer firstColumn" valign="top" width="25%">
                               <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
                                 <tbody class="kmTextBlockOuter">
                                   <tr>
-                                    <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                    <td class="kmTextBlockInner" style="background-color:#E9F1F7;" valign="top">
                                       <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
                                         <tbody>
                                           <tr>
-                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:0px;padding-left:30px;padding-right:10px;color:#37718E;" valign="top"> BILLING ADDRESS </td>
+                                            <td class="kmTextContent order-summary-label" style="padding-top:15px;padding-bottom:0px;padding-left:30px;padding-right:16px;color:#37718E;font-size:12px;font-weight:bold;line-height:1.3;text-transform:uppercase;font-family:Helvetica, Arial, sans-serif;" valign="top"> BILLING ADDRESS </td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -1322,54 +1415,27 @@
                                 </tbody>
                               </table>
                             </td>
-                            <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="75%">
+                            <td class="rowContainer lastColumn" valign="top" width="75%">
                               <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
                                 <tbody class="kmTextBlockOuter">
                                   <tr>
-                                    <td class="kmTextBlockInner" style="background-color:#EAF1F7;" valign="top">
+                                    <td class="kmTextBlockInner" style="background-color:#E9F1F7;" valign="top">
                                       <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
                                         <tbody>
                                           <tr>
-                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:15px;padding-left:10px;padding-right:30px;" valign="top"> <span style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;"></span><span style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
-                                                billing_address.name }}</span><span style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);">
+                                            <td class="kmTextContent" style="padding-top:15px;padding-bottom:15px;padding-left:0;padding-right:30px;" valign="top"> <span style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;"></span><span style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
+                                                billing_address.name }}</span><span style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(233, 241, 247);">
                                               <span style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
-                                                billing_address.company }}</span><span style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);">
+                                                billing_address.company }}</span><span style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(233, 241, 247);">
                                               <span style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
-                                                billing_address.street }}</span><span style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);">
+                                                billing_address.street }}</span><span style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(233, 241, 247);">
                                               <span style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
-                                                billing_address.city }}</span><span style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);">
+                                                billing_address.city }}</span><span style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(233, 241, 247);">
                                               <span style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
-                                                billing_address.province }} {{ billing_address.zip }}</span><span style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(234, 241, 247);">
+                                                billing_address.province }} {{ billing_address.zip }}</span><span style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px;"></span><br style="color: rgb(34, 34, 34); font-family: Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(233, 241, 247);">
                                               <span style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;">{{
                                                 billing_address.country }}</span><span style="color: rgb(26, 24, 24); font-family: Helvetica, Arial, sans-serif; font-size: 12px;"></span>
                                             </td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="center" valign="top">
-                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
-                        <tbody>
-                          <tr>
-                            <td class="rowContainer kmFloatLeft" valign="top">
-                              <table border="0" cellpadding="0" cellspacing="0" class="kmDividerBlock" style="background-color:#37718E" width="100%">
-                                <tbody class="kmDividerBlockOuter">
-                                  <tr>
-                                    <td class="kmDividerBlockInner" style="padding-top:15px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" class="kmDividerContent" width="100%">
-                                        <tbody>
-                                          <tr>
-                                            <td><span></span></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -1397,20 +1463,20 @@
                   </tr>
                   <!-- Contact Us -->
                   <tr>
-                    <td align="center" valign="top" bgcolor="#37718E">
-                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow" width="100%">
+                    <td align="center" class="contact-us-section" valign="top" bgcolor="#37718E" style="background-color:#37718E;padding:12px 24px;mso-padding-alt:12px 24px;">
+                      <table border="0" cellpadding="0" cellspacing="0" class="templateRow contact-us-row" role="presentation" width="100%">
                         <tbody>
                           <tr>
-                            <td class="rowContainer kmFloatLeft firstColumn" valign="top" width="40%">
+                            <td class="rowContainer contact-us-left-col firstColumn" valign="middle" width="55%" style="padding:0 24px 0 0;width:55%;vertical-align:middle;">
                               <table border="0" cellpadding="0" cellspacing="0" class="kmTextBlock" width="100%">
                                 <tbody class="kmTextBlockOuter">
                                   <tr>
-                                    <td class="kmTextBlockInner" style="background-color:#37718E;padding-top:0px;" valign="top">
+                                    <td class="kmTextBlockInner" style="background-color:#37718E;padding:0;vertical-align:middle;" valign="middle">
                                       <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTextContentContainer" width="100%">
                                         <tbody>
                                           <tr>
-                                            <td class="kmTextContent" style="padding-top:10px;padding-bottom:10px;padding-left:30px;padding-right:25px;color:#FFFFFF;font-size:16px;font-weight:bold;line-height:1.5;background-color:#37718E;" valign="top">
-                                              <p style="padding-bottom:0"><span style="font-size:16px;">Have questions
+                                            <td class="kmTextContent contact-us-teal" style="padding:0;color:#FFFFFF;font-size:12px;font-weight:400;line-height:1.5;background-color:#37718E;mso-ansi-font-weight:normal;vertical-align:middle;" valign="middle">
+                                              <p style="padding-bottom:0;margin:0;"><span style="font-size:12px;font-weight:400;mso-ansi-font-weight:normal;">Have questions
                                                   about your order? Feel free to respond to this email or give us a
                                                   call!</span></p>
                                             </td>
@@ -1422,28 +1488,28 @@
                                 </tbody>
                               </table>
                             </td>
-                            <td class="rowContainer kmFloatLeft lastColumn" valign="top" width="60%">
+                            <td class="rowContainer contact-us-right-col lastColumn" valign="middle" width="45%" style="padding:0;width:45%;vertical-align:middle;">
                               <table border="0" cellpadding="0" cellspacing="0" class="kmTableBlock kmTableMobile" width="100%">
                                 <tbody class="kmTableBlockOuter">
                                   <tr>
-                                    <td class="kmTableBlockInner" style="padding-top:5px;padding-left:25px;padding-bottom:4px;padding-right:30px;background-color:#37718E;" valign="top">
-                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTable" style="color:#FFFFFF;text-align:left;" width="100%">
+                                    <td class="kmTableBlockInner" style="padding:0;background-color:#37718E;vertical-align:middle;" valign="middle">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" class="kmTable contact-us-methods" style="color:#FFFFFF;text-align:left;font-size:12px;font-weight:400;" role="presentation" width="100%">
                                         <thead>
                                           <tr>
-                                            <th class="kmTextContent" style="text-align:left;width:15%;font-weight:bold;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> </th>
-                                            <th class="kmTextContent" style="text-align:left;font-weight:bold;padding-top:0px;padding-left:0px;padding-bottom:0px;padding-right:0px;" valign="top"> </th>
+                                            <th class="kmTextContent contact-us-teal" width="22" style="text-align:left;width:22px;max-width:22px;font-weight:400;font-size:12px;padding:0;line-height:0;mso-ansi-font-weight:normal;vertical-align:middle;" valign="middle"> </th>
+                                            <th class="kmTextContent contact-us-teal" style="text-align:left;font-weight:400;font-size:12px;padding:0;line-height:inherit;mso-ansi-font-weight:normal;vertical-align:middle;" valign="middle"> </th>
                                           </tr>
                                         </thead>
                                         <tbody>
                                           <tr class="kmTableRow">
-                                            <td class="kmTextContent" style="text-align:left;width:15%;color:#FFFFFF;border-top-style:none;border-top-width:0px;padding-top:5px;padding-left:0px;padding-bottom:6px;padding-right:0px;" valign="top"> <img align="left" alt src="https://d3k81ch9hvuctc.cloudfront.net/company/XjLncj/images/b1e4e1bb-b5ee-4cf9-ac85-5cb10954b074.png" style="width: 21px; height: 21px; float: left;"> </td>
-                                            <td class="kmTextContent" style="border-right:none; text-align:left; color:#FFF; border-top-style:none; border-top-width:0; padding-top:5px; padding-left:0; padding-bottom:6px; padding-right:0" valign="top"> <a href="mailto:emailus@tombihn.com" style="color:#FFF; font-weight:normal; text-decoration:underline"><strong>emailus@tombihn.com</strong></a>
+                                            <td class="kmTextContent contact-us-teal" width="22" style="text-align:left;width:22px;color:#FFFFFF;font-size:0;line-height:0;font-weight:400;border-top-style:none;border-top-width:0;padding:4px 4px 4px 0;vertical-align:middle;mso-ansi-font-weight:normal;" valign="middle"><img align="left" alt="Email" src="https://cdn.shopify.com/s/files/1/1089/8530/files/maillogoemail.png?v=1777664073" height="14" width="14" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+                                            <td class="kmTextContent contact-us-teal" style="border-right:none;text-align:left;color:#FFF;font-size:12px;font-weight:400;border-top-style:none;border-top-width:0;padding:4px 0 4px 0;vertical-align:middle;mso-ansi-font-weight:normal;" valign="middle"><a href="mailto:emailus@tombihn.com" style="color:#FFFFFF;font-weight:400;font-size:12px;text-decoration:underline;mso-ansi-font-weight:normal;">emailus@tombihn.com</a>
                                             </td>
                                           </tr>
                                           <tr class="kmTableRow">
-                                            <td class="kmTextContent" style="text-align:left;width:15%;color:#FFFFFF;border-top-style:none;border-top-width:0px;padding-top:5px;padding-left:0px;padding-bottom:6px;padding-right:0px;" valign="top"> <img alt src="https://d3k81ch9hvuctc.cloudfront.net/company/XjLncj/images/872db1fc-abfe-4192-9040-75afa2f1b864.png" style="width: 21px; height: 21px;"> </td>
-                                            <td class="kmTextContent" style="border-right:none; text-align:left; color:#FFF; border-top-style:none; border-top-width:0; padding-top:5px; padding-left:0; padding-bottom:6px; padding-right:0" valign="top"> <strong>1-800-729-9607 (U.S. and Canada)<br>
-                                                +1-206-652-4123 (other countries)</strong> </td>
+                                            <td class="kmTextContent contact-us-teal" width="22" style="text-align:left;width:22px;color:#FFFFFF;font-size:0;line-height:0;font-weight:400;border-top-style:none;border-top-width:0;padding:4px 4px 4px 0;vertical-align:middle;mso-ansi-font-weight:normal;" valign="middle"><img alt="Phone" src="https://cdn.shopify.com/s/files/1/1089/8530/files/calllogoemail.png?v=1777664068" height="14" width="14" style="display:block;width:14px;height:14px;border:0;outline:none;"></td>
+                                            <td class="kmTextContent contact-us-teal" style="border-right:none;text-align:left;color:#FFFFFF;font-size:12px;font-weight:400;border-top-style:none;border-top-width:0;padding:4px 0 4px 0;vertical-align:middle;line-height:1.5;mso-ansi-font-weight:normal;" valign="middle">1-800-729-9607 (U.S. and Canada)<br>
+                                              +1-206-652-4123 (other countries)</td>
                                           </tr>
                                         </tbody>
                                       </table>
