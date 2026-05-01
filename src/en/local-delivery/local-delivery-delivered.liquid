@@ -315,6 +315,7 @@
       font-size: 13px;
       margin: 11px 0 0 0;
       padding: 0;
+      color: #111111 !important;
     }
 
     a.local-delivered-text-link,
@@ -323,6 +324,21 @@
     a.local-delivered-text-link:visited {
       color: #000000 !important;
       font-family: Helvetica, Arial, sans-serif !important;
+      font-size: 13px !important;
+      text-decoration: underline !important;
+    }
+
+    p.local-delivered-tracking-copy {
+      font-family: Helvetica, Arial, sans-serif !important;
+      font-size: 13px !important;
+      color: #111111 !important;
+    }
+
+    p.local-delivered-tracking-copy a,
+    p.local-delivered-tracking-copy a:hover,
+    p.local-delivered-tracking-copy a:visited,
+    p.local-delivered-tracking-copy a:active {
+      color: #000000 !important;
       font-size: 13px !important;
       text-decoration: underline !important;
     }
@@ -504,7 +520,7 @@
 
             {% endif %}
             {% if fulfillment.tracking_numbers.size > 0 %}
-  <p class="disclaimer__subtext">
+  <p class="disclaimer__subtext local-delivered-tracking-copy">
     <br/>
     {% if fulfillment.tracking_numbers.size == 1 and fulfillment.tracking_company and fulfillment.tracking_url %}
       {{ fulfillment.tracking_company }} tracking number: <a href="{{ fulfillment.tracking_url }}">{{ fulfillment.tracking_numbers.first }}</a>
